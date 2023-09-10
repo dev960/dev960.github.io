@@ -8,7 +8,16 @@
     <language>en</language>
     <lastBuildDate>Sun, 10 Sep 2023 01:37:56 +0800</lastBuildDate><atom:link href="https://dev960.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Esp32&#43;Micropython温湿度传感器</title>
+      <title>hugo&#43;github个人笔记部署简易教程</title>
+      <link>https://dev960.github.io/post/hugo%E7%AC%94%E8%AE%B0%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Sun, 10 Sep 2023 01:37:56 +0800</pubDate>
+      
+      <guid>https://dev960.github.io/post/hugo%E7%AC%94%E8%AE%B0%E9%83%A8%E7%BD%B2/</guid>
+      <description>hugo笔记部署 sudo apt install hugo -y hugo new site dcqwiki cd dcqwiki git git submodule add https://github.com/olOwOlo/hugo-theme-even/tree/v4.0.0https://github.com/olOwOlo/hugo-theme-even themes/even hugo server 本地访问localhost:1313 编译：hugo github创建仓库 名字和githu</description>
+    </item>
+    
+    <item>
+      <title>合宙Esp32&#43;Micropython温湿度传感器</title>
       <link>https://dev960.github.io/post/esp32&#43;micropython%E4%BC%A0%E6%84%9F%E5%99%A8/</link>
       <pubDate>Sun, 10 Sep 2023 01:37:56 +0800</pubDate>
       
@@ -17,12 +26,12 @@
     </item>
     
     <item>
-      <title>hugo&#43;github个人笔记部署简易教程</title>
-      <link>https://dev960.github.io/post/hugo%E7%AC%94%E8%AE%B0%E9%83%A8%E7%BD%B2/</link>
-      <pubDate>Sun, 10 Sep 2023 01:37:56 +0800</pubDate>
+      <title>Golang大文件发送提速</title>
+      <link>https://dev960.github.io/post/golang%E5%B0%86%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%80%E6%AC%A1%E8%AF%BB%E5%85%A5%E5%86%85%E5%AD%98/</link>
+      <pubDate>Sun, 10 Sep 2023 01:37:56 +2000</pubDate>
       
-      <guid>https://dev960.github.io/post/hugo%E7%AC%94%E8%AE%B0%E9%83%A8%E7%BD%B2/</guid>
-      <description>hugo笔记部署 sudo apt install hugo -y hugo new site dcqwiki cd dcqwiki git git submodule add https://github.com/olOwOlo/hugo-theme-even/tree/v4.0.0https://github.com/olOwOlo/hugo-theme-even themes/even hugo server 本地访问localhost:1313 编译：hugo github创建仓库 名字和githu</description>
+      <guid>https://dev960.github.io/post/golang%E5%B0%86%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%80%E6%AC%A1%E8%AF%BB%E5%85%A5%E5%86%85%E5%AD%98/</guid>
+      <description>Golang将大文件一次读入内存 利用Slice切片，比每次读取一小块导致频繁Gc 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30</description>
     </item>
     
   </channel>
