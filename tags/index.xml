@@ -6,7 +6,25 @@
     <description>Recent content in Tags on 斑竹坡-程序员</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 10 Sep 2023 01:37:56 +0800</lastBuildDate><atom:link href="https://dev960.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 12 Sep 2023 20:37:56 +0800</lastBuildDate><atom:link href="https://dev960.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>jvm</title>
+      <link>https://dev960.github.io/tags/jvm/</link>
+      <pubDate>Tue, 12 Sep 2023 20:37:56 +0800</pubDate>
+      
+      <guid>https://dev960.github.io/tags/jvm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>内存分析</title>
+      <link>https://dev960.github.io/tags/%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90/</link>
+      <pubDate>Tue, 12 Sep 2023 20:37:56 +0800</pubDate>
+      
+      <guid>https://dev960.github.io/tags/%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Esp32</title>
       <link>https://dev960.github.io/tags/esp32/</link>
