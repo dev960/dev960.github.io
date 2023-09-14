@@ -26,21 +26,21 @@
     </item>
     
     <item>
-      <title>linux 系统 UDP 丢包问题分析思路</title>
-      <link>https://dev960.github.io/post/udp%E4%B8%A2%E5%8C%85%E6%8E%92%E6%9F%A5/</link>
-      <pubDate>Wed, 13 Sep 2023 21:37:56 +0800</pubDate>
-      
-      <guid>https://dev960.github.io/post/udp%E4%B8%A2%E5%8C%85%E6%8E%92%E6%9F%A5/</guid>
-      <description>linux 系统 UDP 丢包问题分析思路_ArthurKingYs的博客-CSDN博客 最近工作中遇到某个服务器应用程序 UDP 丢包，在排查过程中查阅了很多资料，总</description>
-    </item>
-    
-    <item>
       <title>《给经理人的第一课》</title>
       <link>https://dev960.github.io/post/%E5%AE%89%E5%BE%B7%E9%B2%81%E6%A0%BC%E9%B2%81%E5%A4%AB%E7%BB%99%E7%BB%8F%E7%90%86%E4%BA%BA%E7%9A%84%E7%AC%AC%E4%B8%80%E8%AF%BE/</link>
       <pubDate>Wed, 13 Sep 2023 21:37:56 +0800</pubDate>
       
       <guid>https://dev960.github.io/post/%E5%AE%89%E5%BE%B7%E9%B2%81%E6%A0%BC%E9%B2%81%E5%A4%AB%E7%BB%99%E7%BB%8F%E7%90%86%E4%BA%BA%E7%9A%84%E7%AC%AC%E4%B8%80%E8%AF%BE/</guid>
       <description>“生产”包含什么？ 你必须按预定的时间，可接受的品质以及可能的最低成本，一句顾客的需求制造及运送产品。 找出决定整个生产流程的“限制步骤”，优化</description>
+    </item>
+    
+    <item>
+      <title>转linux 系统 UDP 丢包问题分析思路</title>
+      <link>https://dev960.github.io/post/udp%E4%B8%A2%E5%8C%85%E6%8E%92%E6%9F%A5/</link>
+      <pubDate>Wed, 13 Sep 2023 21:37:56 +0800</pubDate>
+      
+      <guid>https://dev960.github.io/post/udp%E4%B8%A2%E5%8C%85%E6%8E%92%E6%9F%A5/</guid>
+      <description>linux 系统 UDP 丢包问题分析思路_ArthurKingYs的博客-CSDN博客 最近工作中遇到某个服务器应用程序 UDP 丢包，在排查过程中查阅了很多资料，总</description>
     </item>
     
     <item>
@@ -53,12 +53,21 @@
     </item>
     
     <item>
-      <title>hugo&#43;github个人笔记部署简易教程</title>
+      <title>Hugo&#43;Github个人笔记部署简易教程</title>
       <link>https://dev960.github.io/post/hugo%E7%AC%94%E8%AE%B0%E9%83%A8%E7%BD%B2/</link>
       <pubDate>Sun, 10 Sep 2023 01:37:56 +0800</pubDate>
       
       <guid>https://dev960.github.io/post/hugo%E7%AC%94%E8%AE%B0%E9%83%A8%E7%BD%B2/</guid>
       <description>hugo笔记部署 sudo apt install hugo -y hugo new site dcqwiki cd dcqwiki git git submodule add https://github.com/olOwOlo/hugo-theme-even/tree/v4.0.0https://github.com/olOwOlo/hugo-theme-even themes/even hugo server 本地访问localhost:1313 编译：hugo github创建仓库 名字和githu</description>
+    </item>
+    
+    <item>
+      <title>snort嗅探和hping3攻击配置</title>
+      <link>https://dev960.github.io/post/snort%E5%97%85%E6%8E%A2%E5%92%8Chping3%E6%94%BB%E5%87%BB%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Sun, 10 Sep 2023 01:37:56 +0800</pubDate>
+      
+      <guid>https://dev960.github.io/post/snort%E5%97%85%E6%8E%A2%E5%92%8Chping3%E6%94%BB%E5%87%BB%E9%85%8D%E7%BD%AE/</guid>
+      <description>1 2 3 4 5 6 7 $sudo apt install snort $sudo vim /etc/snort/ruls/local.rule $sudo sudo snort -c /etc/snort/snort.conf -i enp1s0 -A unsock -l /tmp/ -c 指定配置文件 -i 指定网卡 -A 指定报警类型 -l 指定socket unix路径，/tmp/snort</description>
     </item>
     
     <item>

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>snort嗅探和hping3攻击配置 - 斑竹坡-程序员</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="dcq" /><meta name="description" content="1 2 3 4 5 6 7 $sudo apt install snort $sudo vim /etc/snort/ruls/local.rule $sudo sudo snort -c /etc/snort/snort.conf -i enp1s0 -A unsock -l /tmp/ -c 指定配置文件 -i 指定网卡 -A 指定报警类型 -l 指定socket unix路径，/tmp/snort" /><meta name="keywords" content="dengchangqing, wiki, 笔记" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.92.2 with theme even" />
+
+
+<link rel="canonical" href="https://dev960.github.io/post/snort%E5%97%85%E6%8E%A2%E5%92%8Chping3%E6%94%BB%E5%87%BB%E9%85%8D%E7%BD%AE/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="snort嗅探和hping3攻击配置" />
+<meta property="og:description" content="1 2 3 4 5 6 7 $sudo apt install snort $sudo vim /etc/snort/ruls/local.rule $sudo sudo snort -c /etc/snort/snort.conf -i enp1s0 -A unsock -l /tmp/ -c 指定配置文件 -i 指定网卡 -A 指定报警类型 -l 指定socket unix路径，/tmp/snort" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dev960.github.io/post/snort%E5%97%85%E6%8E%A2%E5%92%8Chping3%E6%94%BB%E5%87%BB%E9%85%8D%E7%BD%AE/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-09-10T01:37:56+08:00" />
+<meta property="article:modified_time" content="2023-09-10T01:37:56+08:00" />
+
+<meta itemprop="name" content="snort嗅探和hping3攻击配置">
+<meta itemprop="description" content="1 2 3 4 5 6 7 $sudo apt install snort $sudo vim /etc/snort/ruls/local.rule $sudo sudo snort -c /etc/snort/snort.conf -i enp1s0 -A unsock -l /tmp/ -c 指定配置文件 -i 指定网卡 -A 指定报警类型 -l 指定socket unix路径，/tmp/snort"><meta itemprop="datePublished" content="2023-09-10T01:37:56+08:00" />
+<meta itemprop="dateModified" content="2023-09-10T01:37:56+08:00" />
+<meta itemprop="wordCount" content="587">
+<meta itemprop="keywords" content="snort,hping3,嗅探," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="snort嗅探和hping3攻击配置"/>
+<meta name="twitter:description" content="1 2 3 4 5 6 7 $sudo apt install snort $sudo vim /etc/snort/ruls/local.rule $sudo sudo snort -c /etc/snort/snort.conf -i enp1s0 -A unsock -l /tmp/ -c 指定配置文件 -i 指定网卡 -A 指定报警类型 -l 指定socket unix路径，/tmp/snort"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">dcqwiki</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/%E6%A0%87%E7%AD%BE/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">dcqwiki</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/%E6%A0%87%E7%AD%BE/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">snort嗅探和hping3攻击配置</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2023-09-10 </span>
+        <div class="post-category">
+            <a href="/categories/%E7%AC%94%E8%AE%B0/"> 笔记 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#注意和snort指定的unixsocket通信的路径是一样的">注意和snort指定的unixsocket通信的路径是一样的</a></li>
+    <li><a href="#控制器ip">控制器IP</a></li>
+    <li><a href="#控制器restful-api访问的端口以及url">控制器RESTful API访问的端口以及URL</a></li>
+    <li><a href="#控制器socket通信的端口">控制器socket通信的端口</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">   <span class="nv">$sudo</span> apt install snort
+   <span class="nv">$sudo</span> vim /etc/snort/ruls/local.rule
+   <span class="nv">$sudo</span> sudo snort -c /etc/snort/snort.conf -i enp1s0 -A unsock -l /tmp/
+   -c 指定配置文件
+   -i 指定网卡
+   -A 指定报警类型
+   -l 指定socket unix路径，/tmp/snort_adlert
+</code></pre></td></tr></table>
+</div>
+</div><ol>
+<li>
+<p>snort.conf-&gt; local.rule</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">   alert icmp any any -&gt; <span class="nv">$HOME_NET</span> any <span class="o">(</span>msg:<span class="s2">&#34;ICMP flood&#34;</span><span class="p">;</span> sid:1000001<span class="p">;</span> rev:1<span class="p">;</span> classtype:icmp-event<span class="p">;</span> detection_filter:track by_dst, count 10, seconds 3<span class="p">;</span><span class="o">)</span>
+
+    alert tcp any any -&gt; <span class="nv">$HOME_NET</span> any <span class="o">(</span>flags: S<span class="p">;</span> msg:<span class="s2">&#34;DoS Attack    Type : SYNflood&#34;</span><span class="p">;</span> flow:stateless<span class="p">;</span> sid:3<span class="p">;</span> detection_filter:track by_dst, count 10, seconds 3<span class="p">;</span><span class="o">)</span>
+
+    alert udp <span class="nv">$EXTERNAL_NET</span> any -&gt; <span class="nv">$HOME_NET</span> any <span class="o">(</span>msg:<span class="s2">&#34;DDOS shaft agecondent to handler, Type: Udp flood&#34;</span><span class="p">;</span> content:<span class="s2">&#34;alive&#34;</span><span class="p">;</span> reference:arachnids,256<span class="p">;</span> classtype:attempted-dos<span class="p">;</span> sid:240<span class="p">;</span> rev:2<span class="p">;</span><span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>hping3</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="c1">#sys flood</span>
+sudo hping3 -S --flood -V -p <span class="m">3306</span> 192.168.171.129
+sudo hping3 -S --flood -c <span class="m">1</span> -p <span class="m">3306</span> 192.168.171.129
+<span class="c1">#icmp</span>
+sudo hping3 -1 --flood  192.168.171.129
+<span class="c1">#udp</span>
+sudo hping3 -2 --flood  192.168.171.129
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>socket接口</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">socket</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">array</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">random</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ol>
+<p>from ryu.lib import alert
+from ryu.lib.packet import packet
+from ryu.lib.packet import ethernet
+from ryu.lib.packet import ipv4
+from ryu.lib.packet import icmp</p>
+<p>logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(<strong>name</strong>)</p>
+<h1 id="注意和snort指定的unixsocket通信的路径是一样的">注意和snort指定的unixsocket通信的路径是一样的</h1>
+<p>SOCKFILE = &ldquo;/tmp/snort_alert&rdquo;
+BUFSIZE = 65863</p>
+<h1 id="控制器ip">控制器IP</h1>
+<p>CONTROLLER_IP = &lsquo;127.0.0.1&rsquo;</p>
+<h1 id="控制器restful-api访问的端口以及url">控制器RESTful API访问的端口以及URL</h1>
+<p>CONTROLLER_PORT=&ldquo;8080&rdquo;
+CONTROLLER_URL=&ldquo;http://127.0.0.1:8080/admin/sys/snort/v1/api&rdquo;</p>
+<h1 id="控制器socket通信的端口">控制器socket通信的端口</h1>
+<p>CONTROLLER_PORT1 = 51234
+user_agents = [&lsquo;Mozilla/5.0 (Windows NT 6.1; rv:2.0.1) Gecko/20100101 Firefox/4.0.1&rsquo;,
+&lsquo;Mozilla/5.0 (Windows; U; Windows NT 6.1; en-us) AppleWebKit/534.50 (KHTML, like Gecko) Version/5.1 Safari/534.50&rsquo;,
+&lsquo;Opera/9.80 (Windows NT 6.1; U; en) Presto/2.8.131 Version/11.11&rsquo;]
+headers = {&lsquo;User-Agent&rsquo;: random.choice(user_agents), &lsquo;Content-type&rsquo;: &lsquo;application/json&rsquo;}</p>
+<p>class SnortListener():</p>
+<pre><code>def __init__(self):
+    self.unsock = None
+    self.nwsock = None
+def packet_print(self, pkt,alert):
+    s = ''
+    pkt = packet.Packet(array.array('B', pkt))
+    eth = pkt.get_protocol(ethernet.ethernet)
+    _ipv4 = pkt.get_protocol(ipv4.ipv4)
+    _icmp = pkt.get_protocol(icmp.icmp)
+    _tcp = pkt.get_protocol(ipv4.tcp.tcp)
+    _udp = pkt.get_protocol(ipv4.udp.udp)
+    if _tcp:
+        s = &quot;%r&quot; % _tcp
+    if _udp:
+        s += &quot;%r&quot; % _udp
+    if _icmp:
+        s += &quot;%r&quot; % _icmp
+    if _ipv4:
+        s += &quot;%r&quot; % _ipv4
+    if eth:
+        s += &quot;%r&quot; % eth
+    s={'alert': alert, 'src-ip': _ipv4.src, 'dst-ip': _ipv4.dst, 'src-mac': eth.src, 'dst-mac': eth.dst}
+    return s
+
+def start_send(self):
+    '''Open a client on Network Socket'''
+    self.nwsock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    try:
+        self.nwsock.connect((CONTROLLER_IP, CONTROLLER_PORT1))
+    except Exception as e:
+        print(CONTROLLER_PORT1)
+        logger.info(&quot;Network socket connection error: %s&quot; % e)
+        sys.exit(1)
+
+def start_recv(self):
+    if os.path.exists(SOCKFILE):
+        os.unlink(SOCKFILE)
+
+    self.unsock = socket.socket(socket.AF_UNIX, socket.SOCK_DGRAM)
+    self.unsock.bind(SOCKFILE)
+    logger.info(&quot;Unix Domain Socket listening...&quot;)
+    self.recv_loop()
+
+def recv_loop(self):
+
+    #self.start_send()#establish network socket
+    while True:
+        data = self.unsock.recv(BUFSIZE)
+        time.sleep(0.5)
+        if data:
+            logger.debug(&quot;Send {0} bytes of data.&quot;.format
+                         (sys.getsizeof(data)))
+            self.tcp_send(data)
+        else:
+            pass
+
+def send_json(self,data):
+    s = json.dumps(data)
+    print(s)
+    #r = requests.post(CONTROLLER_URL, headers=headers, data=s)
+    #print(r.status_code)
+
+def tcp_send(self, data):
+    data2 = data[:BUFSIZE]
+    msg = alert.AlertPkt.parser(data2)
+    s1 = '%s' % b''.join(msg.alertmsg)
+    s2 = self.packet_print(msg.pkt, s1)
+    print(&quot;json:&quot;, json.dumps(s2))
+    self.send_json(s2)# 用RESTful API发送警告
+#self.nwsock.sendall(json.dumps(s2)+'\n') # 用socket发送警告
+    logger.info(&quot;Send the alert messages to floodlight.&quot;)
+</code></pre>
+<p>if <strong>name</strong> == &lsquo;<strong>main</strong>':
+server = SnortListener()
+server.start_recv()</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">
+</code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">dcq</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2023-09-10
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License" target="_blank">Creative Commons Attribution-ShareAlike License</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/snort/">snort</a>
+          <a href="/tags/hping3/">hping3</a>
+          <a href="/tags/%E5%97%85%E6%8E%A2/">嗅探</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/hugo%E7%AC%94%E8%AE%B0%E9%83%A8%E7%BD%B2/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Hugo&#43;Github个人笔记部署简易教程</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/esp32&#43;micropython%E4%BC%A0%E6%84%9F%E5%99%A8/">
+            <span class="next-text nav-default">合宙Esp32&#43;Micropython温湿度传感器</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:312062001@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://dev960.github.io" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+  <a href="https://dev960.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span>cqdeng</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

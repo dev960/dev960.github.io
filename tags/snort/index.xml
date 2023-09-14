@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>snort on 斑竹坡-程序员</title>
+    <link>https://dev960.github.io/tags/snort/</link>
+    <description>Recent content in snort on 斑竹坡-程序员</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 10 Sep 2023 01:37:56 +0800</lastBuildDate><atom:link href="https://dev960.github.io/tags/snort/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>snort嗅探和hping3攻击配置</title>
+      <link>https://dev960.github.io/post/snort%E5%97%85%E6%8E%A2%E5%92%8Chping3%E6%94%BB%E5%87%BB%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Sun, 10 Sep 2023 01:37:56 +0800</pubDate>
+      
+      <guid>https://dev960.github.io/post/snort%E5%97%85%E6%8E%A2%E5%92%8Chping3%E6%94%BB%E5%87%BB%E9%85%8D%E7%BD%AE/</guid>
+      <description>1 2 3 4 5 6 7 $sudo apt install snort $sudo vim /etc/snort/ruls/local.rule $sudo sudo snort -c /etc/snort/snort.conf -i enp1s0 -A unsock -l /tmp/ -c 指定配置文件 -i 指定网卡 -A 指定报警类型 -l 指定socket unix路径，/tmp/snort</description>
+    </item>
+    
+  </channel>
+</rss>
