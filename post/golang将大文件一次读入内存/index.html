@@ -16,7 +16,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="dcq" /><meta name="description" content="Golang将大文件一次读入内存 利用Slice切片，比每次读取一小块导致频繁Gc 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30" /><meta name="keywords" content="dengchangqing, wiki, 笔记" />
+<meta name="author" content="dcq" /><meta name="description" content="Golang将大文件一次读入内存  利用Slice切片，比每次读取一小块导致频繁Gc
+ package main import ( &amp;#34;bufio&amp;#34; &amp;#34;container/list&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;io&amp;#34; &amp;#34;os&amp;#34; &amp;#34;sync&amp;#34; &amp;#34;time&amp;#34; ) func main(){ start := time.Now() content, err := ioutil.ReadFile(&amp;#34;d:\\software\\cn_windows_10_consumer_editions_version_21h1_x64_dvd_1baf479d.iso&amp;#34;) if err != nil { fmt.Println(&amp;#34;file read fail&amp;#34;) } fmt.Printf(&amp;#34;read file len :%d, time cost :%v slices: %d\n&amp;#34;, len(content), time.Since(start), len(content)/(8964*20)) step := 8964 * 20 fmt.Println(len(content)%step, step) for i := 0; i &amp;lt; len(content); i &#43;= step { if i&#43;step &amp;gt; len(content) { slice := make([]byte, len(content)%step) copy(slice, content[i:i&#43;len(slice)]) fmt." /><meta name="keywords" content="dengchangqing, wiki, 笔记" />
 
 
 
@@ -40,19 +41,22 @@
 
 
 <meta property="og:title" content="Golang大文件发送提速" />
-<meta property="og:description" content="Golang将大文件一次读入内存 利用Slice切片，比每次读取一小块导致频繁Gc 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30" />
+<meta property="og:description" content="Golang将大文件一次读入内存  利用Slice切片，比每次读取一小块导致频繁Gc
+ package main import ( &#34;bufio&#34; &#34;container/list&#34; &#34;fmt&#34; &#34;io&#34; &#34;os&#34; &#34;sync&#34; &#34;time&#34; ) func main(){ start := time.Now() content, err := ioutil.ReadFile(&#34;d:\\software\\cn_windows_10_consumer_editions_version_21h1_x64_dvd_1baf479d.iso&#34;) if err != nil { fmt.Println(&#34;file read fail&#34;) } fmt.Printf(&#34;read file len :%d, time cost :%v slices: %d\n&#34;, len(content), time.Since(start), len(content)/(8964*20)) step := 8964 * 20 fmt.Println(len(content)%step, step) for i := 0; i &lt; len(content); i &#43;= step { if i&#43;step &gt; len(content) { slice := make([]byte, len(content)%step) copy(slice, content[i:i&#43;len(slice)]) fmt." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://dev960.github.io/post/golang%E5%B0%86%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%80%E6%AC%A1%E8%AF%BB%E5%85%A5%E5%86%85%E5%AD%98/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2023-09-10T01:37:56+20:00" />
 <meta property="article:modified_time" content="2023-09-10T01:37:56+21:00" />
 
 <meta itemprop="name" content="Golang大文件发送提速">
-<meta itemprop="description" content="Golang将大文件一次读入内存 利用Slice切片，比每次读取一小块导致频繁Gc 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30"><meta itemprop="datePublished" content="2023-09-10T01:37:56+20:00" />
+<meta itemprop="description" content="Golang将大文件一次读入内存  利用Slice切片，比每次读取一小块导致频繁Gc
+ package main import ( &#34;bufio&#34; &#34;container/list&#34; &#34;fmt&#34; &#34;io&#34; &#34;os&#34; &#34;sync&#34; &#34;time&#34; ) func main(){ start := time.Now() content, err := ioutil.ReadFile(&#34;d:\\software\\cn_windows_10_consumer_editions_version_21h1_x64_dvd_1baf479d.iso&#34;) if err != nil { fmt.Println(&#34;file read fail&#34;) } fmt.Printf(&#34;read file len :%d, time cost :%v slices: %d\n&#34;, len(content), time.Since(start), len(content)/(8964*20)) step := 8964 * 20 fmt.Println(len(content)%step, step) for i := 0; i &lt; len(content); i &#43;= step { if i&#43;step &gt; len(content) { slice := make([]byte, len(content)%step) copy(slice, content[i:i&#43;len(slice)]) fmt."><meta itemprop="datePublished" content="2023-09-10T01:37:56+20:00" />
 <meta itemprop="dateModified" content="2023-09-10T01:37:56+21:00" />
-<meta itemprop="wordCount" content="255">
+<meta itemprop="wordCount" content="105">
 <meta itemprop="keywords" content="Golang,大文件处理," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Golang大文件发送提速"/>
-<meta name="twitter:description" content="Golang将大文件一次读入内存 利用Slice切片，比每次读取一小块导致频繁Gc 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30"/>
+<meta name="twitter:description" content="Golang将大文件一次读入内存  利用Slice切片，比每次读取一小块导致频繁Gc
+ package main import ( &#34;bufio&#34; &#34;container/list&#34; &#34;fmt&#34; &#34;io&#34; &#34;os&#34; &#34;sync&#34; &#34;time&#34; ) func main(){ start := time.Now() content, err := ioutil.ReadFile(&#34;d:\\software\\cn_windows_10_consumer_editions_version_21h1_x64_dvd_1baf479d.iso&#34;) if err != nil { fmt.Println(&#34;file read fail&#34;) } fmt.Printf(&#34;read file len :%d, time cost :%v slices: %d\n&#34;, len(content), time.Since(start), len(content)/(8964*20)) step := 8964 * 20 fmt.Println(len(content)%step, step) for i := 0; i &lt; len(content); i &#43;= step { if i&#43;step &gt; len(content) { slice := make([]byte, len(content)%step) copy(slice, content[i:i&#43;len(slice)]) fmt."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -81,7 +85,7 @@
         <li class="mobile-menu-item">首页</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">归档</li>
-      </a><a href="/%E6%A0%87%E7%AD%BE/">
+      </a><a href="/tags/">
         <li class="mobile-menu-item">标签</li>
       </a><a href="/categories/">
         <li class="mobile-menu-item">分类</li>
@@ -110,7 +114,7 @@
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">归档</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/%E6%A0%87%E7%AD%BE/">标签</a>
+        <a class="menu-item-link" href="/tags/">标签</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/categories/">分类</a>
       </li>
@@ -151,81 +155,41 @@
 <blockquote>
 <p>利用Slice切片，比每次读取一小块导致频繁Gc</p>
 </blockquote>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-go" data-lang="go"><span class="kn">package</span> <span class="nx">main</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-go" data-lang="go"><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
 
-<span class="kn">import</span> <span class="p">(</span>
-    <span class="s">&#34;bufio&#34;</span>
-    <span class="s">&#34;container/list&#34;</span>
-    <span class="s">&#34;fmt&#34;</span>
-    <span class="s">&#34;io&#34;</span>
-    <span class="s">&#34;os&#34;</span>
-    <span class="s">&#34;sync&#34;</span>
-    <span class="s">&#34;time&#34;</span>
-<span class="p">)</span>
+<span style="color:#f92672">import</span> (
+    <span style="color:#e6db74">&#34;bufio&#34;</span>
+    <span style="color:#e6db74">&#34;container/list&#34;</span>
+    <span style="color:#e6db74">&#34;fmt&#34;</span>
+    <span style="color:#e6db74">&#34;io&#34;</span>
+    <span style="color:#e6db74">&#34;os&#34;</span>
+    <span style="color:#e6db74">&#34;sync&#34;</span>
+    <span style="color:#e6db74">&#34;time&#34;</span>
+)
 
-<span class="kd">func</span> <span class="nf">main</span><span class="p">(){</span>
-    <span class="nx">start</span> <span class="o">:=</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Now</span><span class="p">()</span>
-    <span class="nx">content</span><span class="p">,</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">ioutil</span><span class="p">.</span><span class="nf">ReadFile</span><span class="p">(</span><span class="s">&#34;d:\\software\\cn_windows_10_consumer_editions_version_21h1_x64_dvd_1baf479d.iso&#34;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
-        <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="s">&#34;file read fail&#34;</span><span class="p">)</span>
-    <span class="p">}</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;read file len :%d, time cost :%v slices: %d\n&#34;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">content</span><span class="p">),</span> <span class="nx">time</span><span class="p">.</span><span class="nf">Since</span><span class="p">(</span><span class="nx">start</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="nx">content</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="mi">8964</span><span class="o">*</span><span class="mi">20</span><span class="p">))</span>
-    <span class="nx">step</span> <span class="o">:=</span> <span class="mi">8964</span> <span class="o">*</span> <span class="mi">20</span>
-    <span class="nx">fmt</span><span class="p">.</span><span class="nf">Println</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nx">content</span><span class="p">)</span><span class="o">%</span><span class="nx">step</span><span class="p">,</span> <span class="nx">step</span><span class="p">)</span>
+<span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>(){
+    <span style="color:#a6e22e">start</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Now</span>()
+    <span style="color:#a6e22e">content</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ioutil</span>.<span style="color:#a6e22e">ReadFile</span>(<span style="color:#e6db74">&#34;d:\\software\\cn_windows_10_consumer_editions_version_21h1_x64_dvd_1baf479d.iso&#34;</span>)
+    <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+        <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#e6db74">&#34;file read fail&#34;</span>)
+    }
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;read file len :%d, time cost :%v slices: %d\n&#34;</span>, len(<span style="color:#a6e22e">content</span>), <span style="color:#a6e22e">time</span>.<span style="color:#a6e22e">Since</span>(<span style="color:#a6e22e">start</span>), len(<span style="color:#a6e22e">content</span>)<span style="color:#f92672">/</span>(<span style="color:#ae81ff">8964</span><span style="color:#f92672">*</span><span style="color:#ae81ff">20</span>))
+    <span style="color:#a6e22e">step</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">8964</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">20</span>
+    <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(len(<span style="color:#a6e22e">content</span>)<span style="color:#f92672">%</span><span style="color:#a6e22e">step</span>, <span style="color:#a6e22e">step</span>)
 
-    <span class="k">for</span> <span class="nx">i</span> <span class="o">:=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="p">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">content</span><span class="p">);</span> <span class="nx">i</span> <span class="o">+=</span> <span class="nx">step</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="nx">i</span><span class="o">+</span><span class="nx">step</span> <span class="p">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="nx">content</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">slice</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">content</span><span class="p">)</span><span class="o">%</span><span class="nx">step</span><span class="p">)</span>
-            <span class="nb">copy</span><span class="p">(</span><span class="nx">slice</span><span class="p">,</span> <span class="nx">content</span><span class="p">[</span><span class="nx">i</span><span class="p">:</span><span class="nx">i</span><span class="o">+</span><span class="nb">len</span><span class="p">(</span><span class="nx">slice</span><span class="p">)])</span>
-            <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;slice addr :%p slice len: %d\n&#34;</span><span class="p">,</span> <span class="nx">slice</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">slice</span><span class="p">))</span>
-        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-            <span class="nx">slice</span> <span class="o">:=</span> <span class="nb">make</span><span class="p">([]</span><span class="kt">byte</span><span class="p">,</span> <span class="nx">step</span><span class="p">)</span>
-            <span class="nb">copy</span><span class="p">(</span><span class="nx">slice</span><span class="p">,</span> <span class="nx">content</span><span class="p">[</span><span class="nx">i</span><span class="p">:</span><span class="nx">i</span><span class="o">+</span><span class="nx">step</span><span class="p">])</span>
-            <span class="nx">fmt</span><span class="p">.</span><span class="nf">Printf</span><span class="p">(</span><span class="s">&#34;slice addr :%p slice len: %d\n&#34;</span><span class="p">,</span> <span class="nx">slice</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="nx">slice</span><span class="p">))</span>
-        <span class="p">}</span>
-   <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>💡 Tips: 一次将文件读入内存，用slice来遍历文件，slice本身只是引用，不会复制byte array，所以很快，而且不占用内存，减少IO,GC，提速到9000mbps</p>
+    <span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> &lt; len(<span style="color:#a6e22e">content</span>); <span style="color:#a6e22e">i</span> <span style="color:#f92672">+=</span> <span style="color:#a6e22e">step</span> {
+        <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">i</span><span style="color:#f92672">+</span><span style="color:#a6e22e">step</span> &gt; len(<span style="color:#a6e22e">content</span>) {
+            <span style="color:#a6e22e">slice</span> <span style="color:#f92672">:=</span> make([]<span style="color:#66d9ef">byte</span>, len(<span style="color:#a6e22e">content</span>)<span style="color:#f92672">%</span><span style="color:#a6e22e">step</span>)
+            copy(<span style="color:#a6e22e">slice</span>, <span style="color:#a6e22e">content</span>[<span style="color:#a6e22e">i</span>:<span style="color:#a6e22e">i</span><span style="color:#f92672">+</span>len(<span style="color:#a6e22e">slice</span>)])
+            <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;slice addr :%p slice len: %d\n&#34;</span>, <span style="color:#a6e22e">slice</span>, len(<span style="color:#a6e22e">slice</span>))
+        } <span style="color:#66d9ef">else</span> {
+            <span style="color:#a6e22e">slice</span> <span style="color:#f92672">:=</span> make([]<span style="color:#66d9ef">byte</span>, <span style="color:#a6e22e">step</span>)
+            copy(<span style="color:#a6e22e">slice</span>, <span style="color:#a6e22e">content</span>[<span style="color:#a6e22e">i</span>:<span style="color:#a6e22e">i</span><span style="color:#f92672">+</span><span style="color:#a6e22e">step</span>])
+            <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;slice addr :%p slice len: %d\n&#34;</span>, <span style="color:#a6e22e">slice</span>, len(<span style="color:#a6e22e">slice</span>))
+        }
+   }
+}
+</code></pre></div><p>💡 Tips: 一次将文件读入内存，用slice来遍历文件，slice本身只是引用，不会复制byte array，所以很快，而且不占用内存，减少IO,GC，提速到9000mbps</p>
 
     </div>
 

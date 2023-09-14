@@ -13,7 +13,21 @@
       <pubDate>Sun, 10 Sep 2023 01:37:56 +0800</pubDate>
       
       <guid>https://dev960.github.io/post/hugo%E7%AC%94%E8%AE%B0%E9%83%A8%E7%BD%B2/</guid>
-      <description>hugo笔记部署 sudo apt install hugo -y hugo new site dcqwiki cd dcqwiki git git submodule add https://github.com/olOwOlo/hugo-theme-even/tree/v4.0.0https://github.com/olOwOlo/hugo-theme-even themes/even hugo server 本地访问localhost:1313 编译：hugo github创建仓库 名字和githu</description>
+      <description>hugo笔记部署   sudo apt install hugo -y
+  hugo new site dcqwiki
+  cd dcqwiki
+  git git submodule add https://github.com/olOwOlo/hugo-theme-even/tree/v4.0.0https://github.com/olOwOlo/hugo-theme-even themes/even
+  hugo server
+  本地访问localhost:1313
+  编译：hugo
+  github创建仓库
+  名字和github名字一样
+  勾选publi和Readme
+  cd public
+  git init -b main
+  git remote add origin git@github.com:dev960/dev960.github.io.git
+  git pull &amp;ndash;rebase origin main
+  git add .</description>
     </item>
     
   </channel>

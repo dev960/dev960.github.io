@@ -16,7 +16,15 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="dcq" /><meta name="description" content="linux 系统 UDP 丢包问题分析思路_ArthurKingYs的博客-CSDN博客 最近工作中遇到某个服务器应用程序 UDP 丢包，在排查过程中查阅了很多资料，总" /><meta name="keywords" content="dengchangqing, wiki, 笔记" />
+<meta name="author" content="dcq" /><meta name="description" content="linux 系统 UDP 丢包问题分析思路_ArthurKingYs的博客-CSDN博客
+最近工作中遇到某个服务器应用程序 UDP 丢包，在排查过程中查阅了很多资料，总结出来这篇文章，供更多人参考。
+在开始之前，我们先用一张图解释 linux 系统接收网络报文的过程。
+ 首先网络报文通过物理网线发送到网卡 网络驱动程序会把网络中的报文读出来放到 ring buffer 中，这个过程使用 DMA（Direct Memory Access），不需要 CPU 参与 内核从 ring buffer 中读取报文进行处理，执行 IP 和 TCP/UDP 层的逻辑，最后把报文放到应用程序的 socket buffer 中 应用程序从 socket buffer 中读取报文进行处理  在接收 UDP 报文的过程中，图中任何一个过程都可能会主动或者被动地把报文丢弃，因此丢包可能发生在网卡和驱动，也可能发生在系统和应用。
+之所以没有分析发送数据流程，一是因为发送流程和接收类似，只是方向相反；另外发送流程报文丢失的概率比接收小，只有在应用程序发送的报文速率大于内核和网卡处理速率时才会发生。
+本篇文章假定机器只有一个名字为 eth0 的 interface，如果有多个 interface 或者 interface 的名字不是 eth0，请按照实际情况进行分析。
+NOTE：文中出现的 RX （receive） 表示接收报文， TX （transmit） 表示发送报文。
+确认有 UDP 丢包发生 要查看网卡是否有丢包，可以使用 ethtool -S eth0 查看，在输出中查找 bad 或者 drop对应的字段是否有数据，在正常情况下，这些字段对应的数字应该都是 0。如果看到对应的数字在不断增长，就说明网卡有丢包。
+另外一个查看网卡丢包数据的命令是 ifconfig ，它的输出中会有 RX (receive 接收报文)和 TX （transmit 发送报文）的统计数据：" /><meta name="keywords" content="dengchangqing, wiki, 笔记" />
 
 
 
@@ -40,19 +48,43 @@
 
 
 <meta property="og:title" content="转linux 系统 UDP 丢包问题分析思路" />
-<meta property="og:description" content="linux 系统 UDP 丢包问题分析思路_ArthurKingYs的博客-CSDN博客 最近工作中遇到某个服务器应用程序 UDP 丢包，在排查过程中查阅了很多资料，总" />
+<meta property="og:description" content="linux 系统 UDP 丢包问题分析思路_ArthurKingYs的博客-CSDN博客
+最近工作中遇到某个服务器应用程序 UDP 丢包，在排查过程中查阅了很多资料，总结出来这篇文章，供更多人参考。
+在开始之前，我们先用一张图解释 linux 系统接收网络报文的过程。
+ 首先网络报文通过物理网线发送到网卡 网络驱动程序会把网络中的报文读出来放到 ring buffer 中，这个过程使用 DMA（Direct Memory Access），不需要 CPU 参与 内核从 ring buffer 中读取报文进行处理，执行 IP 和 TCP/UDP 层的逻辑，最后把报文放到应用程序的 socket buffer 中 应用程序从 socket buffer 中读取报文进行处理  在接收 UDP 报文的过程中，图中任何一个过程都可能会主动或者被动地把报文丢弃，因此丢包可能发生在网卡和驱动，也可能发生在系统和应用。
+之所以没有分析发送数据流程，一是因为发送流程和接收类似，只是方向相反；另外发送流程报文丢失的概率比接收小，只有在应用程序发送的报文速率大于内核和网卡处理速率时才会发生。
+本篇文章假定机器只有一个名字为 eth0 的 interface，如果有多个 interface 或者 interface 的名字不是 eth0，请按照实际情况进行分析。
+NOTE：文中出现的 RX （receive） 表示接收报文， TX （transmit） 表示发送报文。
+确认有 UDP 丢包发生 要查看网卡是否有丢包，可以使用 ethtool -S eth0 查看，在输出中查找 bad 或者 drop对应的字段是否有数据，在正常情况下，这些字段对应的数字应该都是 0。如果看到对应的数字在不断增长，就说明网卡有丢包。
+另外一个查看网卡丢包数据的命令是 ifconfig ，它的输出中会有 RX (receive 接收报文)和 TX （transmit 发送报文）的统计数据：" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://dev960.github.io/post/udp%E4%B8%A2%E5%8C%85%E6%8E%92%E6%9F%A5/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2023-09-13T21:37:56+08:00" />
 <meta property="article:modified_time" content="2023-09-13T22:37:56+08:00" />
 
 <meta itemprop="name" content="转linux 系统 UDP 丢包问题分析思路">
-<meta itemprop="description" content="linux 系统 UDP 丢包问题分析思路_ArthurKingYs的博客-CSDN博客 最近工作中遇到某个服务器应用程序 UDP 丢包，在排查过程中查阅了很多资料，总"><meta itemprop="datePublished" content="2023-09-13T21:37:56+08:00" />
+<meta itemprop="description" content="linux 系统 UDP 丢包问题分析思路_ArthurKingYs的博客-CSDN博客
+最近工作中遇到某个服务器应用程序 UDP 丢包，在排查过程中查阅了很多资料，总结出来这篇文章，供更多人参考。
+在开始之前，我们先用一张图解释 linux 系统接收网络报文的过程。
+ 首先网络报文通过物理网线发送到网卡 网络驱动程序会把网络中的报文读出来放到 ring buffer 中，这个过程使用 DMA（Direct Memory Access），不需要 CPU 参与 内核从 ring buffer 中读取报文进行处理，执行 IP 和 TCP/UDP 层的逻辑，最后把报文放到应用程序的 socket buffer 中 应用程序从 socket buffer 中读取报文进行处理  在接收 UDP 报文的过程中，图中任何一个过程都可能会主动或者被动地把报文丢弃，因此丢包可能发生在网卡和驱动，也可能发生在系统和应用。
+之所以没有分析发送数据流程，一是因为发送流程和接收类似，只是方向相反；另外发送流程报文丢失的概率比接收小，只有在应用程序发送的报文速率大于内核和网卡处理速率时才会发生。
+本篇文章假定机器只有一个名字为 eth0 的 interface，如果有多个 interface 或者 interface 的名字不是 eth0，请按照实际情况进行分析。
+NOTE：文中出现的 RX （receive） 表示接收报文， TX （transmit） 表示发送报文。
+确认有 UDP 丢包发生 要查看网卡是否有丢包，可以使用 ethtool -S eth0 查看，在输出中查找 bad 或者 drop对应的字段是否有数据，在正常情况下，这些字段对应的数字应该都是 0。如果看到对应的数字在不断增长，就说明网卡有丢包。
+另外一个查看网卡丢包数据的命令是 ifconfig ，它的输出中会有 RX (receive 接收报文)和 TX （transmit 发送报文）的统计数据："><meta itemprop="datePublished" content="2023-09-13T21:37:56+08:00" />
 <meta itemprop="dateModified" content="2023-09-13T22:37:56+08:00" />
-<meta itemprop="wordCount" content="3305">
+<meta itemprop="wordCount" content="622">
 <meta itemprop="keywords" content="udp,丢包," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="转linux 系统 UDP 丢包问题分析思路"/>
-<meta name="twitter:description" content="linux 系统 UDP 丢包问题分析思路_ArthurKingYs的博客-CSDN博客 最近工作中遇到某个服务器应用程序 UDP 丢包，在排查过程中查阅了很多资料，总"/>
+<meta name="twitter:description" content="linux 系统 UDP 丢包问题分析思路_ArthurKingYs的博客-CSDN博客
+最近工作中遇到某个服务器应用程序 UDP 丢包，在排查过程中查阅了很多资料，总结出来这篇文章，供更多人参考。
+在开始之前，我们先用一张图解释 linux 系统接收网络报文的过程。
+ 首先网络报文通过物理网线发送到网卡 网络驱动程序会把网络中的报文读出来放到 ring buffer 中，这个过程使用 DMA（Direct Memory Access），不需要 CPU 参与 内核从 ring buffer 中读取报文进行处理，执行 IP 和 TCP/UDP 层的逻辑，最后把报文放到应用程序的 socket buffer 中 应用程序从 socket buffer 中读取报文进行处理  在接收 UDP 报文的过程中，图中任何一个过程都可能会主动或者被动地把报文丢弃，因此丢包可能发生在网卡和驱动，也可能发生在系统和应用。
+之所以没有分析发送数据流程，一是因为发送流程和接收类似，只是方向相反；另外发送流程报文丢失的概率比接收小，只有在应用程序发送的报文速率大于内核和网卡处理速率时才会发生。
+本篇文章假定机器只有一个名字为 eth0 的 interface，如果有多个 interface 或者 interface 的名字不是 eth0，请按照实际情况进行分析。
+NOTE：文中出现的 RX （receive） 表示接收报文， TX （transmit） 表示发送报文。
+确认有 UDP 丢包发生 要查看网卡是否有丢包，可以使用 ethtool -S eth0 查看，在输出中查找 bad 或者 drop对应的字段是否有数据，在正常情况下，这些字段对应的数字应该都是 0。如果看到对应的数字在不断增长，就说明网卡有丢包。
+另外一个查看网卡丢包数据的命令是 ifconfig ，它的输出中会有 RX (receive 接收报文)和 TX （transmit 发送报文）的统计数据："/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -81,7 +113,7 @@
         <li class="mobile-menu-item">首页</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">归档</li>
-      </a><a href="/%E6%A0%87%E7%AD%BE/">
+      </a><a href="/tags/">
         <li class="mobile-menu-item">标签</li>
       </a><a href="/categories/">
         <li class="mobile-menu-item">分类</li>
@@ -110,7 +142,7 @@
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">归档</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/%E6%A0%87%E7%AD%BE/">标签</a>
+        <a class="menu-item-link" href="/tags/">标签</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/categories/">分类</a>
       </li>

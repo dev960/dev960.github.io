@@ -177,13 +177,6 @@
   </url>
   
   <url>
-    <loc>https://dev960.github.io/tags/hping3/</loc>
-    <lastmod>2023-09-10T01:37:56+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://dev960.github.io/tags/hugo/</loc>
     <lastmod>2023-09-10T01:37:56+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -205,20 +198,6 @@
   </url>
   
   <url>
-    <loc>https://dev960.github.io/tags/snort/</loc>
-    <lastmod>2023-09-10T01:37:56+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://dev960.github.io/post/snort%E5%97%85%E6%8E%A2%E5%92%8Chping3%E6%94%BB%E5%87%BB%E9%85%8D%E7%BD%AE/</loc>
-    <lastmod>2023-09-10T01:37:56+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://dev960.github.io/tags/%E4%B8%BB%E9%A2%98/</loc>
     <lastmod>2023-09-10T01:37:56+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -227,13 +206,6 @@
   
   <url>
     <loc>https://dev960.github.io/post/esp32&#43;micropython%E4%BC%A0%E6%84%9F%E5%99%A8/</loc>
-    <lastmod>2023-09-10T01:37:56+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://dev960.github.io/tags/%E5%97%85%E6%8E%A2/</loc>
     <lastmod>2023-09-10T01:37:56+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -270,6 +242,36 @@
   <url>
     <loc>https://dev960.github.io/tags/%E5%A4%A7%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/</loc>
     <lastmod>2023-09-10T01:37:56+21:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://dev960.github.io/index.html</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://dev960.github.io/5/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://dev960.github.io/linenostable/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://dev960.github.io/series/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://dev960.github.io/true/</loc>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>

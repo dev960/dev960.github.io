@@ -16,7 +16,11 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="dcq" /><meta name="description" content="价格：9.9包邮 温湿度传感器 💡 Tips：GND：接地，VCC:3.3v, DAT:pin4。 支持温度，湿度。 支持定时刷新温湿度和时间。 OLED" /><meta name="keywords" content="dengchangqing, wiki, 笔记" />
+<meta name="author" content="dcq" /><meta name="description" content="价格：9.9包邮 温湿度传感器 💡 Tips：GND：接地，VCC:3.3v, DAT:pin4。
+ 支持温度，湿度。 支持定时刷新温湿度和时间。  OLED显示屏 💡 Tips：GND：接地， VCC:5v, SCL: pin5, SDA: pin4
+ 支持中英文。 支持定时刷新数据。  超声波HCSR04传感器 💡 Tips：GND:接地， VCC:5v, TRI: pin12, CHO: pin13。
+ 支持最大400mm  MAX10302心率血氧传感器 💡 Tips：GND:接地， VCC:5v, SCL:pin9, SDA:pin8
+ 支持血氧，心率，温度  # -*- coding: utf-8 -*- from machine import Pin,Timer,RTC from ssd1306_lib import SSD1306 import gc import math import font import dht11 import utime #import mqtt import utils import time from HCSR04 import HCSR04 from mqtt import mqttClient from wifi_manager import WifiManager hc = HCSR04(trigger_pin=12, echo_pin=13,echo_timeout_us=10000) print(&amp;#34;distance:&amp;#34;,hc." /><meta name="keywords" content="dengchangqing, wiki, 笔记" />
 
 
 
@@ -40,19 +44,31 @@
 
 
 <meta property="og:title" content="合宙Esp32&#43;Micropython温湿度传感器" />
-<meta property="og:description" content="价格：9.9包邮 温湿度传感器 💡 Tips：GND：接地，VCC:3.3v, DAT:pin4。 支持温度，湿度。 支持定时刷新温湿度和时间。 OLED" />
+<meta property="og:description" content="价格：9.9包邮 温湿度传感器 💡 Tips：GND：接地，VCC:3.3v, DAT:pin4。
+ 支持温度，湿度。 支持定时刷新温湿度和时间。  OLED显示屏 💡 Tips：GND：接地， VCC:5v, SCL: pin5, SDA: pin4
+ 支持中英文。 支持定时刷新数据。  超声波HCSR04传感器 💡 Tips：GND:接地， VCC:5v, TRI: pin12, CHO: pin13。
+ 支持最大400mm  MAX10302心率血氧传感器 💡 Tips：GND:接地， VCC:5v, SCL:pin9, SDA:pin8
+ 支持血氧，心率，温度  # -*- coding: utf-8 -*- from machine import Pin,Timer,RTC from ssd1306_lib import SSD1306 import gc import math import font import dht11 import utime #import mqtt import utils import time from HCSR04 import HCSR04 from mqtt import mqttClient from wifi_manager import WifiManager hc = HCSR04(trigger_pin=12, echo_pin=13,echo_timeout_us=10000) print(&#34;distance:&#34;,hc." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://dev960.github.io/post/esp32&#43;micropython%E4%BC%A0%E6%84%9F%E5%99%A8/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2023-09-10T01:37:56+08:00" />
 <meta property="article:modified_time" content="2023-09-10T01:37:56+08:00" />
 
 <meta itemprop="name" content="合宙Esp32&#43;Micropython温湿度传感器">
-<meta itemprop="description" content="价格：9.9包邮 温湿度传感器 💡 Tips：GND：接地，VCC:3.3v, DAT:pin4。 支持温度，湿度。 支持定时刷新温湿度和时间。 OLED"><meta itemprop="datePublished" content="2023-09-10T01:37:56+08:00" />
+<meta itemprop="description" content="价格：9.9包邮 温湿度传感器 💡 Tips：GND：接地，VCC:3.3v, DAT:pin4。
+ 支持温度，湿度。 支持定时刷新温湿度和时间。  OLED显示屏 💡 Tips：GND：接地， VCC:5v, SCL: pin5, SDA: pin4
+ 支持中英文。 支持定时刷新数据。  超声波HCSR04传感器 💡 Tips：GND:接地， VCC:5v, TRI: pin12, CHO: pin13。
+ 支持最大400mm  MAX10302心率血氧传感器 💡 Tips：GND:接地， VCC:5v, SCL:pin9, SDA:pin8
+ 支持血氧，心率，温度  # -*- coding: utf-8 -*- from machine import Pin,Timer,RTC from ssd1306_lib import SSD1306 import gc import math import font import dht11 import utime #import mqtt import utils import time from HCSR04 import HCSR04 from mqtt import mqttClient from wifi_manager import WifiManager hc = HCSR04(trigger_pin=12, echo_pin=13,echo_timeout_us=10000) print(&#34;distance:&#34;,hc."><meta itemprop="datePublished" content="2023-09-10T01:37:56+08:00" />
 <meta itemprop="dateModified" content="2023-09-10T01:37:56+08:00" />
-<meta itemprop="wordCount" content="1652">
+<meta itemprop="wordCount" content="819">
 <meta itemprop="keywords" content="Esp32,笔记,MicroPython,湿度,心率," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="合宙Esp32&#43;Micropython温湿度传感器"/>
-<meta name="twitter:description" content="价格：9.9包邮 温湿度传感器 💡 Tips：GND：接地，VCC:3.3v, DAT:pin4。 支持温度，湿度。 支持定时刷新温湿度和时间。 OLED"/>
+<meta name="twitter:description" content="价格：9.9包邮 温湿度传感器 💡 Tips：GND：接地，VCC:3.3v, DAT:pin4。
+ 支持温度，湿度。 支持定时刷新温湿度和时间。  OLED显示屏 💡 Tips：GND：接地， VCC:5v, SCL: pin5, SDA: pin4
+ 支持中英文。 支持定时刷新数据。  超声波HCSR04传感器 💡 Tips：GND:接地， VCC:5v, TRI: pin12, CHO: pin13。
+ 支持最大400mm  MAX10302心率血氧传感器 💡 Tips：GND:接地， VCC:5v, SCL:pin9, SDA:pin8
+ 支持血氧，心率，温度  # -*- coding: utf-8 -*- from machine import Pin,Timer,RTC from ssd1306_lib import SSD1306 import gc import math import font import dht11 import utime #import mqtt import utils import time from HCSR04 import HCSR04 from mqtt import mqttClient from wifi_manager import WifiManager hc = HCSR04(trigger_pin=12, echo_pin=13,echo_timeout_us=10000) print(&#34;distance:&#34;,hc."/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -81,7 +97,7 @@
         <li class="mobile-menu-item">首页</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">归档</li>
-      </a><a href="/%E6%A0%87%E7%AD%BE/">
+      </a><a href="/tags/">
         <li class="mobile-menu-item">标签</li>
       </a><a href="/categories/">
         <li class="mobile-menu-item">分类</li>
@@ -110,7 +126,7 @@
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">归档</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/%E6%A0%87%E7%AD%BE/">标签</a>
+        <a class="menu-item-link" href="/tags/">标签</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/categories/">分类</a>
       </li>
@@ -177,561 +193,278 @@
 <ul>
 <li>支持血氧，心率，温度</li>
 </ul>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
-</span><span class="lnt"> 2
-</span><span class="lnt"> 3
-</span><span class="lnt"> 4
-</span><span class="lnt"> 5
-</span><span class="lnt"> 6
-</span><span class="lnt"> 7
-</span><span class="lnt"> 8
-</span><span class="lnt"> 9
-</span><span class="lnt">10
-</span><span class="lnt">11
-</span><span class="lnt">12
-</span><span class="lnt">13
-</span><span class="lnt">14
-</span><span class="lnt">15
-</span><span class="lnt">16
-</span><span class="lnt">17
-</span><span class="lnt">18
-</span><span class="lnt">19
-</span><span class="lnt">20
-</span><span class="lnt">21
-</span><span class="lnt">22
-</span><span class="lnt">23
-</span><span class="lnt">24
-</span><span class="lnt">25
-</span><span class="lnt">26
-</span><span class="lnt">27
-</span><span class="lnt">28
-</span><span class="lnt">29
-</span><span class="lnt">30
-</span><span class="lnt">31
-</span><span class="lnt">32
-</span><span class="lnt">33
-</span><span class="lnt">34
-</span><span class="lnt">35
-</span><span class="lnt">36
-</span><span class="lnt">37
-</span><span class="lnt">38
-</span><span class="lnt">39
-</span><span class="lnt">40
-</span><span class="lnt">41
-</span><span class="lnt">42
-</span><span class="lnt">43
-</span><span class="lnt">44
-</span><span class="lnt">45
-</span><span class="lnt">46
-</span><span class="lnt">47
-</span><span class="lnt">48
-</span><span class="lnt">49
-</span><span class="lnt">50
-</span><span class="lnt">51
-</span><span class="lnt">52
-</span><span class="lnt">53
-</span><span class="lnt">54
-</span><span class="lnt">55
-</span><span class="lnt">56
-</span><span class="lnt">57
-</span><span class="lnt">58
-</span><span class="lnt">59
-</span><span class="lnt">60
-</span><span class="lnt">61
-</span><span class="lnt">62
-</span><span class="lnt">63
-</span><span class="lnt">64
-</span><span class="lnt">65
-</span><span class="lnt">66
-</span><span class="lnt">67
-</span><span class="lnt">68
-</span><span class="lnt">69
-</span><span class="lnt">70
-</span><span class="lnt">71
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="c1"># -*- coding: utf-8 -*-</span>
-<span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span><span class="n">Timer</span><span class="p">,</span><span class="n">RTC</span>
-<span class="kn">from</span> <span class="nn">ssd1306_lib</span> <span class="kn">import</span> <span class="n">SSD1306</span>
-<span class="kn">import</span> <span class="nn">gc</span>
-<span class="kn">import</span> <span class="nn">math</span>
-<span class="kn">import</span> <span class="nn">font</span>
-<span class="kn">import</span> <span class="nn">dht11</span>
-<span class="kn">import</span> <span class="nn">utime</span>
-<span class="c1">#import mqtt</span>
-<span class="kn">import</span> <span class="nn">utils</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">from</span> <span class="nn">HCSR04</span> <span class="kn">import</span> <span class="n">HCSR04</span>
-<span class="kn">from</span> <span class="nn">mqtt</span> <span class="kn">import</span> <span class="n">mqttClient</span>
-<span class="kn">from</span> <span class="nn">wifi_manager</span> <span class="kn">import</span> <span class="n">WifiManager</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># -*- coding: utf-8 -*-</span>
+<span style="color:#f92672">from</span> machine <span style="color:#f92672">import</span> Pin,Timer,RTC
+<span style="color:#f92672">from</span> ssd1306_lib <span style="color:#f92672">import</span> SSD1306
+<span style="color:#f92672">import</span> gc
+<span style="color:#f92672">import</span> math
+<span style="color:#f92672">import</span> font
+<span style="color:#f92672">import</span> dht11
+<span style="color:#f92672">import</span> utime
+<span style="color:#75715e">#import mqtt</span>
+<span style="color:#f92672">import</span> utils
+<span style="color:#f92672">import</span> time
+<span style="color:#f92672">from</span> HCSR04 <span style="color:#f92672">import</span> HCSR04
+<span style="color:#f92672">from</span> mqtt <span style="color:#f92672">import</span> mqttClient
+<span style="color:#f92672">from</span> wifi_manager <span style="color:#f92672">import</span> WifiManager
 
-<span class="n">hc</span> <span class="o">=</span> <span class="n">HCSR04</span><span class="p">(</span><span class="n">trigger_pin</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">echo_pin</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span><span class="n">echo_timeout_us</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+hc <span style="color:#f92672">=</span> HCSR04(trigger_pin<span style="color:#f92672">=</span><span style="color:#ae81ff">12</span>, echo_pin<span style="color:#f92672">=</span><span style="color:#ae81ff">13</span>,echo_timeout_us<span style="color:#f92672">=</span><span style="color:#ae81ff">10000</span>)
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&#34;distance:&#34;</span><span class="p">,</span><span class="n">hc</span><span class="o">.</span><span class="n">distance_cm</span><span class="p">())</span>
+print(<span style="color:#e6db74">&#34;distance:&#34;</span>,hc<span style="color:#f92672">.</span>distance_cm())
 
 
-<span class="n">rtc</span> <span class="o">=</span> <span class="n">RTC</span><span class="p">()</span>
+rtc <span style="color:#f92672">=</span> RTC()
 
-<span class="n">wm</span> <span class="o">=</span> <span class="n">WifiManager</span><span class="p">(</span><span class="s2">&#34;TP-LINK_8132&#34;</span><span class="p">,</span><span class="s2">&#34;123456789&#34;</span><span class="p">)</span>
-<span class="n">wm</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+wm <span style="color:#f92672">=</span> WifiManager(<span style="color:#e6db74">&#34;TP-LINK_8132&#34;</span>,<span style="color:#e6db74">&#34;123456789&#34;</span>)
+wm<span style="color:#f92672">.</span>connect()
 
-<span class="n">utils</span><span class="o">.</span><span class="n">sync_ntp</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">rtc</span><span class="o">.</span><span class="n">datetime</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&#34;同步后本地时间：</span><span class="si">%s</span><span class="s2">&#34;</span> <span class="o">%</span><span class="nb">str</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">()))</span>
+utils<span style="color:#f92672">.</span>sync_ntp()
+print(rtc<span style="color:#f92672">.</span>datetime())
+print(<span style="color:#e6db74">&#34;同步后本地时间：</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span>str(time<span style="color:#f92672">.</span>localtime()))
 
-<span class="c1">#mqtt.on_mqtt_connect()</span>
+<span style="color:#75715e">#mqtt.on_mqtt_connect()</span>
 
 
 
 
-<span class="n">count</span><span class="o">=</span><span class="mi">0</span>
-<span class="k">def</span> <span class="nf">time_interrupt</span><span class="p">(</span><span class="n">timer</span><span class="p">):</span>             <span class="c1">#定时器中断服务函数</span>
-    <span class="k">global</span> <span class="n">count</span>
-    <span class="n">count</span> <span class="o">+=</span><span class="mi">1</span>
-    <span class="n">gc</span><span class="o">.</span><span class="n">collect</span><span class="p">()</span>
-    <span class="n">temp</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">temperature</span><span class="p">()</span>                <span class="c1">#获取温度</span>
-    <span class="n">humi</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">humidity</span><span class="p">()</span>                   <span class="c1">#获取湿度</span>
-    <span class="c1">#print(&#34;temp: &#34;+str(temp) + &#34;\thumidity: &#34; + str(humi))</span>
-    <span class="c1">#mqtt.on_publish(&#34;esp32/temp&#34;,&#34;temp: &#34;+str(temp) + &#34;\thumidity: &#34; + str(humi))</span>
-    <span class="n">display</span><span class="o">.</span><span class="n">draw_chinese</span><span class="p">(</span><span class="s1">&#39;温度&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>        <span class="c1">#显示中文</span>
-    <span class="n">display</span><span class="o">.</span><span class="n">draw_chinese</span><span class="p">(</span><span class="s1">&#39;湿度&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+count<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">time_interrupt</span>(timer):             <span style="color:#75715e">#定时器中断服务函数</span>
+    <span style="color:#66d9ef">global</span> count
+    count <span style="color:#f92672">+=</span><span style="color:#ae81ff">1</span>
+    gc<span style="color:#f92672">.</span>collect()
+    temp <span style="color:#f92672">=</span> d<span style="color:#f92672">.</span>temperature()                <span style="color:#75715e">#获取温度</span>
+    humi <span style="color:#f92672">=</span> d<span style="color:#f92672">.</span>humidity()                   <span style="color:#75715e">#获取湿度</span>
+    <span style="color:#75715e">#print(&#34;temp: &#34;+str(temp) + &#34;\thumidity: &#34; + str(humi))</span>
+    <span style="color:#75715e">#mqtt.on_publish(&#34;esp32/temp&#34;,&#34;temp: &#34;+str(temp) + &#34;\thumidity: &#34; + str(humi))</span>
+    display<span style="color:#f92672">.</span>draw_chinese(<span style="color:#e6db74">&#39;温度&#39;</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>)        <span style="color:#75715e">#显示中文</span>
+    display<span style="color:#f92672">.</span>draw_chinese(<span style="color:#e6db74">&#39;湿度&#39;</span>,<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">4</span>)
 
-    <span class="n">display</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">temp</span><span class="p">),</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>  <span class="c1">#显示温度</span>
-    <span class="n">display</span><span class="o">.</span><span class="n">draw_string</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">humi</span><span class="p">),</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>  <span class="c1">#显示湿度</span>
-    <span class="c1">#display.draw_text(40,56,&#39;Loop:&#39;+str(count),)</span>
-    <span class="c1">#display.draw_text(40, 56, &#34;{:02}:{:02}:{:02}&#34;.format(time.localtime()[3], time.localtime()[4], time.localtime()[5]))</span>
-    <span class="n">display</span><span class="o">.</span><span class="n">draw_text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">56</span><span class="p">,</span> <span class="s2">&#34;</span><span class="si">{:02}</span><span class="s2">-</span><span class="si">{:02}</span><span class="s2">-</span><span class="si">{:02}</span><span class="s2">(</span><span class="si">{:1}</span><span class="s2">)</span><span class="si">{:02}</span><span class="s2">:</span><span class="si">{:02}</span><span class="s2">:</span><span class="si">{:02}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">()[</span><span class="mi">1</span><span class="p">],</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">()[</span><span class="mi">2</span><span class="p">],</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">()[</span><span class="mi">6</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">()[</span><span class="mi">3</span><span class="p">],</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">()[</span><span class="mi">4</span><span class="p">],</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">()[</span><span class="mi">5</span><span class="p">]))</span>
-    <span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+    display<span style="color:#f92672">.</span>draw_string(<span style="color:#e6db74">&#39;:&#39;</span><span style="color:#f92672">+</span>str(temp),<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">2</span>)  <span style="color:#75715e">#显示温度</span>
+    display<span style="color:#f92672">.</span>draw_string(<span style="color:#e6db74">&#39;:&#39;</span><span style="color:#f92672">+</span>str(humi),<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">4</span>)  <span style="color:#75715e">#显示湿度</span>
+    <span style="color:#75715e">#display.draw_text(40,56,&#39;Loop:&#39;+str(count),)</span>
+    <span style="color:#75715e">#display.draw_text(40, 56, &#34;{:02}:{:02}:{:02}&#34;.format(time.localtime()[3], time.localtime()[4], time.localtime()[5]))</span>
+    display<span style="color:#f92672">.</span>draw_text(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">56</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:02}</span><span style="color:#e6db74">-</span><span style="color:#e6db74">{:02}</span><span style="color:#e6db74">-</span><span style="color:#e6db74">{:02}</span><span style="color:#e6db74">(</span><span style="color:#e6db74">{:1}</span><span style="color:#e6db74">)</span><span style="color:#e6db74">{:02}</span><span style="color:#e6db74">:</span><span style="color:#e6db74">{:02}</span><span style="color:#e6db74">:</span><span style="color:#e6db74">{:02}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(time<span style="color:#f92672">.</span>localtime()[<span style="color:#ae81ff">0</span>], time<span style="color:#f92672">.</span>localtime()[<span style="color:#ae81ff">1</span>], time<span style="color:#f92672">.</span>localtime()[<span style="color:#ae81ff">2</span>], time<span style="color:#f92672">.</span>localtime()[<span style="color:#ae81ff">6</span>]<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, time<span style="color:#f92672">.</span>localtime()[<span style="color:#ae81ff">3</span>], time<span style="color:#f92672">.</span>localtime()[<span style="color:#ae81ff">4</span>], time<span style="color:#f92672">.</span>localtime()[<span style="color:#ae81ff">5</span>]))
+    display<span style="color:#f92672">.</span>display()
 
-<span class="k">def</span> <span class="nf">rtc_time</span><span class="p">(</span><span class="n">timer</span><span class="p">):</span>
-    <span class="n">display</span><span class="o">.</span><span class="n">draw_text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">56</span><span class="p">,</span> <span class="s2">&#34;</span><span class="si">{:02}</span><span class="s2">-</span><span class="si">{:02}</span><span class="s2">-</span><span class="si">{:02}</span><span class="s2">(</span><span class="si">{:1}</span><span class="s2">)</span><span class="si">{:02}</span><span class="s2">:</span><span class="si">{:02}</span><span class="s2">:</span><span class="si">{:02}</span><span class="s2">&#34;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">()[</span><span class="mi">1</span><span class="p">],</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">()[</span><span class="mi">2</span><span class="p">],</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">()[</span><span class="mi">6</span><span class="p">]</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">()[</span><span class="mi">3</span><span class="p">],</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">()[</span><span class="mi">4</span><span class="p">],</span> <span class="n">time</span><span class="o">.</span><span class="n">localtime</span><span class="p">()[</span><span class="mi">5</span><span class="p">]))</span>
-    <span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
-
-
-
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">d</span> <span class="o">=</span> <span class="n">dht11</span><span class="o">.</span><span class="n">DHT11</span><span class="p">(</span><span class="n">Pin</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>        <span class="c1">#dht11引脚</span>
-    <span class="n">d</span><span class="o">.</span><span class="n">measure</span><span class="p">()</span>
-    <span class="n">tim0</span> <span class="o">=</span> <span class="n">Timer</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>                 <span class="c1">#创建定时器</span>
-    <span class="c1">#开启定时器中断，每隔1秒触发一次</span>
-    <span class="n">tim0</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">period</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">Timer</span><span class="o">.</span><span class="n">PERIODIC</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">time_interrupt</span><span class="p">)</span>
-
-    <span class="n">display</span> <span class="o">=</span> <span class="n">SSD1306</span><span class="p">()</span>             <span class="c1">#OLED</span>
-    <span class="n">display</span><span class="o">.</span><span class="n">init_display</span><span class="p">()</span>          <span class="c1">#初始化</span>
-    <span class="n">display</span><span class="o">.</span><span class="n">draw_text</span><span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="s1">&#39;ESP32 Micropython&#39;</span><span class="p">,)</span>
-    <span class="n">display</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
-    <span class="n">count</span><span class="o">=</span><span class="mi">0</span>
-</code></pre></td></tr></table>
-</div>
-</div><div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">  1
-</span><span class="lnt">  2
-</span><span class="lnt">  3
-</span><span class="lnt">  4
-</span><span class="lnt">  5
-</span><span class="lnt">  6
-</span><span class="lnt">  7
-</span><span class="lnt">  8
-</span><span class="lnt">  9
-</span><span class="lnt"> 10
-</span><span class="lnt"> 11
-</span><span class="lnt"> 12
-</span><span class="lnt"> 13
-</span><span class="lnt"> 14
-</span><span class="lnt"> 15
-</span><span class="lnt"> 16
-</span><span class="lnt"> 17
-</span><span class="lnt"> 18
-</span><span class="lnt"> 19
-</span><span class="lnt"> 20
-</span><span class="lnt"> 21
-</span><span class="lnt"> 22
-</span><span class="lnt"> 23
-</span><span class="lnt"> 24
-</span><span class="lnt"> 25
-</span><span class="lnt"> 26
-</span><span class="lnt"> 27
-</span><span class="lnt"> 28
-</span><span class="lnt"> 29
-</span><span class="lnt"> 30
-</span><span class="lnt"> 31
-</span><span class="lnt"> 32
-</span><span class="lnt"> 33
-</span><span class="lnt"> 34
-</span><span class="lnt"> 35
-</span><span class="lnt"> 36
-</span><span class="lnt"> 37
-</span><span class="lnt"> 38
-</span><span class="lnt"> 39
-</span><span class="lnt"> 40
-</span><span class="lnt"> 41
-</span><span class="lnt"> 42
-</span><span class="lnt"> 43
-</span><span class="lnt"> 44
-</span><span class="lnt"> 45
-</span><span class="lnt"> 46
-</span><span class="lnt"> 47
-</span><span class="lnt"> 48
-</span><span class="lnt"> 49
-</span><span class="lnt"> 50
-</span><span class="lnt"> 51
-</span><span class="lnt"> 52
-</span><span class="lnt"> 53
-</span><span class="lnt"> 54
-</span><span class="lnt"> 55
-</span><span class="lnt"> 56
-</span><span class="lnt"> 57
-</span><span class="lnt"> 58
-</span><span class="lnt"> 59
-</span><span class="lnt"> 60
-</span><span class="lnt"> 61
-</span><span class="lnt"> 62
-</span><span class="lnt"> 63
-</span><span class="lnt"> 64
-</span><span class="lnt"> 65
-</span><span class="lnt"> 66
-</span><span class="lnt"> 67
-</span><span class="lnt"> 68
-</span><span class="lnt"> 69
-</span><span class="lnt"> 70
-</span><span class="lnt"> 71
-</span><span class="lnt"> 72
-</span><span class="lnt"> 73
-</span><span class="lnt"> 74
-</span><span class="lnt"> 75
-</span><span class="lnt"> 76
-</span><span class="lnt"> 77
-</span><span class="lnt"> 78
-</span><span class="lnt"> 79
-</span><span class="lnt"> 80
-</span><span class="lnt"> 81
-</span><span class="lnt"> 82
-</span><span class="lnt"> 83
-</span><span class="lnt"> 84
-</span><span class="lnt"> 85
-</span><span class="lnt"> 86
-</span><span class="lnt"> 87
-</span><span class="lnt"> 88
-</span><span class="lnt"> 89
-</span><span class="lnt"> 90
-</span><span class="lnt"> 91
-</span><span class="lnt"> 92
-</span><span class="lnt"> 93
-</span><span class="lnt"> 94
-</span><span class="lnt"> 95
-</span><span class="lnt"> 96
-</span><span class="lnt"> 97
-</span><span class="lnt"> 98
-</span><span class="lnt"> 99
-</span><span class="lnt">100
-</span><span class="lnt">101
-</span><span class="lnt">102
-</span><span class="lnt">103
-</span><span class="lnt">104
-</span><span class="lnt">105
-</span><span class="lnt">106
-</span><span class="lnt">107
-</span><span class="lnt">108
-</span><span class="lnt">109
-</span><span class="lnt">110
-</span><span class="lnt">111
-</span><span class="lnt">112
-</span><span class="lnt">113
-</span><span class="lnt">114
-</span><span class="lnt">115
-</span><span class="lnt">116
-</span><span class="lnt">117
-</span><span class="lnt">118
-</span><span class="lnt">119
-</span><span class="lnt">120
-</span><span class="lnt">121
-</span><span class="lnt">122
-</span><span class="lnt">123
-</span><span class="lnt">124
-</span><span class="lnt">125
-</span><span class="lnt">126
-</span><span class="lnt">127
-</span><span class="lnt">128
-</span><span class="lnt">129
-</span><span class="lnt">130
-</span><span class="lnt">131
-</span><span class="lnt">132
-</span><span class="lnt">133
-</span><span class="lnt">134
-</span><span class="lnt">135
-</span><span class="lnt">136
-</span><span class="lnt">137
-</span><span class="lnt">138
-</span><span class="lnt">139
-</span><span class="lnt">140
-</span><span class="lnt">141
-</span><span class="lnt">142
-</span><span class="lnt">143
-</span><span class="lnt">144
-</span><span class="lnt">145
-</span><span class="lnt">146
-</span><span class="lnt">147
-</span><span class="lnt">148
-</span><span class="lnt">149
-</span><span class="lnt">150
-</span><span class="lnt">151
-</span><span class="lnt">152
-</span><span class="lnt">153
-</span><span class="lnt">154
-</span><span class="lnt">155
-</span><span class="lnt">156
-</span><span class="lnt">157
-</span><span class="lnt">158
-</span><span class="lnt">159
-</span><span class="lnt">160
-</span><span class="lnt">161
-</span><span class="lnt">162
-</span><span class="lnt">163
-</span><span class="lnt">164
-</span><span class="lnt">165
-</span><span class="lnt">166
-</span><span class="lnt">167
-</span><span class="lnt">168
-</span><span class="lnt">169
-</span><span class="lnt">170
-</span><span class="lnt">171
-</span><span class="lnt">172
-</span><span class="lnt">173
-</span><span class="lnt">174
-</span><span class="lnt">175
-</span><span class="lnt">176
-</span><span class="lnt">177
-</span><span class="lnt">178
-</span><span class="lnt">179
-</span><span class="lnt">180
-</span><span class="lnt">181
-</span><span class="lnt">182
-</span><span class="lnt">183
-</span><span class="lnt">184
-</span><span class="lnt">185
-</span><span class="lnt">186
-</span><span class="lnt">187
-</span><span class="lnt">188
-</span><span class="lnt">189
-</span><span class="lnt">190
-</span><span class="lnt">191
-</span><span class="lnt">192
-</span><span class="lnt">193
-</span><span class="lnt">194
-</span><span class="lnt">195
-</span><span class="lnt">196
-</span><span class="lnt">197
-</span><span class="lnt">198
-</span><span class="lnt">199
-</span><span class="lnt">200
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">from</span> <span class="nn">machine</span> <span class="kn">import</span> <span class="n">Pin</span><span class="p">,</span><span class="n">I2C</span>
-<span class="kn">import</span> <span class="nn">font</span>
-
-<span class="c1"># Constants</span>
-<span class="n">DISPLAYOFF</span>          <span class="o">=</span> <span class="mh">0xAE</span>
-<span class="n">SETCONTRAST</span>         <span class="o">=</span> <span class="mh">0x81</span>
-<span class="n">DISPLAYALLON_RESUME</span> <span class="o">=</span> <span class="mh">0xA4</span>
-<span class="n">DISPLAYALLON</span>        <span class="o">=</span> <span class="mh">0xA5</span>
-<span class="n">NORMALDISPLAY</span>       <span class="o">=</span> <span class="mh">0xA6</span>
-<span class="n">INVERTDISPLAY</span>       <span class="o">=</span> <span class="mh">0xA7</span>
-<span class="n">DISPLAYON</span>           <span class="o">=</span> <span class="mh">0xAF</span>
-<span class="n">SETDISPLAYOFFSET</span>    <span class="o">=</span> <span class="mh">0xD3</span>
-<span class="n">SETCOMPINS</span>          <span class="o">=</span> <span class="mh">0xDA</span>
-<span class="n">SETVCOMDETECT</span>       <span class="o">=</span> <span class="mh">0xDB</span>
-<span class="n">SETDISPLAYCLOCKDIV</span>  <span class="o">=</span> <span class="mh">0xD5</span>
-<span class="n">SETPRECHARGE</span>        <span class="o">=</span> <span class="mh">0xD9</span>
-<span class="n">SETMULTIPLEX</span>        <span class="o">=</span> <span class="mh">0xA8</span>
-<span class="n">SETLOWCOLUMN</span>        <span class="o">=</span> <span class="mh">0x00</span>
-<span class="n">SETHIGHCOLUMN</span>       <span class="o">=</span> <span class="mh">0x10</span>
-<span class="n">SETSTARTLINE</span>        <span class="o">=</span> <span class="mh">0x40</span>
-<span class="n">MEMORYMODE</span>          <span class="o">=</span> <span class="mh">0x20</span>
-<span class="n">COLUMNADDR</span>          <span class="o">=</span> <span class="mh">0x21</span>
-<span class="n">PAGEADDR</span>            <span class="o">=</span> <span class="mh">0x22</span>
-<span class="n">COMSCANINC</span>          <span class="o">=</span> <span class="mh">0xC0</span>
-<span class="n">COMSCANDEC</span>          <span class="o">=</span> <span class="mh">0xC8</span>
-<span class="n">SEGREMAP</span>            <span class="o">=</span> <span class="mh">0xA0</span>
-<span class="n">CHARGEPUMP</span>          <span class="o">=</span> <span class="mh">0x8D</span>
-<span class="n">EXTERNALVCC</span>         <span class="o">=</span> <span class="mh">0x10</span>
-<span class="n">SWITCHCAPVCC</span>        <span class="o">=</span> <span class="mh">0x20</span>
-<span class="n">SETPAGEADDR</span>         <span class="o">=</span> <span class="mh">0xB0</span>
-<span class="n">SETCOLADDR_LOW</span>      <span class="o">=</span> <span class="mh">0x00</span>
-<span class="n">SETCOLADDR_HIGH</span>     <span class="o">=</span> <span class="mh">0x10</span>
-<span class="n">ACTIVATE_SCROLL</span>                      <span class="o">=</span> <span class="mh">0x2F</span>
-<span class="n">DEACTIVATE_SCROLL</span>                    <span class="o">=</span> <span class="mh">0x2E</span>
-<span class="n">SET_VERTICAL_SCROLL_AREA</span>             <span class="o">=</span> <span class="mh">0xA3</span>
-<span class="n">RIGHT_HORIZONTAL_SCROLL</span>              <span class="o">=</span> <span class="mh">0x26</span>
-<span class="n">LEFT_HORIZONTAL_SCROLL</span>               <span class="o">=</span> <span class="mh">0x27</span>
-<span class="n">VERTICAL_AND_RIGHT_HORIZONTAL_SCROLL</span> <span class="o">=</span> <span class="mh">0x29</span>
-<span class="n">VERTICAL_AND_LEFT_HORIZONTAL_SCROLL</span>  <span class="o">=</span> <span class="mh">0x2A</span>
-
-<span class="c1"># I2C devices are accessed through a Device ID. This is a 7-bit</span>
-<span class="c1"># value but is sometimes expressed left-shifted by 1 as an 8-bit value.</span>
-<span class="c1"># A pin on SSD1306 allows it to respond to ID 0x3C or 0x3D. The board</span>
-<span class="c1"># I bought from ebay used a 0-ohm resistor to select between &#34;0x78&#34;</span>
-<span class="c1"># (0x3c &lt;&lt; 1) or &#34;0x7a&#34; (0x3d &lt;&lt; 1). The default was set to &#34;0x78&#34;</span>
-<span class="n">DEVID</span> <span class="o">=</span> <span class="mh">0x3c</span>
-
-<span class="c1"># I2C communication here is either &lt;DEVID&gt; &lt;CTL_CMD&gt; &lt;command byte&gt;</span>
-<span class="c1"># or &lt;DEVID&gt; &lt;CTL_DAT&gt; &lt;display buffer bytes&gt; &lt;&gt; &lt;&gt; &lt;&gt; &lt;&gt;...</span>
-<span class="c1"># These two values encode the Co (Continuation) bit as b7 and the</span>
-<span class="c1"># D/C# (Data/Command Selection) bit as b6.</span>
-<span class="n">CTL_CMD</span> <span class="o">=</span> <span class="mh">0x80</span>
-<span class="n">CTL_DAT</span> <span class="o">=</span> <span class="mh">0x40</span>
-
-<span class="k">class</span> <span class="nc">SSD1306</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i2c_devid</span><span class="o">=</span><span class="n">DEVID</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">external_vcc</span> <span class="o">=</span> <span class="kc">False</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">height</span>       <span class="o">=</span> <span class="mi">64</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">pages</span>        <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">/</span> <span class="mi">8</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">columns</span>      <span class="o">=</span> <span class="mi">128</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pages</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">i2c</span> <span class="o">=</span> <span class="n">I2C</span><span class="p">(</span><span class="n">scl</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span> <span class="n">sda</span><span class="o">=</span><span class="n">Pin</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="n">freq</span><span class="o">=</span><span class="mi">100000</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">devid</span> <span class="o">=</span> <span class="n">i2c_devid</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">offset</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="c1"># I2C command buffer</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">cbuffer</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">cbuffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">CTL_CMD</span>
-
-    <span class="k">def</span> <span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">offset</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">pages</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">offset</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">CTL_DAT</span>
-
-    <span class="k">def</span> <span class="nf">write_command</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command_byte</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">cbuffer</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">command_byte</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">i2c</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">devid</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cbuffer</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">invert_display</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">invert</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">write_command</span><span class="p">(</span><span class="n">INVERTDISPLAY</span> <span class="k">if</span> <span class="n">invert</span> <span class="k">else</span> <span class="n">NORMALDISPLAY</span><span class="p">)</span>
-
-    <span class="k">def</span> <span class="nf">display</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">write_command</span><span class="p">(</span><span class="n">COLUMNADDR</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">write_command</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">write_command</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">columns</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">write_command</span><span class="p">(</span><span class="n">PAGEADDR</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">write_command</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">write_command</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pages</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">i2c</span><span class="o">.</span><span class="n">writeto</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">devid</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span><span class="p">)</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">rtc_time</span>(timer):
+    display<span style="color:#f92672">.</span>draw_text(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">56</span>, <span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{:02}</span><span style="color:#e6db74">-</span><span style="color:#e6db74">{:02}</span><span style="color:#e6db74">-</span><span style="color:#e6db74">{:02}</span><span style="color:#e6db74">(</span><span style="color:#e6db74">{:1}</span><span style="color:#e6db74">)</span><span style="color:#e6db74">{:02}</span><span style="color:#e6db74">:</span><span style="color:#e6db74">{:02}</span><span style="color:#e6db74">:</span><span style="color:#e6db74">{:02}</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(time<span style="color:#f92672">.</span>localtime()[<span style="color:#ae81ff">0</span>], time<span style="color:#f92672">.</span>localtime()[<span style="color:#ae81ff">1</span>], time<span style="color:#f92672">.</span>localtime()[<span style="color:#ae81ff">2</span>], time<span style="color:#f92672">.</span>localtime()[<span style="color:#ae81ff">6</span>]<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, time<span style="color:#f92672">.</span>localtime()[<span style="color:#ae81ff">3</span>], time<span style="color:#f92672">.</span>localtime()[<span style="color:#ae81ff">4</span>], time<span style="color:#f92672">.</span>localtime()[<span style="color:#ae81ff">5</span>]))
+    display<span style="color:#f92672">.</span>display()
 
 
-    <span class="k">def</span> <span class="nf">set_pixel</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">state</span><span class="p">):</span>
-        <span class="n">index</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">y</span> <span class="o">/</span> <span class="mi">8</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">state</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">offset</span> <span class="o">+</span> <span class="n">index</span><span class="p">]</span> <span class="o">|=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">y</span> <span class="o">&amp;</span> <span class="mi">7</span><span class="p">))</span>
 
-        <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">buffer</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">offset</span> <span class="o">+</span> <span class="n">index</span><span class="p">]</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">(</span><span class="n">y</span> <span class="o">&amp;</span> <span class="mi">7</span><span class="p">))</span>
+<span style="color:#66d9ef">if</span> __name__ <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;__main__&#39;</span>:
+    d <span style="color:#f92672">=</span> dht11<span style="color:#f92672">.</span>DHT11(Pin(<span style="color:#ae81ff">4</span>))        <span style="color:#75715e">#dht11引脚</span>
+    d<span style="color:#f92672">.</span>measure()
+    tim0 <span style="color:#f92672">=</span> Timer(<span style="color:#ae81ff">0</span>)                 <span style="color:#75715e">#创建定时器</span>
+    <span style="color:#75715e">#开启定时器中断，每隔1秒触发一次</span>
+    tim0<span style="color:#f92672">.</span>init(period<span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span>, mode<span style="color:#f92672">=</span>Timer<span style="color:#f92672">.</span>PERIODIC, callback<span style="color:#f92672">=</span>time_interrupt)
 
-            <span class="k">def</span> <span class="nf">draw_chinese</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">ch_str</span><span class="p">,</span><span class="n">x_axis</span><span class="p">,</span><span class="n">y_axis</span><span class="p">):</span>
-            <span class="n">offset_</span><span class="o">=</span><span class="mi">0</span>
-            <span class="n">y_axis</span><span class="o">=</span><span class="n">y_axis</span><span class="o">*</span><span class="mi">8</span><span class="c1">#中文高度一行占8个</span>
-            <span class="n">x_axis</span><span class="o">=</span><span class="mi">127</span><span class="o">-</span><span class="p">(</span><span class="n">x_axis</span><span class="o">*</span><span class="mi">16</span><span class="p">)</span><span class="c1">#中文宽度占16个</span>
-            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">ch_str</span><span class="p">:</span>
-            <span class="n">code</span> <span class="o">=</span> <span class="mh">0x00</span><span class="c1">#将中文转成16进制编码</span>
-            <span class="n">data_code</span> <span class="o">=</span> <span class="n">k</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&#34;utf-8&#34;</span><span class="p">)</span>
-            <span class="n">code</span> <span class="o">|=</span> <span class="n">data_code</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="mi">16</span>
-            <span class="n">code</span> <span class="o">|=</span> <span class="n">data_code</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">&lt;&lt;</span><span class="mi">8</span>
-            <span class="n">code</span> <span class="o">|=</span> <span class="n">data_code</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-            <span class="n">byte_data</span><span class="o">=</span><span class="n">font</span><span class="o">.</span><span class="n">byte2</span><span class="p">[</span><span class="n">code</span><span class="p">]</span>
-            <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">16</span><span class="p">):</span>
-            <span class="n">a_</span><span class="o">=</span><span class="nb">bin</span><span class="p">(</span><span class="n">byte_data</span><span class="p">[</span><span class="n">y</span><span class="p">])</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;0b&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-            <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">a_</span><span class="p">)</span><span class="o">&lt;</span><span class="mi">8</span><span class="p">:</span>
-            <span class="n">a_</span><span class="o">=</span><span class="s1">&#39;0&#39;</span><span class="o">+</span><span class="n">a_</span>
+    display <span style="color:#f92672">=</span> SSD1306()             <span style="color:#75715e">#OLED</span>
+    display<span style="color:#f92672">.</span>init_display()          <span style="color:#75715e">#初始化</span>
+    display<span style="color:#f92672">.</span>draw_text(<span style="color:#ae81ff">16</span>,<span style="color:#ae81ff">8</span>,<span style="color:#e6db74">&#39;ESP32 Micropython&#39;</span>,)
+    display<span style="color:#f92672">.</span>display()
+    count<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> machine <span style="color:#f92672">import</span> Pin,I2C
+<span style="color:#f92672">import</span> font
 
-            <span class="n">b_</span><span class="o">=</span><span class="nb">bin</span><span class="p">(</span><span class="n">byte_data</span><span class="p">[</span><span class="n">y</span><span class="o">+</span><span class="mi">16</span><span class="p">])</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;0b&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-            <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">b_</span><span class="p">)</span><span class="o">&lt;</span><span class="mi">8</span><span class="p">:</span>
-            <span class="n">b_</span><span class="o">=</span><span class="s1">&#39;0&#39;</span><span class="o">+</span><span class="n">b_</span>
-            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">8</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">x_axis</span><span class="o">-</span><span class="n">x</span><span class="o">-</span><span class="n">offset_</span><span class="p">,</span><span class="n">y</span><span class="o">+</span><span class="n">y_axis</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="n">a_</span><span class="p">[</span><span class="n">x</span><span class="p">]))</span><span class="c1">#文字的上半部分</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">x_axis</span><span class="o">-</span><span class="n">x</span><span class="o">-</span><span class="mi">8</span><span class="o">-</span><span class="n">offset_</span><span class="p">,</span><span class="n">y</span><span class="o">+</span><span class="n">y_axis</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="n">b_</span><span class="p">[</span><span class="n">x</span><span class="p">]))</span><span class="c1">#文字的下半部分</span>
-            <span class="n">offset_</span><span class="o">+=</span><span class="mi">16</span>
+<span style="color:#75715e"># Constants</span>
+DISPLAYOFF          <span style="color:#f92672">=</span> <span style="color:#ae81ff">0xAE</span>
+SETCONTRAST         <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x81</span>
+DISPLAYALLON_RESUME <span style="color:#f92672">=</span> <span style="color:#ae81ff">0xA4</span>
+DISPLAYALLON        <span style="color:#f92672">=</span> <span style="color:#ae81ff">0xA5</span>
+NORMALDISPLAY       <span style="color:#f92672">=</span> <span style="color:#ae81ff">0xA6</span>
+INVERTDISPLAY       <span style="color:#f92672">=</span> <span style="color:#ae81ff">0xA7</span>
+DISPLAYON           <span style="color:#f92672">=</span> <span style="color:#ae81ff">0xAF</span>
+SETDISPLAYOFFSET    <span style="color:#f92672">=</span> <span style="color:#ae81ff">0xD3</span>
+SETCOMPINS          <span style="color:#f92672">=</span> <span style="color:#ae81ff">0xDA</span>
+SETVCOMDETECT       <span style="color:#f92672">=</span> <span style="color:#ae81ff">0xDB</span>
+SETDISPLAYCLOCKDIV  <span style="color:#f92672">=</span> <span style="color:#ae81ff">0xD5</span>
+SETPRECHARGE        <span style="color:#f92672">=</span> <span style="color:#ae81ff">0xD9</span>
+SETMULTIPLEX        <span style="color:#f92672">=</span> <span style="color:#ae81ff">0xA8</span>
+SETLOWCOLUMN        <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x00</span>
+SETHIGHCOLUMN       <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x10</span>
+SETSTARTLINE        <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x40</span>
+MEMORYMODE          <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x20</span>
+COLUMNADDR          <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x21</span>
+PAGEADDR            <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x22</span>
+COMSCANINC          <span style="color:#f92672">=</span> <span style="color:#ae81ff">0xC0</span>
+COMSCANDEC          <span style="color:#f92672">=</span> <span style="color:#ae81ff">0xC8</span>
+SEGREMAP            <span style="color:#f92672">=</span> <span style="color:#ae81ff">0xA0</span>
+CHARGEPUMP          <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x8D</span>
+EXTERNALVCC         <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x10</span>
+SWITCHCAPVCC        <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x20</span>
+SETPAGEADDR         <span style="color:#f92672">=</span> <span style="color:#ae81ff">0xB0</span>
+SETCOLADDR_LOW      <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x00</span>
+SETCOLADDR_HIGH     <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x10</span>
+ACTIVATE_SCROLL                      <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x2F</span>
+DEACTIVATE_SCROLL                    <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x2E</span>
+SET_VERTICAL_SCROLL_AREA             <span style="color:#f92672">=</span> <span style="color:#ae81ff">0xA3</span>
+RIGHT_HORIZONTAL_SCROLL              <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x26</span>
+LEFT_HORIZONTAL_SCROLL               <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x27</span>
+VERTICAL_AND_RIGHT_HORIZONTAL_SCROLL <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x29</span>
+VERTICAL_AND_LEFT_HORIZONTAL_SCROLL  <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x2A</span>
 
-            <span class="k">def</span> <span class="nf">draw_string</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">ch_str</span><span class="p">,</span><span class="n">x_axis</span><span class="p">,</span><span class="n">y_axis</span><span class="p">):</span>
-            <span class="n">offset_</span><span class="o">=</span><span class="mi">0</span>
-            <span class="n">y_axis</span><span class="o">=</span><span class="n">y_axis</span><span class="o">*</span><span class="mi">8</span><span class="c1">#字符高度一行占8个</span>
-            <span class="n">x_axis</span><span class="o">=</span><span class="mi">127</span><span class="o">-</span><span class="p">(</span><span class="n">x_axis</span><span class="o">*</span><span class="mi">8</span><span class="p">)</span><span class="c1">#字符宽度占8个</span>
-            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">ch_str</span><span class="p">:</span>
-            <span class="n">code</span> <span class="o">=</span> <span class="mh">0x00</span>
-            <span class="n">code</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">-</span><span class="mh">0x20</span>  
-            <span class="n">byte_data</span><span class="o">=</span><span class="n">font</span><span class="o">.</span><span class="n">byte3</span><span class="p">[</span><span class="n">code</span><span class="p">]</span>  <span class="c1">#字符查表</span>
-            <span class="k">for</span> <span class="n">y</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">16</span><span class="p">):</span>
-            <span class="n">a_</span><span class="o">=</span><span class="nb">bin</span><span class="p">(</span><span class="n">byte_data</span><span class="p">[</span><span class="n">y</span><span class="p">])</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;0b&#39;</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
-            <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">a_</span><span class="p">)</span><span class="o">&lt;</span><span class="mi">8</span><span class="p">:</span>
-            <span class="n">a_</span><span class="o">=</span><span class="s1">&#39;0&#39;</span><span class="o">+</span><span class="n">a_</span>
+<span style="color:#75715e"># I2C devices are accessed through a Device ID. This is a 7-bit</span>
+<span style="color:#75715e"># value but is sometimes expressed left-shifted by 1 as an 8-bit value.</span>
+<span style="color:#75715e"># A pin on SSD1306 allows it to respond to ID 0x3C or 0x3D. The board</span>
+<span style="color:#75715e"># I bought from ebay used a 0-ohm resistor to select between &#34;0x78&#34;</span>
+<span style="color:#75715e"># (0x3c &lt;&lt; 1) or &#34;0x7a&#34; (0x3d &lt;&lt; 1). The default was set to &#34;0x78&#34;</span>
+DEVID <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x3c</span>
 
-            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">8</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="n">x_axis</span><span class="o">-</span><span class="n">x</span><span class="o">-</span><span class="n">offset_</span><span class="p">,</span><span class="n">y</span><span class="o">+</span><span class="n">y_axis</span><span class="p">,</span><span class="nb">int</span><span class="p">(</span><span class="n">a_</span><span class="p">[</span><span class="n">x</span><span class="p">]))</span>
-            <span class="n">offset_</span><span class="o">+=</span><span class="mi">8</span>
+<span style="color:#75715e"># I2C communication here is either &lt;DEVID&gt; &lt;CTL_CMD&gt; &lt;command byte&gt;</span>
+<span style="color:#75715e"># or &lt;DEVID&gt; &lt;CTL_DAT&gt; &lt;display buffer bytes&gt; &lt;&gt; &lt;&gt; &lt;&gt; &lt;&gt;...</span>
+<span style="color:#75715e"># These two values encode the Co (Continuation) bit as b7 and the</span>
+<span style="color:#75715e"># D/C# (Data/Command Selection) bit as b6.</span>
+CTL_CMD <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x80</span>
+CTL_DAT <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x40</span>
 
-            <span class="k">def</span> <span class="nf">init_display</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-            <span class="n">chargepump</span> <span class="o">=</span> <span class="mh">0x10</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">external_vcc</span> <span class="k">else</span> <span class="mh">0x14</span>
-            <span class="n">precharge</span>  <span class="o">=</span> <span class="mh">0x22</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">external_vcc</span> <span class="k">else</span> <span class="mh">0xf1</span>
-            <span class="n">multiplex</span>  <span class="o">=</span> <span class="mh">0x1f</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">==</span> <span class="mi">32</span> <span class="k">else</span> <span class="mh">0x3f</span>
-            <span class="n">compins</span>    <span class="o">=</span> <span class="mh">0x02</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">height</span> <span class="o">==</span> <span class="mi">32</span> <span class="k">else</span> <span class="mh">0x12</span>
-            <span class="n">contrast</span>   <span class="o">=</span> <span class="mh">0xff</span> <span class="c1"># 0x8f if self.height == 32 else (0x9f if self.external_vcc else 0x9f)</span>
-            <span class="n">data</span> <span class="o">=</span> <span class="p">[</span><span class="n">DISPLAYOFF</span><span class="p">,</span>
-            <span class="n">SETDISPLAYCLOCKDIV</span><span class="p">,</span> <span class="mh">0x80</span><span class="p">,</span>
-            <span class="n">SETMULTIPLEX</span><span class="p">,</span> <span class="n">multiplex</span><span class="p">,</span>
-            <span class="n">SETDISPLAYOFFSET</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span>
-            <span class="n">SETSTARTLINE</span> <span class="o">|</span> <span class="mh">0x00</span><span class="p">,</span>
-            <span class="n">CHARGEPUMP</span><span class="p">,</span> <span class="n">chargepump</span><span class="p">,</span>
-            <span class="n">MEMORYMODE</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">,</span>
-            <span class="n">SEGREMAP</span> <span class="o">|</span> <span class="mh">0x10</span><span class="p">,</span>
-            <span class="n">COMSCANDEC</span><span class="p">,</span>
-            <span class="n">SETCOMPINS</span><span class="p">,</span> <span class="n">compins</span><span class="p">,</span>
-            <span class="n">SETCONTRAST</span><span class="p">,</span> <span class="n">contrast</span><span class="p">,</span>
-            <span class="n">SETPRECHARGE</span><span class="p">,</span> <span class="n">precharge</span><span class="p">,</span>
-            <span class="n">SETVCOMDETECT</span><span class="p">,</span> <span class="mh">0x40</span><span class="p">,</span>
-            <span class="n">DISPLAYALLON_RESUME</span><span class="p">,</span>
-            <span class="n">NORMALDISPLAY</span><span class="p">,</span>
-            <span class="n">DISPLAYON</span><span class="p">]</span>
-            <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">write_command</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">display</span><span class="p">()</span>
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">SSD1306</span>(object):
 
-            <span class="k">def</span> <span class="nf">poweroff</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">write_command</span><span class="p">(</span><span class="n">DISPLAYOFF</span><span class="p">)</span>
+    <span style="color:#66d9ef">def</span> __init__(self, i2c_devid<span style="color:#f92672">=</span>DEVID):
+        self<span style="color:#f92672">.</span>external_vcc <span style="color:#f92672">=</span> <span style="color:#66d9ef">False</span>
+        self<span style="color:#f92672">.</span>height       <span style="color:#f92672">=</span> <span style="color:#ae81ff">64</span>
+        self<span style="color:#f92672">.</span>pages        <span style="color:#f92672">=</span> int(self<span style="color:#f92672">.</span>height <span style="color:#f92672">/</span> <span style="color:#ae81ff">8</span>)
+        self<span style="color:#f92672">.</span>columns      <span style="color:#f92672">=</span> <span style="color:#ae81ff">128</span>
 
-            <span class="k">def</span> <span class="nf">contrast</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">contrast</span><span class="p">):</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">write_command</span><span class="p">(</span><span class="n">SETCONTRAST</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">write_command</span><span class="p">(</span><span class="n">contrast</span><span class="p">)</span>
+        self<span style="color:#f92672">.</span>buffer <span style="color:#f92672">=</span> bytearray(self<span style="color:#f92672">.</span>pages <span style="color:#f92672">*</span> self<span style="color:#f92672">.</span>columns)
+        self<span style="color:#f92672">.</span>i2c <span style="color:#f92672">=</span> I2C(scl<span style="color:#f92672">=</span>Pin(<span style="color:#ae81ff">5</span>), sda<span style="color:#f92672">=</span>Pin(<span style="color:#ae81ff">4</span>), freq<span style="color:#f92672">=</span><span style="color:#ae81ff">100000</span>)
+        self<span style="color:#f92672">.</span>devid <span style="color:#f92672">=</span> i2c_devid
+        self<span style="color:#f92672">.</span>offset <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>
+        <span style="color:#75715e"># I2C command buffer</span>
+        self<span style="color:#f92672">.</span>cbuffer <span style="color:#f92672">=</span> bytearray(<span style="color:#ae81ff">2</span>)
+        self<span style="color:#f92672">.</span>cbuffer[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> CTL_CMD
 
-            <span class="k">def</span> <span class="nf">draw_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">string</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-            <span class="k">def</span> <span class="nf">pixel_x</span><span class="p">(</span><span class="n">char_number</span><span class="p">,</span> <span class="n">char_column</span><span class="p">,</span> <span class="n">point_row</span><span class="p">):</span>
-            <span class="n">char_offset</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">char_number</span> <span class="o">*</span> <span class="n">size</span> <span class="o">*</span> <span class="n">font</span><span class="o">.</span><span class="n">cols</span> <span class="o">+</span> <span class="n">space</span> <span class="o">*</span> <span class="n">char_number</span>
-            <span class="n">pixel_offset</span> <span class="o">=</span> <span class="n">char_offset</span> <span class="o">+</span> <span class="n">char_column</span> <span class="o">*</span> <span class="n">size</span> <span class="o">+</span> <span class="n">point_row</span>
-            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">columns</span> <span class="o">-</span> <span class="n">pixel_offset</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">clear</span>(self):
+        self<span style="color:#f92672">.</span>buffer <span style="color:#f92672">=</span> bytearray(self<span style="color:#f92672">.</span>offset <span style="color:#f92672">+</span> self<span style="color:#f92672">.</span>pages <span style="color:#f92672">*</span> self<span style="color:#f92672">.</span>columns)
+        <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>offset <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span>:
+            self<span style="color:#f92672">.</span>buffer[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> CTL_DAT
 
-            <span class="k">def</span> <span class="nf">pixel_y</span><span class="p">(</span><span class="n">char_row</span><span class="p">,</span> <span class="n">point_column</span><span class="p">):</span>
-            <span class="n">char_offset</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">char_row</span> <span class="o">*</span> <span class="n">size</span>
-            <span class="k">return</span> <span class="n">char_offset</span> <span class="o">+</span> <span class="n">point_column</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">write_command</span>(self, command_byte):
+        self<span style="color:#f92672">.</span>cbuffer[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> command_byte
+        self<span style="color:#f92672">.</span>i2c<span style="color:#f92672">.</span>writeto(self<span style="color:#f92672">.</span>devid, self<span style="color:#f92672">.</span>cbuffer)
 
-            <span class="k">def</span> <span class="nf">pixel_mask</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="n">char_column</span><span class="p">,</span> <span class="n">char_row</span><span class="p">):</span>
-            <span class="n">char_index_offset</span> <span class="o">=</span> <span class="nb">ord</span><span class="p">(</span><span class="n">char</span><span class="p">)</span> <span class="o">*</span> <span class="n">font</span><span class="o">.</span><span class="n">cols</span>
-            <span class="k">return</span> <span class="n">font</span><span class="o">.</span><span class="n">bytes</span><span class="p">[</span><span class="n">char_index_offset</span> <span class="o">+</span> <span class="n">char_column</span><span class="p">]</span> <span class="o">&gt;&gt;</span> <span class="n">char_row</span> <span class="o">&amp;</span> <span class="mh">0x1</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">invert_display</span>(self, invert):
+        self<span style="color:#f92672">.</span>write_command(INVERTDISPLAY <span style="color:#66d9ef">if</span> invert <span style="color:#66d9ef">else</span> NORMALDISPLAY)
 
-            <span class="n">pixels</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="p">(</span><span class="n">pixel_x</span><span class="p">(</span><span class="n">char_number</span><span class="p">,</span> <span class="n">char_column</span><span class="p">,</span> <span class="n">point_row</span><span class="p">),</span>
-            <span class="n">pixel_y</span><span class="p">(</span><span class="n">char_row</span><span class="p">,</span> <span class="n">point_column</span><span class="p">),</span>
-            <span class="n">pixel_mask</span><span class="p">(</span><span class="n">char</span><span class="p">,</span> <span class="n">char_column</span><span class="p">,</span> <span class="n">char_row</span><span class="p">))</span>
-            <span class="k">for</span> <span class="n">char_number</span><span class="p">,</span> <span class="n">char</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">char_column</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">font</span><span class="o">.</span><span class="n">cols</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">char_row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">font</span><span class="o">.</span><span class="n">rows</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">point_column</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
-            <span class="k">for</span> <span class="n">point_row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
-            <span class="k">for</span> <span class="n">pixel</span> <span class="ow">in</span> <span class="n">pixels</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">set_pixel</span><span class="p">(</span><span class="o">*</span><span class="n">pixel</span><span class="p">)</span>
-</code></pre></td></tr></table>
-</div>
-</div>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">display</span>(self):
+        self<span style="color:#f92672">.</span>write_command(COLUMNADDR)
+        self<span style="color:#f92672">.</span>write_command(<span style="color:#ae81ff">0</span>)
+        self<span style="color:#f92672">.</span>write_command(self<span style="color:#f92672">.</span>columns <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
+        self<span style="color:#f92672">.</span>write_command(PAGEADDR)
+        self<span style="color:#f92672">.</span>write_command(<span style="color:#ae81ff">0</span>)
+        self<span style="color:#f92672">.</span>write_command(self<span style="color:#f92672">.</span>pages <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)
+        self<span style="color:#f92672">.</span>i2c<span style="color:#f92672">.</span>writeto(self<span style="color:#f92672">.</span>devid, self<span style="color:#f92672">.</span>buffer)
+
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">set_pixel</span>(self, x, y, state):
+        index <span style="color:#f92672">=</span> x <span style="color:#f92672">+</span> (int(y <span style="color:#f92672">/</span> <span style="color:#ae81ff">8</span>) <span style="color:#f92672">*</span> self<span style="color:#f92672">.</span>columns)
+        <span style="color:#66d9ef">if</span> state:
+            self<span style="color:#f92672">.</span>buffer[self<span style="color:#f92672">.</span>offset <span style="color:#f92672">+</span> index] <span style="color:#f92672">|=</span> (<span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> (y <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">7</span>))
+
+        <span style="color:#66d9ef">else</span>:
+            self<span style="color:#f92672">.</span>buffer[self<span style="color:#f92672">.</span>offset <span style="color:#f92672">+</span> index] <span style="color:#f92672">&amp;=</span> <span style="color:#f92672">~</span>(<span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;&lt;</span> (y <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">7</span>))
+
+            <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">draw_chinese</span>(self,ch_str,x_axis,y_axis):
+            offset_<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+            y_axis<span style="color:#f92672">=</span>y_axis<span style="color:#f92672">*</span><span style="color:#ae81ff">8</span><span style="color:#75715e">#中文高度一行占8个</span>
+            x_axis<span style="color:#f92672">=</span><span style="color:#ae81ff">127</span><span style="color:#f92672">-</span>(x_axis<span style="color:#f92672">*</span><span style="color:#ae81ff">16</span>)<span style="color:#75715e">#中文宽度占16个</span>
+            <span style="color:#66d9ef">for</span> k <span style="color:#f92672">in</span> ch_str:
+            code <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x00</span><span style="color:#75715e">#将中文转成16进制编码</span>
+            data_code <span style="color:#f92672">=</span> k<span style="color:#f92672">.</span>encode(<span style="color:#e6db74">&#34;utf-8&#34;</span>)
+            code <span style="color:#f92672">|=</span> data_code[<span style="color:#ae81ff">0</span>]<span style="color:#f92672">&lt;&lt;</span><span style="color:#ae81ff">16</span>
+            code <span style="color:#f92672">|=</span> data_code[<span style="color:#ae81ff">1</span>]<span style="color:#f92672">&lt;&lt;</span><span style="color:#ae81ff">8</span>
+            code <span style="color:#f92672">|=</span> data_code[<span style="color:#ae81ff">2</span>]
+            byte_data<span style="color:#f92672">=</span>font<span style="color:#f92672">.</span>byte2[code]
+            <span style="color:#66d9ef">for</span> y <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">16</span>):
+            a_<span style="color:#f92672">=</span>bin(byte_data[y])<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#39;0b&#39;</span>,<span style="color:#e6db74">&#39;&#39;</span>)
+            <span style="color:#66d9ef">while</span> len(a_)<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">8</span>:
+            a_<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;0&#39;</span><span style="color:#f92672">+</span>a_
+
+            b_<span style="color:#f92672">=</span>bin(byte_data[y<span style="color:#f92672">+</span><span style="color:#ae81ff">16</span>])<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#39;0b&#39;</span>,<span style="color:#e6db74">&#39;&#39;</span>)
+            <span style="color:#66d9ef">while</span> len(b_)<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">8</span>:
+            b_<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;0&#39;</span><span style="color:#f92672">+</span>b_
+            <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">8</span>):
+            self<span style="color:#f92672">.</span>set_pixel(x_axis<span style="color:#f92672">-</span>x<span style="color:#f92672">-</span>offset_,y<span style="color:#f92672">+</span>y_axis,int(a_[x]))<span style="color:#75715e">#文字的上半部分</span>
+            self<span style="color:#f92672">.</span>set_pixel(x_axis<span style="color:#f92672">-</span>x<span style="color:#f92672">-</span><span style="color:#ae81ff">8</span><span style="color:#f92672">-</span>offset_,y<span style="color:#f92672">+</span>y_axis,int(b_[x]))<span style="color:#75715e">#文字的下半部分</span>
+            offset_<span style="color:#f92672">+=</span><span style="color:#ae81ff">16</span>
+
+            <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">draw_string</span>(self,ch_str,x_axis,y_axis):
+            offset_<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>
+            y_axis<span style="color:#f92672">=</span>y_axis<span style="color:#f92672">*</span><span style="color:#ae81ff">8</span><span style="color:#75715e">#字符高度一行占8个</span>
+            x_axis<span style="color:#f92672">=</span><span style="color:#ae81ff">127</span><span style="color:#f92672">-</span>(x_axis<span style="color:#f92672">*</span><span style="color:#ae81ff">8</span>)<span style="color:#75715e">#字符宽度占8个</span>
+            <span style="color:#66d9ef">for</span> k <span style="color:#f92672">in</span> ch_str:
+            code <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x00</span>
+            code <span style="color:#f92672">=</span> ord(k)<span style="color:#f92672">-</span><span style="color:#ae81ff">0x20</span>  
+            byte_data<span style="color:#f92672">=</span>font<span style="color:#f92672">.</span>byte3[code]  <span style="color:#75715e">#字符查表</span>
+            <span style="color:#66d9ef">for</span> y <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">16</span>):
+            a_<span style="color:#f92672">=</span>bin(byte_data[y])<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#39;0b&#39;</span>,<span style="color:#e6db74">&#39;&#39;</span>)
+            <span style="color:#66d9ef">while</span> len(a_)<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">8</span>:
+            a_<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;0&#39;</span><span style="color:#f92672">+</span>a_
+
+            <span style="color:#66d9ef">for</span> x <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">8</span>):
+            self<span style="color:#f92672">.</span>set_pixel(x_axis<span style="color:#f92672">-</span>x<span style="color:#f92672">-</span>offset_,y<span style="color:#f92672">+</span>y_axis,int(a_[x]))
+            offset_<span style="color:#f92672">+=</span><span style="color:#ae81ff">8</span>
+
+            <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">init_display</span>(self):
+            chargepump <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x10</span> <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>external_vcc <span style="color:#66d9ef">else</span> <span style="color:#ae81ff">0x14</span>
+            precharge  <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x22</span> <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>external_vcc <span style="color:#66d9ef">else</span> <span style="color:#ae81ff">0xf1</span>
+            multiplex  <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x1f</span> <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>height <span style="color:#f92672">==</span> <span style="color:#ae81ff">32</span> <span style="color:#66d9ef">else</span> <span style="color:#ae81ff">0x3f</span>
+            compins    <span style="color:#f92672">=</span> <span style="color:#ae81ff">0x02</span> <span style="color:#66d9ef">if</span> self<span style="color:#f92672">.</span>height <span style="color:#f92672">==</span> <span style="color:#ae81ff">32</span> <span style="color:#66d9ef">else</span> <span style="color:#ae81ff">0x12</span>
+            contrast   <span style="color:#f92672">=</span> <span style="color:#ae81ff">0xff</span> <span style="color:#75715e"># 0x8f if self.height == 32 else (0x9f if self.external_vcc else 0x9f)</span>
+            data <span style="color:#f92672">=</span> [DISPLAYOFF,
+            SETDISPLAYCLOCKDIV, <span style="color:#ae81ff">0x80</span>,
+            SETMULTIPLEX, multiplex,
+            SETDISPLAYOFFSET, <span style="color:#ae81ff">0x00</span>,
+            SETSTARTLINE <span style="color:#f92672">|</span> <span style="color:#ae81ff">0x00</span>,
+            CHARGEPUMP, chargepump,
+            MEMORYMODE, <span style="color:#ae81ff">0x00</span>,
+            SEGREMAP <span style="color:#f92672">|</span> <span style="color:#ae81ff">0x10</span>,
+            COMSCANDEC,
+            SETCOMPINS, compins,
+            SETCONTRAST, contrast,
+            SETPRECHARGE, precharge,
+            SETVCOMDETECT, <span style="color:#ae81ff">0x40</span>,
+            DISPLAYALLON_RESUME,
+            NORMALDISPLAY,
+            DISPLAYON]
+            <span style="color:#66d9ef">for</span> item <span style="color:#f92672">in</span> data:
+            self<span style="color:#f92672">.</span>write_command(item)
+            self<span style="color:#f92672">.</span>clear()
+            self<span style="color:#f92672">.</span>display()
+
+            <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">poweroff</span>(self):
+            self<span style="color:#f92672">.</span>write_command(DISPLAYOFF)
+
+            <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">contrast</span>(self, contrast):
+            self<span style="color:#f92672">.</span>write_command(SETCONTRAST)
+            self<span style="color:#f92672">.</span>write_command(contrast)
+
+            <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">draw_text</span>(self, x, y, string, size<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>, space<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>):
+            <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">pixel_x</span>(char_number, char_column, point_row):
+            char_offset <span style="color:#f92672">=</span> x <span style="color:#f92672">+</span> char_number <span style="color:#f92672">*</span> size <span style="color:#f92672">*</span> font<span style="color:#f92672">.</span>cols <span style="color:#f92672">+</span> space <span style="color:#f92672">*</span> char_number
+            pixel_offset <span style="color:#f92672">=</span> char_offset <span style="color:#f92672">+</span> char_column <span style="color:#f92672">*</span> size <span style="color:#f92672">+</span> point_row
+            <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>columns <span style="color:#f92672">-</span> pixel_offset
+
+            <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">pixel_y</span>(char_row, point_column):
+            char_offset <span style="color:#f92672">=</span> y <span style="color:#f92672">+</span> char_row <span style="color:#f92672">*</span> size
+            <span style="color:#66d9ef">return</span> char_offset <span style="color:#f92672">+</span> point_column
+
+            <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">pixel_mask</span>(char, char_column, char_row):
+            char_index_offset <span style="color:#f92672">=</span> ord(char) <span style="color:#f92672">*</span> font<span style="color:#f92672">.</span>cols
+            <span style="color:#66d9ef">return</span> font<span style="color:#f92672">.</span>bytes[char_index_offset <span style="color:#f92672">+</span> char_column] <span style="color:#f92672">&gt;&gt;</span> char_row <span style="color:#f92672">&amp;</span> <span style="color:#ae81ff">0x1</span>
+
+            pixels <span style="color:#f92672">=</span> (
+            (pixel_x(char_number, char_column, point_row),
+            pixel_y(char_row, point_column),
+            pixel_mask(char, char_column, char_row))
+            <span style="color:#66d9ef">for</span> char_number, char <span style="color:#f92672">in</span> enumerate(string)
+            <span style="color:#66d9ef">for</span> char_column <span style="color:#f92672">in</span> range(font<span style="color:#f92672">.</span>cols)
+            <span style="color:#66d9ef">for</span> char_row <span style="color:#f92672">in</span> range(font<span style="color:#f92672">.</span>rows)
+            <span style="color:#66d9ef">for</span> point_column <span style="color:#f92672">in</span> range(size)
+            <span style="color:#66d9ef">for</span> point_row <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">1</span>, size <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>))
+            <span style="color:#66d9ef">for</span> pixel <span style="color:#f92672">in</span> pixels:
+            self<span style="color:#f92672">.</span>set_pixel(<span style="color:#f92672">*</span>pixel)
+</code></pre></div>
     </div>
 
     <div class="post-copyright">
@@ -761,9 +494,9 @@
           <a href="/tags/%E5%BF%83%E7%8E%87/">心率</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/snort%E5%97%85%E6%8E%A2%E5%92%8Chping3%E6%94%BB%E5%87%BB%E9%85%8D%E7%BD%AE/">
+        <a class="prev" href="/post/hugo%E7%AC%94%E8%AE%B0%E9%83%A8%E7%BD%B2/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">snort嗅探和hping3攻击配置</span>
+            <span class="prev-text nav-default">Hugo&#43;Github个人笔记部署简易教程</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
         <a class="next" href="/post/golang%E5%B0%86%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%80%E6%AC%A1%E8%AF%BB%E5%85%A5%E5%86%85%E5%AD%98/">
