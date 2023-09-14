@@ -6,7 +6,16 @@
     <description>Recent content in 硬件 on 斑竹坡-程序员</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 10 Sep 2023 01:37:56 +0800</lastBuildDate><atom:link href="https://dev960.github.io/categories/%E7%A1%AC%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 14 Sep 2023 21:37:56 +0800</lastBuildDate><atom:link href="https://dev960.github.io/categories/%E7%A1%AC%E4%BB%B6/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>瑞立德小屏幕调试</title>
+      <link>https://dev960.github.io/post/%E7%91%9E%E7%AB%8B%E5%BE%B7%E5%B0%8F%E5%B1%8F%E5%B9%95%E8%B0%83%E8%AF%95/</link>
+      <pubDate>Thu, 14 Sep 2023 21:37:56 +0800</pubDate>
+      
+      <guid>https://dev960.github.io/post/%E7%91%9E%E7%AB%8B%E5%BE%B7%E5%B0%8F%E5%B1%8F%E5%B9%95%E8%B0%83%E8%AF%95/</guid>
+      <description>国产版本 lib(包含静态库和头文件) 将test拷贝到Linux任意目录下 执行 ls /dev |grep tty 确定显示屏通信的COM端口 测试 sudo /test /dev/ttyAMA1, 正常显示显示屏厂商名</description>
+    </item>
+    
     <item>
       <title>合宙Esp32&#43;Micropython温湿度传感器</title>
       <link>https://dev960.github.io/post/esp32&#43;micropython%E4%BC%A0%E6%84%9F%E5%99%A8/</link>

@@ -6,7 +6,25 @@
     <description>Recent content on 斑竹坡-程序员</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 13 Sep 2023 21:37:56 +0800</lastBuildDate><atom:link href="https://dev960.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 14 Sep 2023 21:37:56 +0800</lastBuildDate><atom:link href="https://dev960.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>nginx离线安装(国产)</title>
+      <link>https://dev960.github.io/post/nginx%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%9B%BD%E4%BA%A7/</link>
+      <pubDate>Thu, 14 Sep 2023 21:37:56 +0800</pubDate>
+      
+      <guid>https://dev960.github.io/post/nginx%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%9B%BD%E4%BA%A7/</guid>
+      <description>1. 依赖： wget https://nginx.org/download/nginx-1.20.2.tar.gz wget https://buildpack.oss-cn-shanghai.aliyuncs.com/static/r6d/nginx/nginx-compile-lib/pcre-8.44.tar.gz tar xzf pcre-8.44.tar.gz wget https://buildpack.oss-cn-shanghai.aliyuncs.com/static/r6d/nginx/nginx-compile-lib/zlib-1.2.11.tar.gz tar xzf zlib-1.2.11.tar.gz wget https://buildpack.oss-cn-shanghai.aliyuncs.com/static/r6d/nginx/nginx-compile-lib/openssl-1.1.1l.tar.gz tar xzf openssl-1.1.1l.tar.gz 2. 安装步骤 1 2 3 4 5 6 cd /eflex/packages/env tar -xvf pcre-8.44.tar.gz cd /eflex/packages/env/pcre-8.44 ./configure make make install 1 2 3 4 5 6 cd /eflex/packages/env tar -xvf openssl-1.1.1l.tar.gz cd /eflex/packages/env/openssl-1.1.1l ./config make make install 1 2 3 4 5 6 cd /eflex/packages/env tar -xvf</description>
+    </item>
+    
+    <item>
+      <title>瑞立德小屏幕调试</title>
+      <link>https://dev960.github.io/post/%E7%91%9E%E7%AB%8B%E5%BE%B7%E5%B0%8F%E5%B1%8F%E5%B9%95%E8%B0%83%E8%AF%95/</link>
+      <pubDate>Thu, 14 Sep 2023 21:37:56 +0800</pubDate>
+      
+      <guid>https://dev960.github.io/post/%E7%91%9E%E7%AB%8B%E5%BE%B7%E5%B0%8F%E5%B1%8F%E5%B9%95%E8%B0%83%E8%AF%95/</guid>
+      <description>国产版本 lib(包含静态库和头文件) 将test拷贝到Linux任意目录下 执行 ls /dev |grep tty 确定显示屏通信的COM端口 测试 sudo /test /dev/ttyAMA1, 正常显示显示屏厂商名</description>
+    </item>
+    
     <item>
       <title>linux 系统 UDP 丢包问题分析思路</title>
       <link>https://dev960.github.io/post/udp%E4%B8%A2%E5%8C%85%E6%8E%92%E6%9F%A5/</link>
