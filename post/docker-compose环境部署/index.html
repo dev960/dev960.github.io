@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>docker-compose部署环境 - 斑竹坡-程序员</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="dcq" /><meta name="description" content="部署Docker环境注意 二维码发送端只需要安装Redis,MySql, 接收端安装Redis,MySql,Rabbitmq,Canal 配置文件" /><meta name="keywords" content="dengchangqing, wiki, 笔记" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.92.2 with theme even" />
+
+
+<link rel="canonical" href="https://dev960.github.io/post/docker-compose%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="docker-compose部署环境" />
+<meta property="og:description" content="部署Docker环境注意 二维码发送端只需要安装Redis,MySql, 接收端安装Redis,MySql,Rabbitmq,Canal 配置文件" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://dev960.github.io/post/docker-compose%E7%8E%AF%E5%A2%83%E9%83%A8%E7%BD%B2/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2023-09-15T20:37:56+08:00" />
+<meta property="article:modified_time" content="2023-09-15T20:37:56+08:00" />
+
+<meta itemprop="name" content="docker-compose部署环境">
+<meta itemprop="description" content="部署Docker环境注意 二维码发送端只需要安装Redis,MySql, 接收端安装Redis,MySql,Rabbitmq,Canal 配置文件"><meta itemprop="datePublished" content="2023-09-15T20:37:56+08:00" />
+<meta itemprop="dateModified" content="2023-09-15T20:37:56+08:00" />
+<meta itemprop="wordCount" content="1713">
+<meta itemprop="keywords" content="docker,mysql,kafka," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="docker-compose部署环境"/>
+<meta name="twitter:description" content="部署Docker环境注意 二维码发送端只需要安装Redis,MySql, 接收端安装Redis,MySql,Rabbitmq,Canal 配置文件"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">dcqwiki</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">首页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">dcqwiki</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">首页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">docker-compose部署环境</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2023-09-15 </span>
+        <div class="post-category">
+            <a href="/categories/%E7%AC%94%E8%AE%B0/"> 笔记 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li>
+          <ul>
+            <li><a href="#1font-facetimes-new-romandockerfont">1.<font face="Times New Roman">Docker</font></a></li>
+            <li><a href="#2font-facetimes-new-romanredisfont">2.<font face="Times New Roman">Redis</font></a></li>
+            <li><a href="#3font-facetimes-new-romanrabbitmqfont">3.<font face="Times New Roman">Rabbitmq</font></a></li>
+            <li><a href="#4font-facetimes-new-romanmysqlfont">4.<font face="Times New Roman">MySql</font></a></li>
+            <li><a href="#5font-facetimes-new-romancanalfont">5.<font face="Times New Roman">Canal</font></a></li>
+            <li><a href="#6非font-facetimes-new-romandockerfont版本font-facetimes-new-romanmysqlfont设置">6.非<font face="Times New Roman">Docker</font>版本<font face="Times New Roman">MySql</font>设置</a></li>
+            <li><a href="#7是否开启日志">7.是否开启日志</a></li>
+            <li><a href="#8查看日志文件及偏移量">8.查看日志文件及偏移量</a></li>
+            <li><a href="#9font-facetimes-new-romandockerfont-容器开机自启">9.<font face="Times New Roman">Docker</font> 容器开机自启</a></li>
+            <li><a href="#10font-facetimes-new-romandockerfont桥接">10.<font face="Times New Roman">Docker</font>桥接</a></li>
+            <li><a href="#11font-facetimes-new-romankafkafont">11.<font face="Times New Roman">Kafka</font></a></li>
+            <li><a href="#12docker-compose-install">12.Docker compose install</a></li>
+            <li><a href="#13docker-国内镜像地址">13.Docker 国内镜像地址</a></li>
+            <li><a href="#docker问题">docker问题</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <blockquote>
+<p><span style="display:block;text-align:center;color:orangered;"><strong>部署<font face="Times New Roman">Docker</font>环境注意</strong></span>
+二维码发送端只需要安装<font face="Times New Roman">Redis,MySql</font>, 接收端安装<font face="Times New Roman">Redis,MySql,Rabbitmq,Canal</font>
+配置文件都从192.168.1.178：/data目录拷贝下来，解压放到根目录下面</p>
+</blockquote>
+<h3 id="1font-facetimes-new-romandockerfont">1.<font face="Times New Roman">Docker</font></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">$sudo</span> apt insall docker.io
+<span class="c1">#基本命令如下</span>
+<span class="nv">$sudo</span> docker ps -a  <span class="c1">#查看容器运行</span>
+<span class="nv">$sudo</span> docker stop &lt;CONTAINER ID&gt; <span class="c1">#停止容器</span>
+<span class="nv">$sudo</span> docker rm &lt;CONTAINER ID&gt;  <span class="c1">#删除容器</span>
+<span class="nv">$sudo</span> docker logs -f &lt;CONTAINER ID&gt;
+<span class="nv">$sudo</span> docker rmi 镜像ID <span class="c1">#删除镜像</span>
+<span class="nv">$sudo</span> docker images <span class="c1">#查看镜像</span>
+<span class="nv">$sudo</span> <span class="nb">exec</span> -it CONTAINER ID 或者--name 指定容器名 <span class="c1">#进入docker 容器</span>
+<span class="nv">$sudo</span> <span class="nb">exit</span> <span class="c1">#退出docker</span>
+<span class="nv">$sudo</span> docker stats <span class="c1">#查看容器占用资源</span>
+<span class="nv">$sudo</span> docker save -o images.tar image1 image2 <span class="c1">#多个镜像一起打包</span>
+<span class="nv">$sudo</span> docker load &lt; images.tar <span class="c1">#加载镜像</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="2font-facetimes-new-romanredisfont">2.<font face="Times New Roman">Redis</font></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"> <span class="nv">$sudo</span> docker pull redis
+ <span class="nv">$sudo</span> mkdir -p /data/redis/<span class="o">{</span>conf,data<span class="o">}</span>
+ <span class="nv">$sudo</span> vim /etc/redis/conf/redis.conf
+ <span class="c1">#加入如下两行</span>
+ protected-mode no
+ appendonly yes
+ <span class="nv">$wq</span> <span class="c1">#保存</span>
+ <span class="nv">$sudo</span> docker run -p 6379:6379 --name redis <span class="se">\
+</span><span class="se"></span>  -v /data/redis/conf/redis.conf:/etc/redis/redis.conf  <span class="se">\
+</span><span class="se"></span>  -v /data/redis/data:/data -d redis redis-server /etc/redis/redis.conf  
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="3font-facetimes-new-romanrabbitmqfont">3.<font face="Times New Roman">Rabbitmq</font></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">$sudo</span> mkdir -p /data/rabbitmq/data
+<span class="nv">$sudo</span> docker pull rabbitmq:management
+<span class="nv">$sudo</span> docker run -d --name rabbitmq -p 5672:5672 -p 15672:15672 <span class="se">\
+</span><span class="se"></span> -v /data/rabbitmq/data:/var/lib/rabbitmq --hostname rabbitmq <span class="se">\
+</span><span class="se"></span> -e <span class="nv">RABBITMQ_DEFAULT_VHOST</span><span class="o">=</span>/ -e <span class="nv">RABBITMQ_DEFAULT_USER</span><span class="o">=</span>admin  <span class="se">\
+</span><span class="se"></span> -e <span class="nv">RABBITMQ_DEFAULT_PASS</span><span class="o">=</span>admin rabbitmq:management
+<span class="c1">#登陆http://ip:15672/</span>
+<span class="c1">#用户名：admin</span>
+<span class="c1">#密码：admin</span>
+<span class="c1">#创建exchange: canal_exchange</span>
+<span class="c1">#创建queue: canal_queue</span>
+<span class="c1">#点击canal_queue: bind canal_exchange 和 canal_key</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="4font-facetimes-new-romanmysqlfont">4.<font face="Times New Roman">MySql</font></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">$sudo</span> mkdir -p /data/mysql/<span class="o">{</span>data,conf,logs<span class="o">}</span>
+<span class="nv">$sudo</span> docker pull mysql:5.7
+<span class="nv">$sudo</span> docker run -d -p 3306:3306 --name mysql-service <span class="se">\
+</span><span class="se"></span> -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span>root  mysql:5.7
+<span class="nv">$sudo</span> docker <span class="nb">exec</span> -it mysql-service bash
+<span class="nv">$mysql</span> --help<span class="p">|</span>grep my.cnf <span class="c1">#查找配置文件</span>
+<span class="c1">#/etc/mysql/mysql.conf.d</span>
+<span class="nv">$sudo</span> docker cp mysql-service:/etc/msyql/msyql.conf.d/msyqld.conf /data/mysql/conf/ <span class="c1">#拷贝容器配置文件到宿主机</span>
+<span class="nv">$sudo</span> docker stop &lt;CONTAINER ID&gt;
+<span class="nv">$sudo</span> docker rm &lt;CONTAINER ID&gt;
+<span class="c1">#以下映射本地配置到docker容器</span>
+<span class="nv">$sudo</span> docker run -p 3307:3306 --name mysql <span class="se">\
+</span><span class="se"></span> -v /data/mysql/conf/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf <span class="se">\ </span>
+ -v /data/mysql/logs:/logs -v /data/mysql/data:/mysql_data <span class="se">\
+</span><span class="se"></span> -e <span class="nv">MYSQL_ROOT_PASSWORD</span><span class="o">=</span><span class="m">123456</span> -d mysql:5.7
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="5font-facetimes-new-romancanalfont">5.<font face="Times New Roman">Canal</font></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">$sudo</span> mkdir -p /data/canal/conf
+<span class="nv">$sudo</span> mkdir -p /data/canal/example
+<span class="nv">$sudo</span> docker pull canal/canal-server
+<span class="nv">$sudo</span> docker run --name canal-service  --rm -d canal/canal-server:latest
+<span class="nv">$sudo</span> docker cp canal-server:/home/admin/canal-server/conf/canal.properties  /data/canal/conf   <span class="c1">#从容器复制到宿主机</span>
+<span class="nv">$sudo</span> docker cp canal-server:/home/admin/canal-server/conf/example/instance.properties /data/canal/conf/example <span class="c1"># 同上</span>
+<span class="c1">#修改canal.properties文件</span>
+
+<span class="nv">$sudo</span> vim /data/canal/conf/canal.properties
+<span class="c1"># tcp, kafka, rocketMQ, rabbitMQ, pulsarMQ</span>
+canal.serverMode <span class="o">=</span>rabbitMQ  
+<span class="c1"># rabbitmq配置</span>
+rabbitmq.host <span class="o">=</span>192.168.1.178
+rabbitmq.virtual.host <span class="o">=</span>/    
+rabbitmq.exchange <span class="o">=</span>canal_exchange  <span class="c1">#同管理界面创建</span>
+rabbitmq.username <span class="o">=</span>admin           
+rabbitmq.password <span class="o">=</span>admin
+rabbitmq.deliveryMode <span class="o">=</span>direct
+
+<span class="c1"># 修改example.properties配置</span>
+<span class="nv">$sudo</span> vim /data/canal/conf/example/instance.properties 
+canal.instance.master.address<span class="o">=</span>192.168.1.178:3307  <span class="c1">#摆渡机接收端数据库地址</span>
+canal.instance.master.journal.name<span class="o">=</span>mysql-bin.000003  <span class="c1">#binlog文件</span>
+canal.instance.master.position<span class="o">=</span><span class="m">922123</span>  <span class="c1">#binlog偏移位置，具体参见7，8点命令</span>
+canal.instance.dbUsername<span class="o">=</span>admin
+canal.instance.dbPassword<span class="o">=</span><span class="m">123456</span>
+canal.instance.filter.regex<span class="o">=</span>qr_recv.recv_data_tb <span class="c1">#监听那个表</span>
+canal.mq.topic<span class="o">=</span>canal_key <span class="c1">#同管理平台bind</span>
+<span class="c1"># rm /canal/config/meta.dat</span>
+
+
+
+<span class="nv">$sudo</span> docker run --name canal -p 11111:11111 <span class="se">\
+</span><span class="se"></span> -v /data/canal/conf/example/instance.properties:/home/admin/canal-server/conf/example/instance.properties <span class="se">\
+</span><span class="se"></span> -v /data/canal/conf/canal.properties:/home/admin/canal-server/conf/canal.properties <span class="se">\
+</span><span class="se"></span> -v /data/canal/logs/:/home/admin/canal-server/logs/ -d canal/canal-server:latest
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="6非font-facetimes-new-romandockerfont版本font-facetimes-new-romanmysqlfont设置">6.非<font face="Times New Roman">Docker</font>版本<font face="Times New Roman">MySql</font>设置</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">$vim</span> /etc/mysql/mysql.conf.d/mysqld.cnf
+增加配置：
+<span class="nv">log_bin</span><span class="o">=</span>mysql-bin
+<span class="nv">binlog_format</span><span class="o">=</span>ROW
+<span class="nv">server_id</span><span class="o">=</span><span class="m">1</span>
+<span class="nv">expire_logs_days</span><span class="o">=</span><span class="m">7</span>
+<span class="nv">$wq</span>
+$/etc/init.d/mysql restart
+<span class="nv">$mysql</span> -u admin -p
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="7是否开启日志">7.是否开启日志</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">$show</span> variables like <span class="s1">&#39;%log_bin%&#39;</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="8查看日志文件及偏移量">8.查看日志文件及偏移量</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">$SHOW</span> MASTER STATUS<span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="9font-facetimes-new-romandockerfont-容器开机自启">9.<font face="Times New Roman">Docker</font> 容器开机自启</h3>
+<ul>
+<li>
+<p>开启自启</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">$sudo</span> docker update --restart<span class="o">=</span>always &lt;CONTAINER ID&gt;
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p>取消自启</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">$sudo</span> docker update --restart<span class="o">=</span>no &lt;CONTAINER ID&gt;
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="10font-facetimes-new-romandockerfont桥接">10.<font face="Times New Roman">Docker</font>桥接</h3>
+<ul>
+<li>
+<p>Bridge：桥接网络。默认情况下启动的Docker容器，都是使用Bridge，Docker安装时创建的桥接网络，每次Docker容器重启时，会按照顺序获取对应的IP地址，这个就导致重启下，Docker的IP地址就变了。</p>
+</li>
+<li>
+<p>None：无指定网络。使用 &ndash;network=none，Docker容器就不会分配局域网的IP。</p>
+</li>
+<li>
+<p>Host：主机网络。使用&ndash;network=host，此时，Docker容器的网络会附属在主机上，两者是互通的。例如，在容器中运行一个Web服务，监听8080端口，则主机的8080端口就会自动映射到容器中。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">$sudo</span> docker network create --subnet<span class="o">=</span>172.18.0.0/16 mynetwork
+</code></pre></td></tr></table>
+</div>
+</div></li>
+</ul>
+</li>
+</ul>
+<h3 id="11font-facetimes-new-romankafkafont">11.<font face="Times New Roman">Kafka</font></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="nv">$sudo</span> docker pull wurstmeister/zookeeper
+<span class="nv">$sudo</span> docker pull wurstmeister/kafka
+<span class="nv">$sudo</span> docker pull sheepkiller/kafka-manager
+<span class="nv">$sudo</span> mkdir -p /data/zookeeper/<span class="o">{</span>data, log<span class="o">}</span>
+<span class="nv">$sudo</span> docker run -d --name zookeeper -p 2181:2181 
+<span class="se">\ </span>-v /data/zookeeper/data:/data -v /data/zookeeper/log:/datalog zookeeper
+<span class="nv">$sudo</span> docker <span class="nb">exec</span> -it zookeeper bash
+<span class="nv">$cd</span> bin
+<span class="nv">$bash</span> zkCli.sh
+<span class="nv">$ls</span> /
+<span class="nv">$ls</span> /brokers
+<span class="c1">#启动kafka管理，添加集群</span>
+<span class="nv">$sudo</span> docker run -d --name kafka-manager <span class="se">\
+</span><span class="se"></span>--link zookeeper:zookeeper <span class="se">\
+</span><span class="se"></span>--link kafka:kafka -p 9001:9000 <span class="se">\
+</span><span class="se"></span>--restart<span class="o">=</span>always <span class="se">\
+</span><span class="se"></span>--env <span class="nv">ZK_HOSTS</span><span class="o">=</span>zookeeper:2181 <span class="se">\
+</span><span class="se"></span>sheepkiller/kafka-manager
+<span class="nv">$sudo</span> docker run -d --name kafka -p 9092:9092 -e <span class="nv">KAFKA_BROKER_ID</span><span class="o">=</span><span class="m">0</span>
+<span class="se">\ </span> -e <span class="nv">KAFKA_ZOOKEEPER_CONNECT</span><span class="o">=</span>zookeeper:2181 --link zookeeper
+<span class="se">\ </span>-e <span class="nv">KAFKA_ADVERTISED_LISTENERS</span><span class="o">=</span>PLAINTEXT://192.168.1.178:9092
+<span class="se">\ </span>-e <span class="nv">KAFKA_LISTENERS</span><span class="o">=</span>PLAINTEXT://0.0.0.0:9092 -t wurstmeister/kafka
+<span class="nv">$sudo</span> mkdir -p /data/kafka/logs
+<span class="c1">#单机启动</span>
+<span class="nv">$sudo</span> docker run -d --name kafka --publish 9092:9092 <span class="se">\
+</span><span class="se"></span>   --link zookeeper <span class="se">\
+</span><span class="se"></span>   --env <span class="nv">KAFKA_ZOOKEEPER_CONNECT</span><span class="o">=</span>192.168.200.178:2181 <span class="se">\
+</span><span class="se"></span>   --env <span class="nv">KAFKA_ADVERTISED_HOST_NAME</span><span class="o">=</span>192.168.200.178 <span class="se">\
+</span><span class="se"></span>   --env <span class="nv">KAFKA_ADVERTISED_PORT</span><span class="o">=</span><span class="m">9092</span>  <span class="se">\
+</span><span class="se"></span>   --env <span class="nv">KAFKA_LOG_DIRS</span><span class="o">=</span>/kafka/kafka-logs-1 <span class="se">\
+</span><span class="se"></span>   -v /data/kafka/logs:/kafka/kafka-logs-1  <span class="se">\
+</span><span class="se"></span>   wurstmeister/kafka
+
+
+<span class="nv">$sudo</span> chmod <span class="m">666</span> /var/run/docker.sock  <span class="c1">#启动报权限问题解决</span>
+<span class="c1">#-e KAFKA_BROKER_ID=0 在kafka集群中，每个kafka都有一个BROKER_ID来区分自己</span>
+<span class="c1">#-e KAFKA_ZOOKEEPER_CONNECT=10.9.44.11:2181    /kafka 配置zookeeper管理kafka的路径10.9.44.11:2181/kafka</span>
+<span class="c1">#-e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://10.9.44.11:9092    把kafka的地址端口注册给zookeeper</span>
+<span class="c1">#-e KAFKA_LISTENERS=PLAINTEXT://0.0.0.0:9092 配置kafka的监听端口</span>
+<span class="c1">#-v /etc/localtime:/etc/localtime 容器时间同步虚拟机的时间</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="12docker-compose-install">12.Docker compose install</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">   <span class="nv">$sudo</span> apt install docker-compose
+   <span class="c1">#启动服务</span>
+   <span class="nv">$sudo</span> docker-compose -f docker-compose.yml -d
+   <span class="c1">#停止服务</span>
+   <span class="nv">$sudo</span> docker-compose -f docker-compose.yml stop
+   <span class="c1">#停止并删除服务</span>
+   <span class="nv">$sudo</span> docker-compose -f docker-compose.yml down
+   <span class="c1"># 重启单个容器</span>
+   <span class="nv">$sudo</span> docker-compose restart rabbitmq
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="13docker-国内镜像地址">13.Docker 国内镜像地址</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">   <span class="nv">$sudo</span> vim /etc/docker/daemon.json
+   <span class="o">{</span>
+ <span class="s2">&#34;registry-mirrors&#34;</span>:<span class="o">[</span>
+     <span class="s2">&#34;https://9cpn8tt6.mirror.aliyuncs.com&#34;</span>,
+     <span class="s2">&#34;https://registry.docker-cn.com&#34;</span>
+ <span class="o">]</span>
+ <span class="o">}</span>
+ <span class="nv">$sudo</span> service docker restart
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="docker问题">docker问题</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">   Just in <span class="k">case</span> anyone <span class="k">else</span> stumbles upon the same error message. I also received the error: docker.socket: Failed to resolve group docker. And <span class="k">for</span> me the solution as posted in this issue resolved the error:
+
+   sudo groupadd docker
+   sudo usermod -aG docker <span class="nv">$USER</span>
+   sudo systemctl <span class="nb">enable</span> docker
+   sudo systemctl start docker
+</code></pre></td></tr></table>
+</div>
+</div><h4 id="14docker-compose-启动kafka">14.docker-compose 启动kafka</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-yml" data-lang="yml"><span class="l">$ docker compose -f docker-compose.yml up -d</span><span class="w">
+</span></code></pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">dcq</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2023-09-15
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://en.wikipedia.org/wiki/Wikipedia:Text_of_Creative_Commons_Attribution-ShareAlike_3.0_Unported_License" target="_blank">Creative Commons Attribution-ShareAlike License</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/docker/">docker</a>
+          <a href="/tags/mysql/">mysql</a>
+          <a href="/tags/kafka/">kafka</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/hping3%E6%94%BB%E5%87%BB%E6%B5%8B%E8%AF%95ddos/">
+            <span class="next-text nav-default">Hping3攻击测试DDOS</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:312062001@qq.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://dev960.github.io" class="iconfont icon-github" title="github"></a>
+  <a href="https://dev960.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2023<span class="heart"><i class="iconfont icon-heart"></i></span><span>cqdeng</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>
