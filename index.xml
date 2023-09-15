@@ -2,296 +2,90 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>斑竹坡-程序员</title>
-    <link>https://dev960.github.io/index.html</link>
+    <link>https://dev960.github.io/</link>
     <description>Recent content on 斑竹坡-程序员</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="https://dev960.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Thu, 14 Sep 2023 22:37:56 +0800</lastBuildDate><atom:link href="https://dev960.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Categories</title>
-      <link>https://dev960.github.io/categories/</link>
+      <title>snort嗅探和hping3攻击配置</title>
+      <link>https://dev960.github.io/post/snort%E5%97%85%E6%8E%A2%E5%92%8Chping3%E6%94%BB%E5%87%BB%E9%85%8D%E7%BD%AE/</link>
       <pubDate>Thu, 14 Sep 2023 22:37:56 +0800</pubDate>
       
-      <guid>https://dev960.github.io/categories/</guid>
-      <description></description>
+      <guid>https://dev960.github.io/post/snort%E5%97%85%E6%8E%A2%E5%92%8Chping3%E6%94%BB%E5%87%BB%E9%85%8D%E7%BD%AE/</guid>
+      <description>1 2 3 4 5 6 7 $sudo apt install snort $sudo vim /etc/snort/ruls/local.rule $sudo sudo snort -c /etc/snort/snort.conf -i enp1s0 -A unsock -l /tmp/ -c 指定配置文件 -i 指定网卡 -A 指定报警类型 -l 指定socket unix路径，/tmp/snort</description>
     </item>
     
     <item>
-      <title>hping3</title>
-      <link>https://dev960.github.io/tags/hping3/</link>
-      <pubDate>Thu, 14 Sep 2023 22:37:56 +0800</pubDate>
-      
-      <guid>https://dev960.github.io/tags/hping3/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>snort</title>
-      <link>https://dev960.github.io/tags/snort/</link>
-      <pubDate>Thu, 14 Sep 2023 22:37:56 +0800</pubDate>
-      
-      <guid>https://dev960.github.io/tags/snort/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tags</title>
-      <link>https://dev960.github.io/tags/</link>
-      <pubDate>Thu, 14 Sep 2023 22:37:56 +0800</pubDate>
-      
-      <guid>https://dev960.github.io/tags/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>嗅探</title>
-      <link>https://dev960.github.io/tags/%E5%97%85%E6%8E%A2/</link>
-      <pubDate>Thu, 14 Sep 2023 22:37:56 +0800</pubDate>
-      
-      <guid>https://dev960.github.io/tags/%E5%97%85%E6%8E%A2/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>笔记</title>
-      <link>https://dev960.github.io/categories/%E7%AC%94%E8%AE%B0/</link>
-      <pubDate>Thu, 14 Sep 2023 22:37:56 +0800</pubDate>
-      
-      <guid>https://dev960.github.io/categories/%E7%AC%94%E8%AE%B0/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>nginx</title>
-      <link>https://dev960.github.io/tags/nginx/</link>
+      <title>nginx离线安装(国产)</title>
+      <link>https://dev960.github.io/post/nginx%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%9B%BD%E4%BA%A7/</link>
       <pubDate>Thu, 14 Sep 2023 21:37:56 +0800</pubDate>
       
-      <guid>https://dev960.github.io/tags/nginx/</guid>
-      <description></description>
+      <guid>https://dev960.github.io/post/nginx%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%9B%BD%E4%BA%A7/</guid>
+      <description>1. 依赖： wget https://nginx.org/download/nginx-1.20.2.tar.gz wget https://buildpack.oss-cn-shanghai.aliyuncs.com/static/r6d/nginx/nginx-compile-lib/pcre-8.44.tar.gz tar xzf pcre-8.44.tar.gz wget https://buildpack.oss-cn-shanghai.aliyuncs.com/static/r6d/nginx/nginx-compile-lib/zlib-1.2.11.tar.gz tar xzf zlib-1.2.11.tar.gz wget https://buildpack.oss-cn-shanghai.aliyuncs.com/static/r6d/nginx/nginx-compile-lib/openssl-1.1.1l.tar.gz tar xzf openssl-1.1.1l.tar.gz 2. 安装步骤 1 2 3 4 5 6 cd /eflex/packages/env tar -xvf pcre-8.44.tar.gz cd /eflex/packages/env/pcre-8.44 ./configure make make install 1 2 3 4 5 6 cd /eflex/packages/env tar -xvf openssl-1.1.1l.tar.gz cd /eflex/packages/env/openssl-1.1.1l ./config make make install 1 2 3 4 5 6 cd /eflex/packages/env tar -xvf</description>
     </item>
     
     <item>
-      <title>国产</title>
-      <link>https://dev960.github.io/tags/%E5%9B%BD%E4%BA%A7/</link>
+      <title>瑞立德小屏幕调试</title>
+      <link>https://dev960.github.io/post/%E7%91%9E%E7%AB%8B%E5%BE%B7%E5%B0%8F%E5%B1%8F%E5%B9%95%E8%B0%83%E8%AF%95/</link>
       <pubDate>Thu, 14 Sep 2023 21:37:56 +0800</pubDate>
       
-      <guid>https://dev960.github.io/tags/%E5%9B%BD%E4%BA%A7/</guid>
-      <description></description>
+      <guid>https://dev960.github.io/post/%E7%91%9E%E7%AB%8B%E5%BE%B7%E5%B0%8F%E5%B1%8F%E5%B9%95%E8%B0%83%E8%AF%95/</guid>
+      <description>国产版本 lib(包含静态库和头文件) 将test拷贝到Linux任意目录下 执行 ls /dev |grep tty 确定显示屏通信的COM端口 测试 sudo /test /dev/ttyAMA1, 正常显示显示屏厂商名</description>
     </item>
     
     <item>
-      <title>小屏幕</title>
-      <link>https://dev960.github.io/tags/%E5%B0%8F%E5%B1%8F%E5%B9%95/</link>
-      <pubDate>Thu, 14 Sep 2023 21:37:56 +0800</pubDate>
-      
-      <guid>https://dev960.github.io/tags/%E5%B0%8F%E5%B1%8F%E5%B9%95/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>瑞立德</title>
-      <link>https://dev960.github.io/tags/%E7%91%9E%E7%AB%8B%E5%BE%B7/</link>
-      <pubDate>Thu, 14 Sep 2023 21:37:56 +0800</pubDate>
-      
-      <guid>https://dev960.github.io/tags/%E7%91%9E%E7%AB%8B%E5%BE%B7/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>硬件</title>
-      <link>https://dev960.github.io/categories/%E7%A1%AC%E4%BB%B6/</link>
-      <pubDate>Thu, 14 Sep 2023 21:37:56 +0800</pubDate>
-      
-      <guid>https://dev960.github.io/categories/%E7%A1%AC%E4%BB%B6/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>udp</title>
-      <link>https://dev960.github.io/tags/udp/</link>
+      <title>《给经理人的第一课》</title>
+      <link>https://dev960.github.io/post/%E5%AE%89%E5%BE%B7%E9%B2%81%E6%A0%BC%E9%B2%81%E5%A4%AB%E7%BB%99%E7%BB%8F%E7%90%86%E4%BA%BA%E7%9A%84%E7%AC%AC%E4%B8%80%E8%AF%BE/</link>
       <pubDate>Wed, 13 Sep 2023 21:37:56 +0800</pubDate>
       
-      <guid>https://dev960.github.io/tags/udp/</guid>
-      <description></description>
+      <guid>https://dev960.github.io/post/%E5%AE%89%E5%BE%B7%E9%B2%81%E6%A0%BC%E9%B2%81%E5%A4%AB%E7%BB%99%E7%BB%8F%E7%90%86%E4%BA%BA%E7%9A%84%E7%AC%AC%E4%B8%80%E8%AF%BE/</guid>
+      <description>“生产”包含什么？ 你必须按预定的时间，可接受的品质以及可能的最低成本，一句顾客的需求制造及运送产品。 找出决定整个生产流程的“限制步骤”，优化</description>
     </item>
     
     <item>
-      <title>丢包</title>
-      <link>https://dev960.github.io/tags/%E4%B8%A2%E5%8C%85/</link>
+      <title>转linux 系统 UDP 丢包问题分析思路</title>
+      <link>https://dev960.github.io/post/udp%E4%B8%A2%E5%8C%85%E6%8E%92%E6%9F%A5/</link>
       <pubDate>Wed, 13 Sep 2023 21:37:56 +0800</pubDate>
       
-      <guid>https://dev960.github.io/tags/%E4%B8%A2%E5%8C%85/</guid>
-      <description></description>
+      <guid>https://dev960.github.io/post/udp%E4%B8%A2%E5%8C%85%E6%8E%92%E6%9F%A5/</guid>
+      <description>linux 系统 UDP 丢包问题分析思路_ArthurKingYs的博客-CSDN博客 最近工作中遇到某个服务器应用程序 UDP 丢包，在排查过程中查阅了很多资料，总</description>
     </item>
     
     <item>
-      <title>安德鲁</title>
-      <link>https://dev960.github.io/tags/%E5%AE%89%E5%BE%B7%E9%B2%81/</link>
-      <pubDate>Wed, 13 Sep 2023 21:37:56 +0800</pubDate>
-      
-      <guid>https://dev960.github.io/tags/%E5%AE%89%E5%BE%B7%E9%B2%81/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>心得</title>
-      <link>https://dev960.github.io/tags/%E5%BF%83%E5%BE%97/</link>
-      <pubDate>Wed, 13 Sep 2023 21:37:56 +0800</pubDate>
-      
-      <guid>https://dev960.github.io/tags/%E5%BF%83%E5%BE%97/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>笔记</title>
-      <link>https://dev960.github.io/tags/%E7%AC%94%E8%AE%B0/</link>
-      <pubDate>Wed, 13 Sep 2023 21:37:56 +0800</pubDate>
-      
-      <guid>https://dev960.github.io/tags/%E7%AC%94%E8%AE%B0/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>管理</title>
-      <link>https://dev960.github.io/tags/%E7%AE%A1%E7%90%86/</link>
-      <pubDate>Wed, 13 Sep 2023 21:37:56 +0800</pubDate>
-      
-      <guid>https://dev960.github.io/tags/%E7%AE%A1%E7%90%86/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>经理人</title>
-      <link>https://dev960.github.io/tags/%E7%BB%8F%E7%90%86%E4%BA%BA/</link>
-      <pubDate>Wed, 13 Sep 2023 21:37:56 +0800</pubDate>
-      
-      <guid>https://dev960.github.io/tags/%E7%BB%8F%E7%90%86%E4%BA%BA/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>jvm</title>
-      <link>https://dev960.github.io/tags/jvm/</link>
+      <title>JVM内存占用和RES不匹配</title>
+      <link>https://dev960.github.io/post/jvm%E5%86%85%E5%AD%98%E5%92%8Cres%E5%AE%9E%E9%99%85%E5%86%85%E5%AD%98%E4%B8%8D%E5%8C%B9%E9%85%8D/</link>
       <pubDate>Tue, 12 Sep 2023 20:37:56 +0800</pubDate>
       
-      <guid>https://dev960.github.io/tags/jvm/</guid>
-      <description></description>
+      <guid>https://dev960.github.io/post/jvm%E5%86%85%E5%AD%98%E5%92%8Cres%E5%AE%9E%E9%99%85%E5%86%85%E5%AD%98%E4%B8%8D%E5%8C%B9%E9%85%8D/</guid>
+      <description>环境 SpringBooot项目 Jar运行，参数：-Xms2g -Xmx2g Linux虚拟机运行内存8g 启动占用18%左右 接收文件分片，内存进行合并写磁盘</description>
     </item>
     
     <item>
-      <title>内存分析</title>
-      <link>https://dev960.github.io/tags/%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90/</link>
-      <pubDate>Tue, 12 Sep 2023 20:37:56 +0800</pubDate>
-      
-      <guid>https://dev960.github.io/tags/%E5%86%85%E5%AD%98%E5%88%86%E6%9E%90/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Esp32</title>
-      <link>https://dev960.github.io/tags/esp32/</link>
+      <title>Hugo&#43;Github个人笔记部署简易教程</title>
+      <link>https://dev960.github.io/post/hugo%E7%AC%94%E8%AE%B0%E9%83%A8%E7%BD%B2/</link>
       <pubDate>Sun, 10 Sep 2023 01:37:56 +0800</pubDate>
       
-      <guid>https://dev960.github.io/tags/esp32/</guid>
-      <description></description>
+      <guid>https://dev960.github.io/post/hugo%E7%AC%94%E8%AE%B0%E9%83%A8%E7%BD%B2/</guid>
+      <description>hugo笔记部署 sudo apt install hugo -y hugo new site dcqwiki cd dcqwiki git git submodule add https://github.com/olOwOlo/hugo-theme-even/tree/v4.0.0https://github.com/olOwOlo/hugo-theme-even themes/even hugo server 本地访问localhost:1313 编译：hugo github创建仓库 名字和githu</description>
     </item>
     
     <item>
-      <title>hugo</title>
-      <link>https://dev960.github.io/tags/hugo/</link>
+      <title>合宙Esp32&#43;Micropython温湿度传感器</title>
+      <link>https://dev960.github.io/post/esp32&#43;micropython%E4%BC%A0%E6%84%9F%E5%99%A8/</link>
       <pubDate>Sun, 10 Sep 2023 01:37:56 +0800</pubDate>
       
-      <guid>https://dev960.github.io/tags/hugo/</guid>
-      <description></description>
+      <guid>https://dev960.github.io/post/esp32&#43;micropython%E4%BC%A0%E6%84%9F%E5%99%A8/</guid>
+      <description>价格：9.9包邮 温湿度传感器 💡 Tips：GND：接地，VCC:3.3v, DAT:pin4。 支持温度，湿度。 支持定时刷新温湿度和时间。 OLED</description>
     </item>
     
     <item>
-      <title>MicroPython</title>
-      <link>https://dev960.github.io/tags/micropython/</link>
-      <pubDate>Sun, 10 Sep 2023 01:37:56 +0800</pubDate>
-      
-      <guid>https://dev960.github.io/tags/micropython/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>主题</title>
-      <link>https://dev960.github.io/tags/%E4%B8%BB%E9%A2%98/</link>
-      <pubDate>Sun, 10 Sep 2023 01:37:56 +0800</pubDate>
-      
-      <guid>https://dev960.github.io/tags/%E4%B8%BB%E9%A2%98/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>心率</title>
-      <link>https://dev960.github.io/tags/%E5%BF%83%E7%8E%87/</link>
-      <pubDate>Sun, 10 Sep 2023 01:37:56 +0800</pubDate>
-      
-      <guid>https://dev960.github.io/tags/%E5%BF%83%E7%8E%87/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>湿度</title>
-      <link>https://dev960.github.io/tags/%E6%B9%BF%E5%BA%A6/</link>
-      <pubDate>Sun, 10 Sep 2023 01:37:56 +0800</pubDate>
-      
-      <guid>https://dev960.github.io/tags/%E6%B9%BF%E5%BA%A6/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Golang</title>
-      <link>https://dev960.github.io/tags/golang/</link>
+      <title>Golang大文件发送提速</title>
+      <link>https://dev960.github.io/post/golang%E5%B0%86%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%80%E6%AC%A1%E8%AF%BB%E5%85%A5%E5%86%85%E5%AD%98/</link>
       <pubDate>Sun, 10 Sep 2023 01:37:56 +2000</pubDate>
       
-      <guid>https://dev960.github.io/tags/golang/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>大文件处理</title>
-      <link>https://dev960.github.io/tags/%E5%A4%A7%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/</link>
-      <pubDate>Sun, 10 Sep 2023 01:37:56 +2000</pubDate>
-      
-      <guid>https://dev960.github.io/tags/%E5%A4%A7%E6%96%87%E4%BB%B6%E5%A4%84%E7%90%86/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>5</title>
-      <link>https://dev960.github.io/5/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dev960.github.io/5/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linenos=table</title>
-      <link>https://dev960.github.io/linenostable/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dev960.github.io/linenostable/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Series</title>
-      <link>https://dev960.github.io/series/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dev960.github.io/series/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>True</title>
-      <link>https://dev960.github.io/true/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://dev960.github.io/true/</guid>
-      <description></description>
+      <guid>https://dev960.github.io/post/golang%E5%B0%86%E5%A4%A7%E6%96%87%E4%BB%B6%E4%B8%80%E6%AC%A1%E8%AF%BB%E5%85%A5%E5%86%85%E5%AD%98/</guid>
+      <description>Golang将大文件一次读入内存 利用Slice切片，比每次读取一小块导致频繁Gc 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30</description>
     </item>
     
   </channel>

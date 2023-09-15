@@ -13,11 +13,7 @@
       <pubDate>Thu, 14 Sep 2023 21:37:56 +0800</pubDate>
       
       <guid>https://dev960.github.io/post/nginx%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%9B%BD%E4%BA%A7/</guid>
-      <description>1. 依赖： wget https://nginx.org/download/nginx-1.20.2.tar.gz
-wget https://buildpack.oss-cn-shanghai.aliyuncs.com/static/r6d/nginx/nginx-compile-lib/pcre-8.44.tar.gz tar xzf pcre-8.44.tar.gz
-wget https://buildpack.oss-cn-shanghai.aliyuncs.com/static/r6d/nginx/nginx-compile-lib/zlib-1.2.11.tar.gz tar xzf zlib-1.2.11.tar.gz
-wget https://buildpack.oss-cn-shanghai.aliyuncs.com/static/r6d/nginx/nginx-compile-lib/openssl-1.1.1l.tar.gz tar xzf openssl-1.1.1l.tar.gz
-2. 安装步骤 cd /eflex/packages/env tar -xvf pcre-8.44.tar.gz cd /eflex/packages/env/pcre-8.44 ./configure make make install cd /eflex/packages/env tar -xvf openssl-1.1.1l.tar.gz cd /eflex/packages/env/openssl-1.1.1l ./config make make install cd /eflex/packages/env tar -xvf zlib-1.2.11.tar.gz cd /eflex/packages/env/zlib-1.2.11 ./config make make install 3. 编译： ./configure --prefix=/eflex/app/packages/nginx --with-http_ssl_module --with-openssl=../../env/openssl-1.1.1l --with-pcre=../../env/pcre-8.44 --with-zlib=../../env/zlib-1.2.11 4. 运行： $ make &amp;amp;&amp;amp; make install ./sbin/nginx -c .</description>
+      <description>1. 依赖： wget https://nginx.org/download/nginx-1.20.2.tar.gz wget https://buildpack.oss-cn-shanghai.aliyuncs.com/static/r6d/nginx/nginx-compile-lib/pcre-8.44.tar.gz tar xzf pcre-8.44.tar.gz wget https://buildpack.oss-cn-shanghai.aliyuncs.com/static/r6d/nginx/nginx-compile-lib/zlib-1.2.11.tar.gz tar xzf zlib-1.2.11.tar.gz wget https://buildpack.oss-cn-shanghai.aliyuncs.com/static/r6d/nginx/nginx-compile-lib/openssl-1.1.1l.tar.gz tar xzf openssl-1.1.1l.tar.gz 2. 安装步骤 1 2 3 4 5 6 cd /eflex/packages/env tar -xvf pcre-8.44.tar.gz cd /eflex/packages/env/pcre-8.44 ./configure make make install 1 2 3 4 5 6 cd /eflex/packages/env tar -xvf openssl-1.1.1l.tar.gz cd /eflex/packages/env/openssl-1.1.1l ./config make make install 1 2 3 4 5 6 cd /eflex/packages/env tar -xvf</description>
     </item>
     
   </channel>

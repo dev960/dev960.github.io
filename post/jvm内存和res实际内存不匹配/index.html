@@ -16,20 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="dcq" /><meta name="description" content="环境   SpringBooot项目
-  Jar运行，参数：-Xms2g -Xmx2g
-  Linux虚拟机运行内存8g
-  启动占用18%左右
-  接收文件分片，内存进行合并写磁盘
-  top -p pid 内存占用飙升到30%左右，RES占用2.2g左右
-  工具   jmap -histo pid 打印每个class的实例数目
-  jmap -heap pid 查看概要信息
-  jmap -dump:format=b,file=heap_pid.hprof PID
-  Jprofile 可远程可视化分析
-  Elipse memory Analyzer 可视化分析
-  jvm内存分配   操作系统给用户进程分配内存空间是虚拟内存，不是物理内存；
-  进程在申请内存时，并不是直接分配物理内存的，而是分配一块虚拟空间，到真正堆这块虚拟空间写入数据时才会通过缺页异常（Page Fault）处理机制分配物理内存，也就是我们看到的进程 Res 指标。
-  哪怕配置了Xms2G，启动后也不会直接占用 2G 内存，只是 JVM 在启动后会malloc 2G 而已，但实际占用的内存取决于你有没有往这 2G 内存区域中写数据的。" /><meta name="keywords" content="dengchangqing, wiki, 笔记" />
+<meta name="author" content="dcq" /><meta name="description" content="环境 SpringBooot项目 Jar运行，参数：-Xms2g -Xmx2g Linux虚拟机运行内存8g 启动占用18%左右 接收文件分片，内存进行合并写磁盘" /><meta name="keywords" content="dengchangqing, wiki, 笔记" />
 
 
 
@@ -53,58 +40,19 @@
 
 
 <meta property="og:title" content="JVM内存占用和RES不匹配" />
-<meta property="og:description" content="环境   SpringBooot项目
-  Jar运行，参数：-Xms2g -Xmx2g
-  Linux虚拟机运行内存8g
-  启动占用18%左右
-  接收文件分片，内存进行合并写磁盘
-  top -p pid 内存占用飙升到30%左右，RES占用2.2g左右
-  工具   jmap -histo pid 打印每个class的实例数目
-  jmap -heap pid 查看概要信息
-  jmap -dump:format=b,file=heap_pid.hprof PID
-  Jprofile 可远程可视化分析
-  Elipse memory Analyzer 可视化分析
-  jvm内存分配   操作系统给用户进程分配内存空间是虚拟内存，不是物理内存；
-  进程在申请内存时，并不是直接分配物理内存的，而是分配一块虚拟空间，到真正堆这块虚拟空间写入数据时才会通过缺页异常（Page Fault）处理机制分配物理内存，也就是我们看到的进程 Res 指标。
-  哪怕配置了Xms2G，启动后也不会直接占用 2G 内存，只是 JVM 在启动后会malloc 2G 而已，但实际占用的内存取决于你有没有往这 2G 内存区域中写数据的。" />
+<meta property="og:description" content="环境 SpringBooot项目 Jar运行，参数：-Xms2g -Xmx2g Linux虚拟机运行内存8g 启动占用18%左右 接收文件分片，内存进行合并写磁盘" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://dev960.github.io/post/jvm%E5%86%85%E5%AD%98%E5%92%8Cres%E5%AE%9E%E9%99%85%E5%86%85%E5%AD%98%E4%B8%8D%E5%8C%B9%E9%85%8D/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2023-09-12T20:37:56+08:00" />
 <meta property="article:modified_time" content="2023-09-10T20:37:56+08:00" />
 
 <meta itemprop="name" content="JVM内存占用和RES不匹配">
-<meta itemprop="description" content="环境   SpringBooot项目
-  Jar运行，参数：-Xms2g -Xmx2g
-  Linux虚拟机运行内存8g
-  启动占用18%左右
-  接收文件分片，内存进行合并写磁盘
-  top -p pid 内存占用飙升到30%左右，RES占用2.2g左右
-  工具   jmap -histo pid 打印每个class的实例数目
-  jmap -heap pid 查看概要信息
-  jmap -dump:format=b,file=heap_pid.hprof PID
-  Jprofile 可远程可视化分析
-  Elipse memory Analyzer 可视化分析
-  jvm内存分配   操作系统给用户进程分配内存空间是虚拟内存，不是物理内存；
-  进程在申请内存时，并不是直接分配物理内存的，而是分配一块虚拟空间，到真正堆这块虚拟空间写入数据时才会通过缺页异常（Page Fault）处理机制分配物理内存，也就是我们看到的进程 Res 指标。
-  哪怕配置了Xms2G，启动后也不会直接占用 2G 内存，只是 JVM 在启动后会malloc 2G 而已，但实际占用的内存取决于你有没有往这 2G 内存区域中写数据的。"><meta itemprop="datePublished" content="2023-09-12T20:37:56+08:00" />
+<meta itemprop="description" content="环境 SpringBooot项目 Jar运行，参数：-Xms2g -Xmx2g Linux虚拟机运行内存8g 启动占用18%左右 接收文件分片，内存进行合并写磁盘"><meta itemprop="datePublished" content="2023-09-12T20:37:56+08:00" />
 <meta itemprop="dateModified" content="2023-09-10T20:37:56+08:00" />
-<meta itemprop="wordCount" content="135">
+<meta itemprop="wordCount" content="1081">
 <meta itemprop="keywords" content="jvm,内存分析," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="JVM内存占用和RES不匹配"/>
-<meta name="twitter:description" content="环境   SpringBooot项目
-  Jar运行，参数：-Xms2g -Xmx2g
-  Linux虚拟机运行内存8g
-  启动占用18%左右
-  接收文件分片，内存进行合并写磁盘
-  top -p pid 内存占用飙升到30%左右，RES占用2.2g左右
-  工具   jmap -histo pid 打印每个class的实例数目
-  jmap -heap pid 查看概要信息
-  jmap -dump:format=b,file=heap_pid.hprof PID
-  Jprofile 可远程可视化分析
-  Elipse memory Analyzer 可视化分析
-  jvm内存分配   操作系统给用户进程分配内存空间是虚拟内存，不是物理内存；
-  进程在申请内存时，并不是直接分配物理内存的，而是分配一块虚拟空间，到真正堆这块虚拟空间写入数据时才会通过缺页异常（Page Fault）处理机制分配物理内存，也就是我们看到的进程 Res 指标。
-  哪怕配置了Xms2G，启动后也不会直接占用 2G 内存，只是 JVM 在启动后会malloc 2G 而已，但实际占用的内存取决于你有没有往这 2G 内存区域中写数据的。"/>
+<meta name="twitter:description" content="环境 SpringBooot项目 Jar运行，参数：-Xms2g -Xmx2g Linux虚拟机运行内存8g 启动占用18%左右 接收文件分片，内存进行合并写磁盘"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>

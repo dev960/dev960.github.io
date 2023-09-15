@@ -16,14 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="dcq" /><meta name="description" content="国产版本   lib(包含静态库和头文件)
-  将test拷贝到Linux任意目录下
-  执行 ls /dev |grep tty
-  确定显示屏通信的COM端口
-  测试 sudo /test /dev/ttyAMA1, 正常显示显示屏厂商名字和设备型号
-  make 多线程
-  sudo ./demo 网卡名参数
-demo : main.o aarch64-linux-gnu-gcc -o demo main.o ./lib/libraylidlcd.a -pthread -lm #gcc -o demo main.o ./lib/libraylidlcd.a -pthread -lm main.o : main.c aarch64-linux-gnu-gcc -c main.c -pthread -lm #gcc -c main.c -pthread -lm .PHONY : clear clear: rm demo *.o   源码" /><meta name="keywords" content="dengchangqing, wiki, 笔记" />
+<meta name="author" content="dcq" /><meta name="description" content="国产版本 lib(包含静态库和头文件) 将test拷贝到Linux任意目录下 执行 ls /dev |grep tty 确定显示屏通信的COM端口 测试 sudo /test /dev/ttyAMA1, 正常显示显示屏厂商名" /><meta name="keywords" content="dengchangqing, wiki, 笔记" />
 
 
 
@@ -47,40 +40,19 @@ demo : main.o aarch64-linux-gnu-gcc -o demo main.o ./lib/libraylidlcd.a -pthread
 
 
 <meta property="og:title" content="瑞立德小屏幕调试" />
-<meta property="og:description" content="国产版本   lib(包含静态库和头文件)
-  将test拷贝到Linux任意目录下
-  执行 ls /dev |grep tty
-  确定显示屏通信的COM端口
-  测试 sudo /test /dev/ttyAMA1, 正常显示显示屏厂商名字和设备型号
-  make 多线程
-  sudo ./demo 网卡名参数
-demo : main.o aarch64-linux-gnu-gcc -o demo main.o ./lib/libraylidlcd.a -pthread -lm #gcc -o demo main.o ./lib/libraylidlcd.a -pthread -lm main.o : main.c aarch64-linux-gnu-gcc -c main.c -pthread -lm #gcc -c main.c -pthread -lm .PHONY : clear clear: rm demo *.o   源码" />
+<meta property="og:description" content="国产版本 lib(包含静态库和头文件) 将test拷贝到Linux任意目录下 执行 ls /dev |grep tty 确定显示屏通信的COM端口 测试 sudo /test /dev/ttyAMA1, 正常显示显示屏厂商名" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://dev960.github.io/post/%E7%91%9E%E7%AB%8B%E5%BE%B7%E5%B0%8F%E5%B1%8F%E5%B9%95%E8%B0%83%E8%AF%95/" /><meta property="article:section" content="post" />
 <meta property="article:published_time" content="2023-09-14T21:37:56+08:00" />
 <meta property="article:modified_time" content="2023-09-14T22:37:56+08:00" />
 
 <meta itemprop="name" content="瑞立德小屏幕调试">
-<meta itemprop="description" content="国产版本   lib(包含静态库和头文件)
-  将test拷贝到Linux任意目录下
-  执行 ls /dev |grep tty
-  确定显示屏通信的COM端口
-  测试 sudo /test /dev/ttyAMA1, 正常显示显示屏厂商名字和设备型号
-  make 多线程
-  sudo ./demo 网卡名参数
-demo : main.o aarch64-linux-gnu-gcc -o demo main.o ./lib/libraylidlcd.a -pthread -lm #gcc -o demo main.o ./lib/libraylidlcd.a -pthread -lm main.o : main.c aarch64-linux-gnu-gcc -c main.c -pthread -lm #gcc -c main.c -pthread -lm .PHONY : clear clear: rm demo *.o   源码"><meta itemprop="datePublished" content="2023-09-14T21:37:56+08:00" />
+<meta itemprop="description" content="国产版本 lib(包含静态库和头文件) 将test拷贝到Linux任意目录下 执行 ls /dev |grep tty 确定显示屏通信的COM端口 测试 sudo /test /dev/ttyAMA1, 正常显示显示屏厂商名"><meta itemprop="datePublished" content="2023-09-14T21:37:56+08:00" />
 <meta itemprop="dateModified" content="2023-09-14T22:37:56+08:00" />
-<meta itemprop="wordCount" content="464">
+<meta itemprop="wordCount" content="1126">
 <meta itemprop="keywords" content="瑞立德,小屏幕," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="瑞立德小屏幕调试"/>
-<meta name="twitter:description" content="国产版本   lib(包含静态库和头文件)
-  将test拷贝到Linux任意目录下
-  执行 ls /dev |grep tty
-  确定显示屏通信的COM端口
-  测试 sudo /test /dev/ttyAMA1, 正常显示显示屏厂商名字和设备型号
-  make 多线程
-  sudo ./demo 网卡名参数
-demo : main.o aarch64-linux-gnu-gcc -o demo main.o ./lib/libraylidlcd.a -pthread -lm #gcc -o demo main.o ./lib/libraylidlcd.a -pthread -lm main.o : main.c aarch64-linux-gnu-gcc -c main.c -pthread -lm #gcc -c main.c -pthread -lm .PHONY : clear clear: rm demo *.o   源码"/>
+<meta name="twitter:description" content="国产版本 lib(包含静态库和头文件) 将test拷贝到Linux任意目录下 执行 ls /dev |grep tty 确定显示屏通信的COM端口 测试 sudo /test /dev/ttyAMA1, 正常显示显示屏厂商名"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -205,194 +177,391 @@ demo : main.o aarch64-linux-gnu-gcc -o demo main.o ./lib/libraylidlcd.a -pthread
 </li>
 <li>
 <p>sudo ./demo 网卡名参数</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-makefile" data-lang="makefile"><span style="color:#a6e22e">demo </span><span style="color:#f92672">:</span> main.o 
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-makefile" data-lang="makefile"><span class="nf">demo </span><span class="o">:</span> <span class="n">main</span>.<span class="n">o</span> 
     aarch64-linux-gnu-gcc  -o demo main.o ./lib/libraylidlcd.a -pthread -lm
-    <span style="color:#75715e">#gcc  -o demo main.o ./lib/libraylidlcd.a -pthread -lm</span>
-<span style="color:#a6e22e">main.o </span><span style="color:#f92672">:</span> main.c
+    <span class="c1">#gcc  -o demo main.o ./lib/libraylidlcd.a -pthread -lm</span>
+<span class="nf">main.o </span><span class="o">:</span> <span class="n">main</span>.<span class="n">c</span>
     aarch64-linux-gnu-gcc -c main.c -pthread -lm
-    <span style="color:#75715e">#gcc -c main.c -pthread -lm</span>
+    <span class="c1">#gcc -c main.c -pthread -lm</span>
 
-<span style="color:#a6e22e">.PHONY </span><span style="color:#f92672">:</span> clear
-<span style="color:#a6e22e">clear</span><span style="color:#f92672">:</span>
+<span class="nf">.PHONY </span><span class="o">:</span> <span class="n">clear</span>
+<span class="nf">clear</span><span class="o">:</span>
     rm demo *.o
-</code></pre></div></li>
+</code></pre></td></tr></table>
+</div>
+</div></li>
 <li>
 <p>源码</p>
 </li>
 </ol>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c" data-lang="c"><span style="color:#75715e">#include</span> <span style="color:#75715e">&#34;./lib/raylidlcd.h&#34;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;string.h&gt;</span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;errno.h&gt; </span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;unistd.h&gt; </span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;netdb.h&gt;  </span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;net/if.h&gt;  </span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;arpa/inet.h&gt; </span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/ioctl.h&gt;  </span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/types.h&gt;  </span><span style="color:#75715e">
-</span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;sys/time.h&gt; </span><span style="color:#75715e">
-</span><span style="color:#75715e"></span>
-<span style="color:#75715e">#define MAXBUFSIZE 1024
-</span><span style="color:#75715e">#define WAIT_SECOND 3   </span><span style="color:#75715e">//暂停时间，单位为“秒”
-</span><span style="color:#75715e"></span>
-<span style="color:#66d9ef">typedef</span>  <span style="color:#66d9ef">struct</span> occupy
-    {
-        <span style="color:#66d9ef">char</span> name[<span style="color:#ae81ff">20</span>];
-        <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span> user;
-        <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span> nice;
-        <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span> system;
-        <span style="color:#66d9ef">unsigned</span> <span style="color:#66d9ef">int</span> idle;
-    } CPU_OCCUPY;
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="cp">#include</span> <span class="cpf">&#34;./lib/raylidlcd.h&#34;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;string.h&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;errno.h&gt; </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;unistd.h&gt; </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;netdb.h&gt;  </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;net/if.h&gt;  </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;arpa/inet.h&gt; </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;sys/ioctl.h&gt;  </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;sys/types.h&gt;  </span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;sys/time.h&gt; </span><span class="cp">
+</span><span class="cp"></span>
+<span class="cp">#define MAXBUFSIZE 1024
+</span><span class="cp">#define WAIT_SECOND 3   </span><span class="c1">//暂停时间，单位为“秒”
+</span><span class="c1"></span>
+<span class="k">typedef</span>  <span class="k">struct</span> <span class="n">occupy</span>
+    <span class="p">{</span>
+        <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
+        <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">user</span><span class="p">;</span>
+        <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">nice</span><span class="p">;</span>
+        <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">system</span><span class="p">;</span>
+        <span class="kt">unsigned</span> <span class="kt">int</span> <span class="n">idle</span><span class="p">;</span>
+    <span class="p">}</span> <span class="n">CPU_OCCUPY</span><span class="p">;</span>
 
- <span style="color:#66d9ef">typedef</span> <span style="color:#66d9ef">struct</span> PACKED
-    {
-        <span style="color:#66d9ef">char</span> name[<span style="color:#ae81ff">20</span>];
-        <span style="color:#66d9ef">long</span> total;
-        <span style="color:#66d9ef">char</span> name2[<span style="color:#ae81ff">20</span>];
-        <span style="color:#66d9ef">long</span> free;
-    }MEM_OCCUPY;
+ <span class="k">typedef</span> <span class="k">struct</span> <span class="n">PACKED</span>
+    <span class="p">{</span>
+        <span class="kt">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
+        <span class="kt">long</span> <span class="n">total</span><span class="p">;</span>
+        <span class="kt">char</span> <span class="n">name2</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
+        <span class="kt">long</span> <span class="n">free</span><span class="p">;</span>
+    <span class="p">}</span><span class="n">MEM_OCCUPY</span><span class="p">;</span>
 
 
-    <span style="color:#66d9ef">float</span> g_cpu_used;
-    <span style="color:#66d9ef">int</span> cpu_num;                <span style="color:#75715e">//定义一个全局的int类型cup_num
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">cal_occupy</span>(CPU_OCCUPY <span style="color:#f92672">*</span>, CPU_OCCUPY <span style="color:#f92672">*</span>);
-    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">get_occupy</span>(CPU_OCCUPY <span style="color:#f92672">*</span>);
-    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">get_mem_occupy</span>(MEM_OCCUPY <span style="color:#f92672">*</span>) ;
-    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">get_disk_occupy</span>(<span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span> reused);
+    <span class="kt">float</span> <span class="n">g_cpu_used</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">cpu_num</span><span class="p">;</span>                <span class="c1">//定义一个全局的int类型cup_num
+</span><span class="c1"></span>    <span class="kt">void</span> <span class="nf">cal_occupy</span><span class="p">(</span><span class="n">CPU_OCCUPY</span> <span class="o">*</span><span class="p">,</span> <span class="n">CPU_OCCUPY</span> <span class="o">*</span><span class="p">);</span>
+    <span class="kt">void</span> <span class="nf">get_occupy</span><span class="p">(</span><span class="n">CPU_OCCUPY</span> <span class="o">*</span><span class="p">);</span>
+    <span class="kt">void</span> <span class="nf">get_mem_occupy</span><span class="p">(</span><span class="n">MEM_OCCUPY</span> <span class="o">*</span><span class="p">)</span> <span class="p">;</span>
+    <span class="kt">void</span> <span class="nf">get_disk_occupy</span><span class="p">(</span><span class="kt">char</span> <span class="o">**</span> <span class="n">reused</span><span class="p">);</span>
 
- <span style="color:#66d9ef">void</span>  <span style="color:#a6e22e">cal_occupy</span> (CPU_OCCUPY <span style="color:#f92672">*</span>o, CPU_OCCUPY <span style="color:#f92672">*</span>n){
-    <span style="color:#66d9ef">double</span> od, nd;
-    <span style="color:#66d9ef">double</span> id, sd;
-    <span style="color:#66d9ef">double</span> scale;
-    od <span style="color:#f92672">=</span> (<span style="color:#66d9ef">double</span>) (o<span style="color:#f92672">-&gt;</span>user <span style="color:#f92672">+</span> o<span style="color:#f92672">-&gt;</span>nice <span style="color:#f92672">+</span> o<span style="color:#f92672">-&gt;</span>system <span style="color:#f92672">+</span>o<span style="color:#f92672">-&gt;</span>idle);<span style="color:#75715e">//第一次(用户+优先级+系统+空闲)的时间再赋给od
-</span><span style="color:#75715e"></span>    nd <span style="color:#f92672">=</span> (<span style="color:#66d9ef">double</span>) (n<span style="color:#f92672">-&gt;</span>user <span style="color:#f92672">+</span> n<span style="color:#f92672">-&gt;</span>nice <span style="color:#f92672">+</span> n<span style="color:#f92672">-&gt;</span>system <span style="color:#f92672">+</span>n<span style="color:#f92672">-&gt;</span>idle);<span style="color:#75715e">//第二次(用户+优先级+系统+空闲)的时间再赋给od
-</span><span style="color:#75715e"></span>    scale <span style="color:#f92672">=</span> <span style="color:#ae81ff">100.0</span> <span style="color:#f92672">/</span> (<span style="color:#66d9ef">float</span>)(nd<span style="color:#f92672">-</span>od);       <span style="color:#75715e">//100除强制转换(nd-od)之差为float类型再赋给scale这个变量
-</span><span style="color:#75715e"></span>    id <span style="color:#f92672">=</span> (<span style="color:#66d9ef">double</span>) (n<span style="color:#f92672">-&gt;</span>user <span style="color:#f92672">-</span> o<span style="color:#f92672">-&gt;</span>user);    <span style="color:#75715e">//用户第一次和第二次的时间之差再赋给id
-</span><span style="color:#75715e"></span>    sd <span style="color:#f92672">=</span> (<span style="color:#66d9ef">double</span>) (n<span style="color:#f92672">-&gt;</span>system <span style="color:#f92672">-</span> o<span style="color:#f92672">-&gt;</span>system);<span style="color:#75715e">//系统第一次和第二次的时间之差再赋给sd
-</span><span style="color:#75715e"></span>    g_cpu_used <span style="color:#f92672">=</span> ((sd<span style="color:#f92672">+</span>id)<span style="color:#f92672">*</span><span style="color:#ae81ff">100.0</span>)<span style="color:#f92672">/</span>(nd<span style="color:#f92672">-</span>od); <span style="color:#75715e">//((用户+系统)乖100)除(第一次和第二次的时间差)再赋给g_cpu_used
-</span><span style="color:#75715e"></span>}
-<span style="color:#66d9ef">void</span>  <span style="color:#a6e22e">get_occupy</span> (CPU_OCCUPY <span style="color:#f92672">*</span>o) {
-    FILE <span style="color:#f92672">*</span>fd;
-    <span style="color:#66d9ef">int</span> n;
-    <span style="color:#66d9ef">char</span> buff[MAXBUFSIZE];
-    fd <span style="color:#f92672">=</span> fopen (<span style="color:#e6db74">&#34;/proc/stat&#34;</span>, <span style="color:#e6db74">&#34;r&#34;</span>); <span style="color:#75715e">//这里只读取stat文件的第一行及cpu总信息，如需获取每核cpu的使用情况，请分析stat文件的接下来几行。
-</span><span style="color:#75715e"></span>    fgets (buff, <span style="color:#66d9ef">sizeof</span>(buff), fd);
-    sscanf (buff, <span style="color:#e6db74">&#34;%s %u %u %u %u&#34;</span>, o<span style="color:#f92672">-&gt;</span>name, <span style="color:#f92672">&amp;</span>o<span style="color:#f92672">-&gt;</span>user, <span style="color:#f92672">&amp;</span>o<span style="color:#f92672">-&gt;</span>nice,<span style="color:#f92672">&amp;</span>o<span style="color:#f92672">-&gt;</span>system, <span style="color:#f92672">&amp;</span>o<span style="color:#f92672">-&gt;</span>idle);
-   fclose(fd);
-}
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">get_mem_occupy</span>(MEM_OCCUPY <span style="color:#f92672">*</span> mem){
-    FILE <span style="color:#f92672">*</span> fd;
-    <span style="color:#66d9ef">char</span> buff[MAXBUFSIZE];
-    fd <span style="color:#f92672">=</span> fopen(<span style="color:#e6db74">&#34;/proc/meminfo&#34;</span>,<span style="color:#e6db74">&#34;r&#34;</span>);
-    fgets (buff, <span style="color:#66d9ef">sizeof</span>(buff), fd);
-    sscanf (buff, <span style="color:#e6db74">&#34;%s %ld&#34;</span>, mem<span style="color:#f92672">-&gt;</span>name,<span style="color:#f92672">&amp;</span>mem<span style="color:#f92672">-&gt;</span>total);
-    fgets (buff, <span style="color:#66d9ef">sizeof</span>(buff), fd);
-    sscanf (buff, <span style="color:#e6db74">&#34;%s %ld&#34;</span>, mem<span style="color:#f92672">-&gt;</span>name2,<span style="color:#f92672">&amp;</span>mem<span style="color:#f92672">-&gt;</span>free);
-    }
+ <span class="kt">void</span>  <span class="nf">cal_occupy</span> <span class="p">(</span><span class="n">CPU_OCCUPY</span> <span class="o">*</span><span class="n">o</span><span class="p">,</span> <span class="n">CPU_OCCUPY</span> <span class="o">*</span><span class="n">n</span><span class="p">){</span>
+    <span class="kt">double</span> <span class="n">od</span><span class="p">,</span> <span class="n">nd</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">id</span><span class="p">,</span> <span class="n">sd</span><span class="p">;</span>
+    <span class="kt">double</span> <span class="n">scale</span><span class="p">;</span>
+    <span class="n">od</span> <span class="o">=</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="p">(</span><span class="n">o</span><span class="o">-&gt;</span><span class="n">user</span> <span class="o">+</span> <span class="n">o</span><span class="o">-&gt;</span><span class="n">nice</span> <span class="o">+</span> <span class="n">o</span><span class="o">-&gt;</span><span class="n">system</span> <span class="o">+</span><span class="n">o</span><span class="o">-&gt;</span><span class="n">idle</span><span class="p">);</span><span class="c1">//第一次(用户+优先级+系统+空闲)的时间再赋给od
+</span><span class="c1"></span>    <span class="n">nd</span> <span class="o">=</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="p">(</span><span class="n">n</span><span class="o">-&gt;</span><span class="n">user</span> <span class="o">+</span> <span class="n">n</span><span class="o">-&gt;</span><span class="n">nice</span> <span class="o">+</span> <span class="n">n</span><span class="o">-&gt;</span><span class="n">system</span> <span class="o">+</span><span class="n">n</span><span class="o">-&gt;</span><span class="n">idle</span><span class="p">);</span><span class="c1">//第二次(用户+优先级+系统+空闲)的时间再赋给od
+</span><span class="c1"></span>    <span class="n">scale</span> <span class="o">=</span> <span class="mf">100.0</span> <span class="o">/</span> <span class="p">(</span><span class="kt">float</span><span class="p">)(</span><span class="n">nd</span><span class="o">-</span><span class="n">od</span><span class="p">);</span>       <span class="c1">//100除强制转换(nd-od)之差为float类型再赋给scale这个变量
+</span><span class="c1"></span>    <span class="n">id</span> <span class="o">=</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="p">(</span><span class="n">n</span><span class="o">-&gt;</span><span class="n">user</span> <span class="o">-</span> <span class="n">o</span><span class="o">-&gt;</span><span class="n">user</span><span class="p">);</span>    <span class="c1">//用户第一次和第二次的时间之差再赋给id
+</span><span class="c1"></span>    <span class="n">sd</span> <span class="o">=</span> <span class="p">(</span><span class="kt">double</span><span class="p">)</span> <span class="p">(</span><span class="n">n</span><span class="o">-&gt;</span><span class="n">system</span> <span class="o">-</span> <span class="n">o</span><span class="o">-&gt;</span><span class="n">system</span><span class="p">);</span><span class="c1">//系统第一次和第二次的时间之差再赋给sd
+</span><span class="c1"></span>    <span class="n">g_cpu_used</span> <span class="o">=</span> <span class="p">((</span><span class="n">sd</span><span class="o">+</span><span class="n">id</span><span class="p">)</span><span class="o">*</span><span class="mf">100.0</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">nd</span><span class="o">-</span><span class="n">od</span><span class="p">);</span> <span class="c1">//((用户+系统)乖100)除(第一次和第二次的时间差)再赋给g_cpu_used
+</span><span class="c1"></span><span class="p">}</span>
+<span class="kt">void</span>  <span class="nf">get_occupy</span> <span class="p">(</span><span class="n">CPU_OCCUPY</span> <span class="o">*</span><span class="n">o</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">FILE</span> <span class="o">*</span><span class="n">fd</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">buff</span><span class="p">[</span><span class="n">MAXBUFSIZE</span><span class="p">];</span>
+    <span class="n">fd</span> <span class="o">=</span> <span class="n">fopen</span> <span class="p">(</span><span class="s">&#34;/proc/stat&#34;</span><span class="p">,</span> <span class="s">&#34;r&#34;</span><span class="p">);</span> <span class="c1">//这里只读取stat文件的第一行及cpu总信息，如需获取每核cpu的使用情况，请分析stat文件的接下来几行。
+</span><span class="c1"></span>    <span class="n">fgets</span> <span class="p">(</span><span class="n">buff</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buff</span><span class="p">),</span> <span class="n">fd</span><span class="p">);</span>
+    <span class="n">sscanf</span> <span class="p">(</span><span class="n">buff</span><span class="p">,</span> <span class="s">&#34;%s %u %u %u %u&#34;</span><span class="p">,</span> <span class="n">o</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">o</span><span class="o">-&gt;</span><span class="n">user</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">o</span><span class="o">-&gt;</span><span class="n">nice</span><span class="p">,</span><span class="o">&amp;</span><span class="n">o</span><span class="o">-&gt;</span><span class="n">system</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">o</span><span class="o">-&gt;</span><span class="n">idle</span><span class="p">);</span>
+   <span class="n">fclose</span><span class="p">(</span><span class="n">fd</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="kt">void</span> <span class="nf">get_mem_occupy</span><span class="p">(</span><span class="n">MEM_OCCUPY</span> <span class="o">*</span> <span class="n">mem</span><span class="p">){</span>
+    <span class="n">FILE</span> <span class="o">*</span> <span class="n">fd</span><span class="p">;</span>
+    <span class="kt">char</span> <span class="n">buff</span><span class="p">[</span><span class="n">MAXBUFSIZE</span><span class="p">];</span>
+    <span class="n">fd</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&#34;/proc/meminfo&#34;</span><span class="p">,</span><span class="s">&#34;r&#34;</span><span class="p">);</span>
+    <span class="n">fgets</span> <span class="p">(</span><span class="n">buff</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buff</span><span class="p">),</span> <span class="n">fd</span><span class="p">);</span>
+    <span class="n">sscanf</span> <span class="p">(</span><span class="n">buff</span><span class="p">,</span> <span class="s">&#34;%s %ld&#34;</span><span class="p">,</span> <span class="n">mem</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">,</span><span class="o">&amp;</span><span class="n">mem</span><span class="o">-&gt;</span><span class="n">total</span><span class="p">);</span>
+    <span class="n">fgets</span> <span class="p">(</span><span class="n">buff</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buff</span><span class="p">),</span> <span class="n">fd</span><span class="p">);</span>
+    <span class="n">sscanf</span> <span class="p">(</span><span class="n">buff</span><span class="p">,</span> <span class="s">&#34;%s %ld&#34;</span><span class="p">,</span> <span class="n">mem</span><span class="o">-&gt;</span><span class="n">name2</span><span class="p">,</span><span class="o">&amp;</span><span class="n">mem</span><span class="o">-&gt;</span><span class="n">free</span><span class="p">);</span>
+    <span class="p">}</span>
 
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">get_local_ip</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>eth_inf)
-{
-    <span style="color:#66d9ef">int</span> sd;
-    <span style="color:#66d9ef">struct</span> sockaddr_in sin;
-    <span style="color:#66d9ef">struct</span> ifreq ifr;
+<span class="kt">int</span> <span class="nf">get_local_ip</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">eth_inf</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">sd</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">sockaddr_in</span> <span class="n">sin</span><span class="p">;</span>
+    <span class="k">struct</span> <span class="n">ifreq</span> <span class="n">ifr</span><span class="p">;</span>
 
-    sd <span style="color:#f92672">=</span> socket(AF_INET, SOCK_DGRAM, <span style="color:#ae81ff">0</span>);
-    <span style="color:#66d9ef">if</span> (<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">==</span> sd)
-    {
-        printf(<span style="color:#e6db74">&#34;socket error: %s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, strerror(errno));
-        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
-    }
+    <span class="n">sd</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">SOCK_DGRAM</span><span class="p">,</span> <span class="mi">0</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">==</span> <span class="n">sd</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;socket error: %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">strerror</span><span class="p">(</span><span class="n">errno</span><span class="p">));</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
 
-    strncpy(ifr.ifr_name, eth_inf, IFNAMSIZ);
-    ifr.ifr_name[IFNAMSIZ <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    <span class="n">strncpy</span><span class="p">(</span><span class="n">ifr</span><span class="p">.</span><span class="n">ifr_name</span><span class="p">,</span> <span class="n">eth_inf</span><span class="p">,</span> <span class="n">IFNAMSIZ</span><span class="p">);</span>
+    <span class="n">ifr</span><span class="p">.</span><span class="n">ifr_name</span><span class="p">[</span><span class="n">IFNAMSIZ</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 
-    <span style="color:#75715e">// if error: No such device  
-</span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (ioctl(sd, SIOCGIFADDR, <span style="color:#f92672">&amp;</span>ifr) <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">0</span>)
-    {
-        printf(<span style="color:#e6db74">&#34;ioctl error: %s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>, strerror(errno));
-        close(sd);
-        <span style="color:#66d9ef">return</span> <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>;
-    }
-    RAYLID_Printf(<span style="color:#e6db74">&#34;%C%s&#34;</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>,inet_ntoa(((<span style="color:#66d9ef">struct</span> sockaddr_in<span style="color:#f92672">*</span>)<span style="color:#f92672">&amp;</span>ifr.ifr_addr)<span style="color:#f92672">-&gt;</span>sin_addr));
-    <span style="color:#75715e">//printf(&#34;interfac: %s, ip: %s\n&#34;, eth_inf, inet_ntoa(((struct sockaddr_in*)&amp;ifr.ifr_addr)-&gt;sin_addr)); 
-</span><span style="color:#75715e"></span>
-    close(sd);
-    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-}
+    <span class="c1">// if error: No such device  
+</span><span class="c1"></span>    <span class="k">if</span> <span class="p">(</span><span class="n">ioctl</span><span class="p">(</span><span class="n">sd</span><span class="p">,</span> <span class="n">SIOCGIFADDR</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ifr</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&#34;ioctl error: %s</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">strerror</span><span class="p">(</span><span class="n">errno</span><span class="p">));</span>
+        <span class="n">close</span><span class="p">(</span><span class="n">sd</span><span class="p">);</span>
+        <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="n">RAYLID_Printf</span><span class="p">(</span><span class="s">&#34;%C%s&#34;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">inet_ntoa</span><span class="p">(((</span><span class="k">struct</span> <span class="n">sockaddr_in</span><span class="o">*</span><span class="p">)</span><span class="o">&amp;</span><span class="n">ifr</span><span class="p">.</span><span class="n">ifr_addr</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">sin_addr</span><span class="p">));</span>
+    <span class="c1">//printf(&#34;interfac: %s, ip: %s\n&#34;, eth_inf, inet_ntoa(((struct sockaddr_in*)&amp;ifr.ifr_addr)-&gt;sin_addr)); 
+</span><span class="c1"></span>
+    <span class="n">close</span><span class="p">(</span><span class="n">sd</span><span class="p">);</span>
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 
-<span style="color:#66d9ef">void</span> <span style="color:#a6e22e">get_disk_occupy</span>(<span style="color:#66d9ef">char</span> <span style="color:#f92672">**</span> reused){
-        <span style="color:#66d9ef">char</span> currentDirectoryPath[ MAXBUFSIZE ];
-        getcwd(currentDirectoryPath, MAXBUFSIZE);
-        <span style="color:#75715e">//printf(&#34;当前目录：%s\n&#34;,currentDirectoryPath);
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">char</span> cmd[<span style="color:#ae81ff">50</span>]<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;df &#34;</span>;
-        strcat(cmd,currentDirectoryPath);
-        <span style="color:#75715e">//printf(&#34;%s\n&#34;,cmd);
-</span><span style="color:#75715e"></span>
-        <span style="color:#66d9ef">char</span> buffer[MAXBUFSIZE];
-        FILE<span style="color:#f92672">*</span> pipe <span style="color:#f92672">=</span> popen(cmd, <span style="color:#e6db74">&#34;r&#34;</span>);
-        <span style="color:#66d9ef">char</span> fileSys[<span style="color:#ae81ff">20</span>];
-        <span style="color:#66d9ef">char</span> blocks[<span style="color:#ae81ff">20</span>];
-        <span style="color:#66d9ef">char</span> used[<span style="color:#ae81ff">20</span>];
-        <span style="color:#66d9ef">char</span> free[<span style="color:#ae81ff">20</span>];
-        <span style="color:#66d9ef">char</span> percent[<span style="color:#ae81ff">10</span>];
-        <span style="color:#66d9ef">char</span> moment[<span style="color:#ae81ff">20</span>];
+<span class="kt">void</span> <span class="nf">get_disk_occupy</span><span class="p">(</span><span class="kt">char</span> <span class="o">**</span> <span class="n">reused</span><span class="p">){</span>
+        <span class="kt">char</span> <span class="n">currentDirectoryPath</span><span class="p">[</span> <span class="n">MAXBUFSIZE</span> <span class="p">];</span>
+        <span class="n">getcwd</span><span class="p">(</span><span class="n">currentDirectoryPath</span><span class="p">,</span> <span class="n">MAXBUFSIZE</span><span class="p">);</span>
+        <span class="c1">//printf(&#34;当前目录：%s\n&#34;,currentDirectoryPath);
+</span><span class="c1"></span>        <span class="kt">char</span> <span class="n">cmd</span><span class="p">[</span><span class="mi">50</span><span class="p">]</span><span class="o">=</span><span class="s">&#34;df &#34;</span><span class="p">;</span>
+        <span class="n">strcat</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span><span class="n">currentDirectoryPath</span><span class="p">);</span>
+        <span class="c1">//printf(&#34;%s\n&#34;,cmd);
+</span><span class="c1"></span>
+        <span class="kt">char</span> <span class="n">buffer</span><span class="p">[</span><span class="n">MAXBUFSIZE</span><span class="p">];</span>
+        <span class="n">FILE</span><span class="o">*</span> <span class="n">pipe</span> <span class="o">=</span> <span class="n">popen</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="s">&#34;r&#34;</span><span class="p">);</span>
+        <span class="kt">char</span> <span class="n">fileSys</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
+        <span class="kt">char</span> <span class="n">blocks</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
+        <span class="kt">char</span> <span class="n">used</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
+        <span class="kt">char</span> <span class="n">free</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
+        <span class="kt">char</span> <span class="n">percent</span><span class="p">[</span><span class="mi">10</span><span class="p">];</span>
+        <span class="kt">char</span> <span class="n">moment</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>
 
-        <span style="color:#66d9ef">if</span> (<span style="color:#f92672">!</span>pipe)  <span style="color:#66d9ef">return</span> ;
-        <span style="color:#66d9ef">if</span>(fgets(buffer, <span style="color:#66d9ef">sizeof</span>(buffer), pipe)<span style="color:#f92672">!=</span>NULL){
-            sscanf(buffer,<span style="color:#e6db74">&#34;%s %s %s %s %s %s&#34;</span>,fileSys,blocks,used,free,percent,moment);
-        }
-        <span style="color:#66d9ef">if</span>(fgets(buffer, <span style="color:#66d9ef">sizeof</span>(buffer), pipe)<span style="color:#f92672">!=</span>NULL){
-            sscanf(buffer,<span style="color:#e6db74">&#34;%s %s %s %s %s %s&#34;</span>,fileSys,blocks,used,free,percent,moment);
-        }
-        <span style="color:#75715e">//printf(&#34;desk used:%s\n&#34;,percent);
-</span><span style="color:#75715e"></span>        strcpy(<span style="color:#f92672">*</span>reused,percent);
-        <span style="color:#66d9ef">return</span> ;
-    }
+        <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="n">pipe</span><span class="p">)</span>  <span class="k">return</span> <span class="p">;</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">fgets</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buffer</span><span class="p">),</span> <span class="n">pipe</span><span class="p">)</span><span class="o">!=</span><span class="nb">NULL</span><span class="p">){</span>
+            <span class="n">sscanf</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="s">&#34;%s %s %s %s %s %s&#34;</span><span class="p">,</span><span class="n">fileSys</span><span class="p">,</span><span class="n">blocks</span><span class="p">,</span><span class="n">used</span><span class="p">,</span><span class="n">free</span><span class="p">,</span><span class="n">percent</span><span class="p">,</span><span class="n">moment</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">fgets</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">buffer</span><span class="p">),</span> <span class="n">pipe</span><span class="p">)</span><span class="o">!=</span><span class="nb">NULL</span><span class="p">){</span>
+            <span class="n">sscanf</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span><span class="s">&#34;%s %s %s %s %s %s&#34;</span><span class="p">,</span><span class="n">fileSys</span><span class="p">,</span><span class="n">blocks</span><span class="p">,</span><span class="n">used</span><span class="p">,</span><span class="n">free</span><span class="p">,</span><span class="n">percent</span><span class="p">,</span><span class="n">moment</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="c1">//printf(&#34;desk used:%s\n&#34;,percent);
+</span><span class="c1"></span>        <span class="n">strcpy</span><span class="p">(</span><span class="o">*</span><span class="n">reused</span><span class="p">,</span><span class="n">percent</span><span class="p">);</span>
+        <span class="k">return</span> <span class="p">;</span>
+    <span class="p">}</span>
 
-<span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>(<span style="color:#66d9ef">int</span> argc, <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>argv[])
-{
-      CPU_OCCUPY ocpu,ncpu;
-      MEM_OCCUPY mem; 
-      DisplayModule<span style="color:#f92672">=</span>RSIG12832F;
-      Display_Init(<span style="color:#e6db74">&#34;/dev/ttyAMA1&#34;</span>); 
-    <span style="color:#66d9ef">while</span>(<span style="color:#ae81ff">1</span>)
-    {
-        Display_Clear();
-        RAYLID_Printf(<span style="color:#e6db74">&#34;%C华云创谷&#34;</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">0</span>);
-        RAYLID_Printf(<span style="color:#e6db74">&#34;%Cwww.wingsclou.cn&#34;</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>);
-        sleep(<span style="color:#ae81ff">3</span>);
-        Display_Clear();
-        RAYLID_Printf(<span style="color:#e6db74">&#34;%Ceth1:&#34;</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>, argv[<span style="color:#ae81ff">1</span>]);
-        get_local_ip(argv[<span style="color:#ae81ff">1</span>]);
-         sleep(<span style="color:#ae81ff">3</span>);
-        Display_Clear();
-        <span style="color:#75715e">//获取cpu使用率
-</span><span style="color:#75715e"></span>        get_occupy(<span style="color:#f92672">&amp;</span>ocpu);
-        sleep(<span style="color:#ae81ff">1</span>);
-        get_occupy(<span style="color:#f92672">&amp;</span>ncpu);
-        cal_occupy(<span style="color:#f92672">&amp;</span>ocpu, <span style="color:#f92672">&amp;</span>ncpu);
-        <span style="color:#75715e">//printf(&#34;cpu used:%4.2f \n&#34;, g_cpu_used);
-</span><span style="color:#75715e"></span>        RAYLID_Printf(<span style="color:#e6db74">&#34;%Ccpu:%d%%&#34;</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">0</span>,(<span style="color:#66d9ef">int</span>)g_cpu_used); 
-        <span style="color:#75715e">//获取内存使用率
-</span><span style="color:#75715e"></span>        get_mem_occupy(<span style="color:#f92672">&amp;</span>mem);
-        <span style="color:#66d9ef">double</span> using <span style="color:#f92672">=</span> ((<span style="color:#66d9ef">double</span>)(mem.total <span style="color:#f92672">-</span> mem.free)<span style="color:#f92672">/</span>mem.total)<span style="color:#f92672">*</span><span style="color:#ae81ff">100</span>;
-       <span style="color:#75715e">// printf(&#34;mem used:%4.2f\n&#34;,using);
-</span><span style="color:#75715e"></span>        <span style="color:#75715e">//获取当前磁盘的使用率
-</span><span style="color:#75715e"></span>        <span style="color:#66d9ef">char</span> t[<span style="color:#ae81ff">20</span>]<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;&#34;</span>;
-        <span style="color:#66d9ef">char</span> <span style="color:#f92672">*</span>used <span style="color:#f92672">=</span> t;
-        get_disk_occupy(<span style="color:#f92672">&amp;</span>used);
-        RAYLID_Printf(<span style="color:#e6db74">&#34;%Cmem:%d%% disk:%s&#34;</span>,<span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>,(<span style="color:#66d9ef">int</span>)using, used); 
-        sleep(<span style="color:#ae81ff">2</span>);
-    }
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
+<span class="p">{</span>
+      <span class="n">CPU_OCCUPY</span> <span class="n">ocpu</span><span class="p">,</span><span class="n">ncpu</span><span class="p">;</span>
+      <span class="n">MEM_OCCUPY</span> <span class="n">mem</span><span class="p">;</span> 
+      <span class="n">DisplayModule</span><span class="o">=</span><span class="n">RSIG12832F</span><span class="p">;</span>
+      <span class="n">Display_Init</span><span class="p">(</span><span class="s">&#34;/dev/ttyAMA1&#34;</span><span class="p">);</span> 
+    <span class="k">while</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">Display_Clear</span><span class="p">();</span>
+        <span class="n">RAYLID_Printf</span><span class="p">(</span><span class="s">&#34;%C华云创谷&#34;</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+        <span class="n">RAYLID_Printf</span><span class="p">(</span><span class="s">&#34;%Cwww.wingsclou.cn&#34;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+        <span class="n">Display_Clear</span><span class="p">();</span>
+        <span class="n">RAYLID_Printf</span><span class="p">(</span><span class="s">&#34;%Ceth1:&#34;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span> <span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+        <span class="n">get_local_ip</span><span class="p">(</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
+         <span class="n">sleep</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span>
+        <span class="n">Display_Clear</span><span class="p">();</span>
+        <span class="c1">//获取cpu使用率
+</span><span class="c1"></span>        <span class="n">get_occupy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ocpu</span><span class="p">);</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+        <span class="n">get_occupy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ncpu</span><span class="p">);</span>
+        <span class="n">cal_occupy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ocpu</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">ncpu</span><span class="p">);</span>
+        <span class="c1">//printf(&#34;cpu used:%4.2f \n&#34;, g_cpu_used);
+</span><span class="c1"></span>        <span class="n">RAYLID_Printf</span><span class="p">(</span><span class="s">&#34;%Ccpu:%d%%&#34;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,(</span><span class="kt">int</span><span class="p">)</span><span class="n">g_cpu_used</span><span class="p">);</span> 
+        <span class="c1">//获取内存使用率
+</span><span class="c1"></span>        <span class="n">get_mem_occupy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">mem</span><span class="p">);</span>
+        <span class="kt">double</span> <span class="n">using</span> <span class="o">=</span> <span class="p">((</span><span class="kt">double</span><span class="p">)(</span><span class="n">mem</span><span class="p">.</span><span class="n">total</span> <span class="o">-</span> <span class="n">mem</span><span class="p">.</span><span class="n">free</span><span class="p">)</span><span class="o">/</span><span class="n">mem</span><span class="p">.</span><span class="n">total</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">;</span>
+       <span class="c1">// printf(&#34;mem used:%4.2f\n&#34;,using);
+</span><span class="c1"></span>        <span class="c1">//获取当前磁盘的使用率
+</span><span class="c1"></span>        <span class="kt">char</span> <span class="n">t</span><span class="p">[</span><span class="mi">20</span><span class="p">]</span><span class="o">=</span><span class="s">&#34;&#34;</span><span class="p">;</span>
+        <span class="kt">char</span> <span class="o">*</span><span class="n">used</span> <span class="o">=</span> <span class="n">t</span><span class="p">;</span>
+        <span class="n">get_disk_occupy</span><span class="p">(</span><span class="o">&amp;</span><span class="n">used</span><span class="p">);</span>
+        <span class="n">RAYLID_Printf</span><span class="p">(</span><span class="s">&#34;%Cmem:%d%% disk:%s&#34;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,(</span><span class="kt">int</span><span class="p">)</span><span class="n">using</span><span class="p">,</span> <span class="n">used</span><span class="p">);</span> 
+        <span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">);</span>
+    <span class="p">}</span>
 
 
-    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">0</span>;
-}
-</code></pre></div><ol start="9">
+    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ol start="9">
 <li>
 <p>启动脚本</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#75715e">#!/bin/bash
-</span><span style="color:#75715e"></span>nohup /home/eware/raylid/demo enp10s0f0 &gt;/dev/null 2&gt;&amp;<span style="color:#ae81ff">1</span> &amp;
-</code></pre></div></li>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="cp">#!/bin/bash
+</span><span class="cp"></span>nohup /home/eware/raylid/demo enp10s0f0 &gt;/dev/null 2&gt;<span class="p">&amp;</span><span class="m">1</span> <span class="p">&amp;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
 </ol>
 
     </div>

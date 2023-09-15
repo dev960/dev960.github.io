@@ -13,11 +13,7 @@
       <pubDate>Sun, 10 Sep 2023 01:37:56 +0800</pubDate>
       
       <guid>https://dev960.github.io/post/esp32&#43;micropython%E4%BC%A0%E6%84%9F%E5%99%A8/</guid>
-      <description>价格：9.9包邮 温湿度传感器 💡 Tips：GND：接地，VCC:3.3v, DAT:pin4。
- 支持温度，湿度。 支持定时刷新温湿度和时间。  OLED显示屏 💡 Tips：GND：接地， VCC:5v, SCL: pin5, SDA: pin4
- 支持中英文。 支持定时刷新数据。  超声波HCSR04传感器 💡 Tips：GND:接地， VCC:5v, TRI: pin12, CHO: pin13。
- 支持最大400mm  MAX10302心率血氧传感器 💡 Tips：GND:接地， VCC:5v, SCL:pin9, SDA:pin8
- 支持血氧，心率，温度  # -*- coding: utf-8 -*- from machine import Pin,Timer,RTC from ssd1306_lib import SSD1306 import gc import math import font import dht11 import utime #import mqtt import utils import time from HCSR04 import HCSR04 from mqtt import mqttClient from wifi_manager import WifiManager hc = HCSR04(trigger_pin=12, echo_pin=13,echo_timeout_us=10000) print(&amp;#34;distance:&amp;#34;,hc.</description>
+      <description>价格：9.9包邮 温湿度传感器 💡 Tips：GND：接地，VCC:3.3v, DAT:pin4。 支持温度，湿度。 支持定时刷新温湿度和时间。 OLED</description>
     </item>
     
   </channel>

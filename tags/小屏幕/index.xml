@@ -13,14 +13,7 @@
       <pubDate>Thu, 14 Sep 2023 21:37:56 +0800</pubDate>
       
       <guid>https://dev960.github.io/post/%E7%91%9E%E7%AB%8B%E5%BE%B7%E5%B0%8F%E5%B1%8F%E5%B9%95%E8%B0%83%E8%AF%95/</guid>
-      <description>国产版本   lib(包含静态库和头文件)
-  将test拷贝到Linux任意目录下
-  执行 ls /dev |grep tty
-  确定显示屏通信的COM端口
-  测试 sudo /test /dev/ttyAMA1, 正常显示显示屏厂商名字和设备型号
-  make 多线程
-  sudo ./demo 网卡名参数
-demo : main.o aarch64-linux-gnu-gcc -o demo main.o ./lib/libraylidlcd.a -pthread -lm #gcc -o demo main.o ./lib/libraylidlcd.a -pthread -lm main.o : main.c aarch64-linux-gnu-gcc -c main.c -pthread -lm #gcc -c main.c -pthread -lm .PHONY : clear clear: rm demo *.o   源码</description>
+      <description>国产版本 lib(包含静态库和头文件) 将test拷贝到Linux任意目录下 执行 ls /dev |grep tty 确定显示屏通信的COM端口 测试 sudo /test /dev/ttyAMA1, 正常显示显示屏厂商名</description>
     </item>
     
   </channel>
