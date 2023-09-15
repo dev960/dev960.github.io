@@ -16,7 +16,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="dcq" /><meta name="description" content="1 2 3 4 5 6 7 $sudo apt install snort $sudo vim /etc/snort/ruls/local.rule $sudo sudo snort -c /etc/snort/snort.conf -i enp1s0 -A unsock -l /tmp/ -c 指定配置文件 -i 指定网卡 -A 指定报警类型 -l 指定socket unix路径，/tmp/snort" /><meta name="keywords" content="dengchangqing, wiki, 笔记" />
+<meta name="author" content="dcq" /><meta name="description" content="$sudo apt install snort $sudo vim /etc/snort/ruls/local.rule $sudo sudo snort -c /etc/snort/snort.conf -i enp1s0 -A unsock -l /tmp/ -c 指定配置文件 -i 指定网卡 -A 指定报警类型 -l 指定socket unix路径，/tmp/snort_adlert   snort.conf-&amp;gt; local.rule
+alert icmp any any -&amp;gt; $HOME_NET any (msg:&amp;#34;ICMP flood&amp;#34;; sid:1000001; rev:1; classtype:icmp-event; detection_filter:track by_dst, count 10, seconds 3;) alert tcp any any -&amp;gt; $HOME_NET any (flags: S; msg:&amp;#34;DoS Attack Type : SYNflood&amp;#34;; flow:stateless; sid:3; detection_filter:track by_dst, count 10, seconds 3;) alert udp $EXTERNAL_NET any -&amp;gt; $HOME_NET any (msg:&amp;#34;DDOS shaft agecondent to handler, Type: Udp flood&amp;#34;; content:&amp;#34;alive&amp;#34;; reference:arachnids,256; classtype:attempted-dos; sid:240; rev:2;)   hping3" /><meta name="keywords" content="dengchangqing, wiki, 笔记" />
 
 
 
@@ -40,19 +41,22 @@
 
 
 <meta property="og:title" content="snort嗅探和hping3攻击配置" />
-<meta property="og:description" content="1 2 3 4 5 6 7 $sudo apt install snort $sudo vim /etc/snort/ruls/local.rule $sudo sudo snort -c /etc/snort/snort.conf -i enp1s0 -A unsock -l /tmp/ -c 指定配置文件 -i 指定网卡 -A 指定报警类型 -l 指定socket unix路径，/tmp/snort" />
+<meta property="og:description" content="$sudo apt install snort $sudo vim /etc/snort/ruls/local.rule $sudo sudo snort -c /etc/snort/snort.conf -i enp1s0 -A unsock -l /tmp/ -c 指定配置文件 -i 指定网卡 -A 指定报警类型 -l 指定socket unix路径，/tmp/snort_adlert   snort.conf-&gt; local.rule
+alert icmp any any -&gt; $HOME_NET any (msg:&#34;ICMP flood&#34;; sid:1000001; rev:1; classtype:icmp-event; detection_filter:track by_dst, count 10, seconds 3;) alert tcp any any -&gt; $HOME_NET any (flags: S; msg:&#34;DoS Attack Type : SYNflood&#34;; flow:stateless; sid:3; detection_filter:track by_dst, count 10, seconds 3;) alert udp $EXTERNAL_NET any -&gt; $HOME_NET any (msg:&#34;DDOS shaft agecondent to handler, Type: Udp flood&#34;; content:&#34;alive&#34;; reference:arachnids,256; classtype:attempted-dos; sid:240; rev:2;)   hping3" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://dev960.github.io/post/snort%E5%97%85%E6%8E%A2%E5%92%8Chping3%E6%94%BB%E5%87%BB%E9%85%8D%E7%BD%AE/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2023-09-10T01:37:56+08:00" />
-<meta property="article:modified_time" content="2023-09-10T01:37:56+08:00" />
+<meta property="article:published_time" content="2023-09-14T22:37:56+08:00" />
+<meta property="article:modified_time" content="2023-09-14T22:37:56+08:00" />
 
 <meta itemprop="name" content="snort嗅探和hping3攻击配置">
-<meta itemprop="description" content="1 2 3 4 5 6 7 $sudo apt install snort $sudo vim /etc/snort/ruls/local.rule $sudo sudo snort -c /etc/snort/snort.conf -i enp1s0 -A unsock -l /tmp/ -c 指定配置文件 -i 指定网卡 -A 指定报警类型 -l 指定socket unix路径，/tmp/snort"><meta itemprop="datePublished" content="2023-09-10T01:37:56+08:00" />
-<meta itemprop="dateModified" content="2023-09-10T01:37:56+08:00" />
-<meta itemprop="wordCount" content="587">
+<meta itemprop="description" content="$sudo apt install snort $sudo vim /etc/snort/ruls/local.rule $sudo sudo snort -c /etc/snort/snort.conf -i enp1s0 -A unsock -l /tmp/ -c 指定配置文件 -i 指定网卡 -A 指定报警类型 -l 指定socket unix路径，/tmp/snort_adlert   snort.conf-&gt; local.rule
+alert icmp any any -&gt; $HOME_NET any (msg:&#34;ICMP flood&#34;; sid:1000001; rev:1; classtype:icmp-event; detection_filter:track by_dst, count 10, seconds 3;) alert tcp any any -&gt; $HOME_NET any (flags: S; msg:&#34;DoS Attack Type : SYNflood&#34;; flow:stateless; sid:3; detection_filter:track by_dst, count 10, seconds 3;) alert udp $EXTERNAL_NET any -&gt; $HOME_NET any (msg:&#34;DDOS shaft agecondent to handler, Type: Udp flood&#34;; content:&#34;alive&#34;; reference:arachnids,256; classtype:attempted-dos; sid:240; rev:2;)   hping3"><meta itemprop="datePublished" content="2023-09-14T22:37:56+08:00" />
+<meta itemprop="dateModified" content="2023-09-14T22:37:56+08:00" />
+<meta itemprop="wordCount" content="418">
 <meta itemprop="keywords" content="snort,hping3,嗅探," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="snort嗅探和hping3攻击配置"/>
-<meta name="twitter:description" content="1 2 3 4 5 6 7 $sudo apt install snort $sudo vim /etc/snort/ruls/local.rule $sudo sudo snort -c /etc/snort/snort.conf -i enp1s0 -A unsock -l /tmp/ -c 指定配置文件 -i 指定网卡 -A 指定报警类型 -l 指定socket unix路径，/tmp/snort"/>
+<meta name="twitter:description" content="$sudo apt install snort $sudo vim /etc/snort/ruls/local.rule $sudo sudo snort -c /etc/snort/snort.conf -i enp1s0 -A unsock -l /tmp/ -c 指定配置文件 -i 指定网卡 -A 指定报警类型 -l 指定socket unix路径，/tmp/snort_adlert   snort.conf-&gt; local.rule
+alert icmp any any -&gt; $HOME_NET any (msg:&#34;ICMP flood&#34;; sid:1000001; rev:1; classtype:icmp-event; detection_filter:track by_dst, count 10, seconds 3;) alert tcp any any -&gt; $HOME_NET any (flags: S; msg:&#34;DoS Attack Type : SYNflood&#34;; flow:stateless; sid:3; detection_filter:track by_dst, count 10, seconds 3;) alert udp $EXTERNAL_NET any -&gt; $HOME_NET any (msg:&#34;DDOS shaft agecondent to handler, Type: Udp flood&#34;; content:&#34;alive&#34;; reference:arachnids,256; classtype:attempted-dos; sid:240; rev:2;)   hping3"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -81,7 +85,7 @@
         <li class="mobile-menu-item">首页</li>
       </a><a href="/post/">
         <li class="mobile-menu-item">归档</li>
-      </a><a href="/%E6%A0%87%E7%AD%BE/">
+      </a><a href="/tags/">
         <li class="mobile-menu-item">标签</li>
       </a><a href="/categories/">
         <li class="mobile-menu-item">分类</li>
@@ -110,7 +114,7 @@
       </li><li class="menu-item">
         <a class="menu-item-link" href="/post/">归档</a>
       </li><li class="menu-item">
-        <a class="menu-item-link" href="/%E6%A0%87%E7%AD%BE/">标签</a>
+        <a class="menu-item-link" href="/tags/">标签</a>
       </li><li class="menu-item">
         <a class="menu-item-link" href="/categories/">分类</a>
       </li>
@@ -128,7 +132,7 @@
       <h1 class="post-title">snort嗅探和hping3攻击配置</h1>
 
       <div class="post-meta">
-        <span class="post-time"> 2023-09-10 </span>
+        <span class="post-time"> 2023-09-14 </span>
         <div class="post-category">
             <a href="/categories/%E7%AC%94%E8%AE%B0/"> 笔记 </a>
             </div>
@@ -150,96 +154,44 @@
   </div>
 </div>
     <div class="post-content">
-      <div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">   <span class="nv">$sudo</span> apt install snort
-   <span class="nv">$sudo</span> vim /etc/snort/ruls/local.rule
-   <span class="nv">$sudo</span> sudo snort -c /etc/snort/snort.conf -i enp1s0 -A unsock -l /tmp/
+      <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">   $sudo apt install snort
+   $sudo vim /etc/snort/ruls/local.rule
+   $sudo sudo snort -c /etc/snort/snort.conf -i enp1s0 -A unsock -l /tmp/
    -c 指定配置文件
    -i 指定网卡
    -A 指定报警类型
    -l 指定socket unix路径，/tmp/snort_adlert
-</code></pre></td></tr></table>
-</div>
-</div><ol>
+</code></pre></div><ol>
 <li>
 <p>snort.conf-&gt; local.rule</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh">   alert icmp any any -&gt; <span class="nv">$HOME_NET</span> any <span class="o">(</span>msg:<span class="s2">&#34;ICMP flood&#34;</span><span class="p">;</span> sid:1000001<span class="p">;</span> rev:1<span class="p">;</span> classtype:icmp-event<span class="p">;</span> detection_filter:track by_dst, count 10, seconds 3<span class="p">;</span><span class="o">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">   alert icmp any any -&gt; $HOME_NET any <span style="color:#f92672">(</span>msg:<span style="color:#e6db74">&#34;ICMP flood&#34;</span>; sid:1000001; rev:1; classtype:icmp-event; detection_filter:track by_dst, count 10, seconds 3;<span style="color:#f92672">)</span>
 
-    alert tcp any any -&gt; <span class="nv">$HOME_NET</span> any <span class="o">(</span>flags: S<span class="p">;</span> msg:<span class="s2">&#34;DoS Attack    Type : SYNflood&#34;</span><span class="p">;</span> flow:stateless<span class="p">;</span> sid:3<span class="p">;</span> detection_filter:track by_dst, count 10, seconds 3<span class="p">;</span><span class="o">)</span>
+    alert tcp any any -&gt; $HOME_NET any <span style="color:#f92672">(</span>flags: S; msg:<span style="color:#e6db74">&#34;DoS Attack    Type : SYNflood&#34;</span>; flow:stateless; sid:3; detection_filter:track by_dst, count 10, seconds 3;<span style="color:#f92672">)</span>
 
-    alert udp <span class="nv">$EXTERNAL_NET</span> any -&gt; <span class="nv">$HOME_NET</span> any <span class="o">(</span>msg:<span class="s2">&#34;DDOS shaft agecondent to handler, Type: Udp flood&#34;</span><span class="p">;</span> content:<span class="s2">&#34;alive&#34;</span><span class="p">;</span> reference:arachnids,256<span class="p">;</span> classtype:attempted-dos<span class="p">;</span> sid:240<span class="p">;</span> rev:2<span class="p">;</span><span class="o">)</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
+    alert udp $EXTERNAL_NET any -&gt; $HOME_NET any <span style="color:#f92672">(</span>msg:<span style="color:#e6db74">&#34;DDOS shaft agecondent to handler, Type: Udp flood&#34;</span>; content:<span style="color:#e6db74">&#34;alive&#34;</span>; reference:arachnids,256; classtype:attempted-dos; sid:240; rev:2;<span style="color:#f92672">)</span>
+</code></pre></div></li>
 <li>
 <p>hping3</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-sh" data-lang="sh"><span class="c1">#sys flood</span>
-sudo hping3 -S --flood -V -p <span class="m">3306</span> 192.168.171.129
-sudo hping3 -S --flood -c <span class="m">1</span> -p <span class="m">3306</span> 192.168.171.129
-<span class="c1">#icmp</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh"><span style="color:#75715e">#sys flood</span>
+sudo hping3 -S --flood -V -p <span style="color:#ae81ff">3306</span> 192.168.171.129
+sudo hping3 -S --flood -c <span style="color:#ae81ff">1</span> -p <span style="color:#ae81ff">3306</span> 192.168.171.129
+<span style="color:#75715e">#icmp</span>
 sudo hping3 -1 --flood  192.168.171.129
-<span class="c1">#udp</span>
+<span style="color:#75715e">#udp</span>
 sudo hping3 -2 --flood  192.168.171.129
-</code></pre></td></tr></table>
-</div>
-</div></li>
+</code></pre></div></li>
 <li>
 <p>socket接口</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span><span class="lnt">2
-</span><span class="lnt">3
-</span><span class="lnt">4
-</span><span class="lnt">5
-</span><span class="lnt">6
-</span><span class="lnt">7
-</span><span class="lnt">8
-</span><span class="lnt">9
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">socket</span>
-<span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">import</span> <span class="nn">array</span>
-<span class="kn">import</span> <span class="nn">requests</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">random</span>
-</code></pre></td></tr></table>
-</div>
-</div></li>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> os
+<span style="color:#f92672">import</span> sys
+<span style="color:#f92672">import</span> time
+<span style="color:#f92672">import</span> socket
+<span style="color:#f92672">import</span> logging
+<span style="color:#f92672">import</span> array
+<span style="color:#f92672">import</span> requests
+<span style="color:#f92672">import</span> json
+<span style="color:#f92672">import</span> random
+</code></pre></div></li>
 </ol>
 <p>from ryu.lib import alert
 from ryu.lib.packet import packet
@@ -338,15 +290,7 @@ def tcp_send(self, data):
 <p>if <strong>name</strong> == &lsquo;<strong>main</strong>':
 server = SnortListener()
 server.start_recv()</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre tabindex="0" class="chroma"><code><span class="lnt">1
-</span></code></pre></td>
-<td class="lntd">
-<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">
-</code></pre></td></tr></table>
-</div>
-</div>
+
     </div>
 
     <div class="post-copyright">
@@ -357,7 +301,7 @@ server.start_recv()</p>
   <p class="copyright-item">
     <span class="item-title">上次更新</span>
     <span class="item-content">
-        2023-09-10
+        2023-09-14
         
     </span>
   </p>
@@ -374,13 +318,9 @@ server.start_recv()</p>
           <a href="/tags/%E5%97%85%E6%8E%A2/">嗅探</a>
           </div>
       <nav class="post-nav">
-        <a class="prev" href="/post/hugo%E7%AC%94%E8%AE%B0%E9%83%A8%E7%BD%B2/">
-            <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">Hugo&#43;Github个人笔记部署简易教程</span>
-            <span class="prev-text nav-mobile">上一篇</span>
-          </a>
-        <a class="next" href="/post/esp32&#43;micropython%E4%BC%A0%E6%84%9F%E5%99%A8/">
-            <span class="next-text nav-default">合宙Esp32&#43;Micropython温湿度传感器</span>
+        
+        <a class="next" href="/post/nginx%E7%A6%BB%E7%BA%BF%E5%AE%89%E8%A3%85%E5%9B%BD%E4%BA%A7/">
+            <span class="next-text nav-default">nginx离线安装(国产)</span>
             <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>
