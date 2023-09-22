@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>face_recognition on 斑竹坡-程序员</title>
+    <link>https://dev960.github.io/tags/face_recognition/</link>
+    <description>Recent content in face_recognition on 斑竹坡-程序员</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 22 Sep 2023 22:39:20 +0800</lastBuildDate><atom:link href="https://dev960.github.io/tags/face_recognition/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>树莓派部署人脸识别</title>
+      <link>https://dev960.github.io/post/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%83%A8%E7%BD%B2%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/</link>
+      <pubDate>Fri, 22 Sep 2023 22:39:20 +0800</pubDate>
+      
+      <guid>https://dev960.github.io/post/%E6%A0%91%E8%8E%93%E6%B4%BE%E9%83%A8%E7%BD%B2%E4%BA%BA%E8%84%B8%E8%AF%86%E5%88%AB/</guid>
+      <description>环境 树莓派3b TF卡class10,64g 罗技摄像头 安装 依赖 1 2 3 4 5 6 7 sudo apt install cmake build-essential pkg-config git sudo apt install libjpeg-dev libtiff-dev libjasper-dev libpng-dev libwebp-dev libopenexr-dev sudo apt install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev libxvidcore-dev libx264-dev libdc1394-22-dev libgstreamer-plugins-base1.0-dev libgstreamer1.0-dev sudo apt install libgtk-3-dev libqtgui4</description>
+    </item>
+    
+  </channel>
+</rss>
