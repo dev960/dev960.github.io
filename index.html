@@ -122,6 +122,27 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/golang%E7%BC%93%E5%AD%98%E8%AF%BB%E5%86%99%E5%A4%A7%E6%96%87%E4%BB%B6/">Golang缓存读写大文件</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2023-09-27 </span>
+      <div class="post-category">
+          <a href="/categories/%E7%AC%94%E8%AE%B0/"> 笔记 </a>
+          </div>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      Bufio读写大文件 解决大文件读写缓慢的问题，源码： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 func NewReader(rd io.Reader) *Reader { return NewReaderSize(rd, defaultBufSize) } func NewReaderSize(rd io.Reader, size int) *Reader { b, ok := rd.(*Reader) if ok &amp;&amp; len(b.buf) &gt;= size { return
+    </div>
+    <div class="read-more">
+      <a href="/post/golang%E7%BC%93%E5%AD%98%E8%AF%BB%E5%86%99%E5%A4%A7%E6%96%87%E4%BB%B6/" class="read-more-link">阅读更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/post/golang%E8%B0%83%E5%BA%A6%E6%A8%A1%E5%9E%8Bgpm%E6%B5%85%E6%9E%90/">Golang调度模型GPM浅析</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2023-09-23 </span>
@@ -200,27 +221,6 @@
     </div>
     <div class="read-more">
       <a href="/post/%E8%AF%BB%E4%B9%A6%E7%BD%AE%E8%BA%AB%E4%BA%8B%E5%86%85/" class="read-more-link">阅读更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/golang%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5/">Golang入门到实践</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2023-09-16 </span>
-      <div class="post-category">
-          <a href="/categories/%E7%AC%94%E8%AE%B0/"> 笔记 </a>
-          </div>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      golang入门 基本语法 过一遍《go语言圣经》 撸一遍Go By Example B站视频 刘丹冰大佬的视频8小时转职Golang工程师(如果你想低成本学习Go语言
-    </div>
-    <div class="read-more">
-      <a href="/post/golang%E5%85%A5%E9%97%A8%E5%88%B0%E5%AE%9E%E8%B7%B5/" class="read-more-link">阅读更多</a>
     </div>
   </div>
 </article>
