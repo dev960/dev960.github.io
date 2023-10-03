@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>bufio on 码不能停-斑竹坡</title>
+    <link>https://dev960.github.io/tags/bufio/</link>
+    <description>Recent content in bufio on 码不能停-斑竹坡</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 27 Sep 2023 22:37:49 +0800</lastBuildDate><atom:link href="https://dev960.github.io/tags/bufio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Golang缓存读写大文件</title>
+      <link>https://dev960.github.io/post/golang%E7%BC%93%E5%AD%98%E8%AF%BB%E5%86%99%E5%A4%A7%E6%96%87%E4%BB%B6/</link>
+      <pubDate>Wed, 27 Sep 2023 22:37:49 +0800</pubDate>
+      
+      <guid>https://dev960.github.io/post/golang%E7%BC%93%E5%AD%98%E8%AF%BB%E5%86%99%E5%A4%A7%E6%96%87%E4%BB%B6/</guid>
+      <description>Bufio读写大文件 解决大文件读写缓慢的问题，源码： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 func NewReader(rd io.Reader) *Reader { return NewReaderSize(rd, defaultBufSize) } func NewReaderSize(rd io.Reader, size int) *Reader { b, ok := rd.(*Reader) if ok &amp;amp;&amp;amp; len(b.buf) &amp;gt;= size { return</description>
+    </item>
+    
+  </channel>
+</rss>

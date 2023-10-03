@@ -3,6 +3,55 @@
   
   <url>
     <loc>https://dev960.github.io/categories/</loc>
+    <lastmod>2023-10-03T22:35:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://dev960.github.io/post/</loc>
+    <lastmod>2023-10-03T22:35:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://dev960.github.io/tags/</loc>
+    <lastmod>2023-10-03T22:35:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://dev960.github.io/</loc>
+    <lastmod>2023-10-03T22:35:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://dev960.github.io/categories/%E7%AC%94%E8%AE%B0/</loc>
+    <lastmod>2023-10-03T22:35:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://dev960.github.io/tags/%E8%80%81%E5%AE%9E%E4%BA%BA%E5%90%AF%E8%92%99/</loc>
+    <lastmod>2023-10-03T22:35:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://dev960.github.io/post/%E8%AF%BB%E8%80%81%E5%AE%9E%E4%BA%BA%E5%90%AF%E8%92%99/</loc>
+    <lastmod>2023-10-03T22:35:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://dev960.github.io/tags/bufio/</loc>
     <lastmod>2023-09-27T22:37:49+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -23,42 +72,14 @@
   </url>
   
   <url>
-    <loc>https://dev960.github.io/tags/gpm/</loc>
-    <lastmod>2023-09-27T22:37:49+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://dev960.github.io/post/</loc>
-    <lastmod>2023-09-27T22:37:49+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://dev960.github.io/tags/</loc>
-    <lastmod>2023-09-27T22:37:49+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://dev960.github.io/</loc>
-    <lastmod>2023-09-27T22:37:49+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://dev960.github.io/categories/%E7%AC%94%E8%AE%B0/</loc>
-    <lastmod>2023-09-27T22:37:49+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://dev960.github.io/post/golang%E8%B0%83%E5%BA%A6%E6%A8%A1%E5%9E%8Bgpm%E6%B5%85%E6%9E%90/</loc>
+    <lastmod>2023-09-23T23:09:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://dev960.github.io/tags/gpm/</loc>
     <lastmod>2023-09-23T23:09:39+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

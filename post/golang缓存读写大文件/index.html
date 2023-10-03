@@ -50,7 +50,7 @@
 <meta itemprop="description" content="Bufio读写大文件 解决大文件读写缓慢的问题，源码： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 func NewReader(rd io.Reader) *Reader { return NewReaderSize(rd, defaultBufSize) } func NewReaderSize(rd io.Reader, size int) *Reader { b, ok := rd.(*Reader) if ok &amp;&amp; len(b.buf) &gt;= size { return"><meta itemprop="datePublished" content="2023-09-27T22:37:49+08:00" />
 <meta itemprop="dateModified" content="2023-09-27T22:37:49+08:00" />
 <meta itemprop="wordCount" content="706">
-<meta itemprop="keywords" content="golang,gpm," /><meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="golang,bufio," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Golang缓存读写大文件"/>
 <meta name="twitter:description" content="Bufio读写大文件 解决大文件读写缓慢的问题，源码： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 func NewReader(rd io.Reader) *Reader { return NewReaderSize(rd, defaultBufSize) } func NewReaderSize(rd io.Reader, size int) *Reader { b, ok := rd.(*Reader) if ok &amp;&amp; len(b.buf) &gt;= size { return"/>
 
@@ -355,10 +355,14 @@
 <footer class="post-footer">
       <div class="post-tags">
           <a href="/tags/golang/">golang</a>
-          <a href="/tags/gpm/">gpm</a>
+          <a href="/tags/bufio/">bufio</a>
           </div>
       <nav class="post-nav">
-        
+        <a class="prev" href="/post/%E8%AF%BB%E8%80%81%E5%AE%9E%E4%BA%BA%E5%90%AF%E8%92%99/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">读《老实人启蒙》</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
         <a class="next" href="/post/golang%E8%B0%83%E5%BA%A6%E6%A8%A1%E5%9E%8Bgpm%E6%B5%85%E6%9E%90/">
             <span class="next-text nav-default">Golang调度模型GPM浅析</span>
             <span class="next-text nav-mobile">下一篇</span>
